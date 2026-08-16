@@ -6,6 +6,7 @@
   <groupId>se.erland.taskboard</groupId>
   <artifactId>taskboard-backend</artifactId>
   <version>0.1.0</version>
+  <packaging>quarkus</packaging>
 
   <properties>
     <maven.compiler.release>21</maven.compiler.release>

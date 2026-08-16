@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r6.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r7.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,15 +26,16 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/04-test-reference-implementation.yml"
+      "code/taskboard/backend/Dockerfile",
+      "code/taskboard/backend/pom.xml"
     ],
-    "operation": "Gjorde Docker image-bygget robust mot tillfälliga externa registry- och Maven-fel",
-    "source_revision": 5
+    "operation": "Rättade Quarkus Maven-packaging och offline-dependencyhämtning för Dockerbygget",
+    "source_revision": 6
   },
-  "parent_revision": 5,
+  "parent_revision": 6,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 6,
+  "revision": 7,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -183,12 +184,12 @@
       "sha256": "3dc85d1be4945d3a8a3d7bde3023c41e45b606931fa2111f86b97082965bf41f"
     },
     "code/taskboard/backend/Dockerfile": {
-      "bytes": 529,
-      "sha256": "d469185fdf383545035d1471fd34a27425de7d68fb9d7548eeabedca8abf432a"
+      "bytes": 526,
+      "sha256": "970ac96781debb1613faecba73671630408dd74c1f3ed3cd1512207ac718ad3b"
     },
     "code/taskboard/backend/pom.xml": {
-      "bytes": 3013,
-      "sha256": "5c66acfb0abc03b7bb24524daf23b4a40f5b4a16200caf215b4c43ac23718cb2"
+      "bytes": 3046,
+      "sha256": "30896187e44821a032c3985f8fb9015147da55e2e68f3d68bb00891ccc9b4185"
     },
     "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskDtos.java": {
       "bytes": 1205,
@@ -375,8 +376,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 4926,
-      "sha256": "760473aa49a34a40223d9c4674ecfee62d9961171a812b8f25371627ad9b90e9"
+      "bytes": 5151,
+      "sha256": "46dc2bb8438fbea48173166722de3a688b9bbbd996bb5316002b37cb9544a93b"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -399,5 +400,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T18:15:19Z"
+  "updated_at": "2026-08-16T18:37:35Z"
 }

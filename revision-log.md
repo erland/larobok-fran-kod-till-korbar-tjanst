@@ -8,3 +8,4 @@
 | 4 | 2026-08-16T17:43:54Z | Lade till GitHub Actions-verifiering för TaskBoard-referensimplementationen | `.github/workflows/04-test-reference-implementation.yml`, `code/taskboard/README.md`, `docs/projektstatus.md` | `fran-kod-till-korbar-tjanst-r4.zip` |
 | 5 | 2026-08-16T17:49:56Z | Rättade TypeScript-konfiguration efter misslyckat TaskBoard CI-bygge | `code/taskboard/frontend/tsconfig.node.json` | `fran-kod-till-korbar-tjanst-r5.zip` |
 | 6 | 2026-08-16T18:15:19Z | Gjorde Docker image-bygget robust mot tillfälliga externa registry- och Maven-fel | `.github/workflows/04-test-reference-implementation.yml` | `fran-kod-till-korbar-tjanst-r6.zip` |
+| 7 | 2026-08-16T18:37:35Z | Rättade Quarkus Maven-packaging och offline-dependencyhämtning för Dockerbygget | `code/taskboard/backend/Dockerfile`, `code/taskboard/backend/pom.xml` | `fran-kod-till-korbar-tjanst-r7.zip` |
