@@ -79,3 +79,8 @@ Quarkus. *Continuous Testing*. https://quarkus.io/guides/continuous-testing (kon
 Quarkus. *How dev mode differs from a production application*. https://quarkus.io/guides/dev-mode-differences (kontrollerad 2026-08-16).
 
 Quarkus. *Using Hibernate ORM and Jakarta Persistence*. https://quarkus.io/guides/hibernate-orm (kontrollerad 2026-08-16).
+
+
+## Jakarta Persistence
+
+Jakarta EE. *Jakarta Persistence Specification 3.2*. https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2 (kontrollerad 2026-08-16).

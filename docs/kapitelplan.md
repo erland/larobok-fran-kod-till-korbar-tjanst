@@ -84,8 +84,8 @@
 - Syfte: Placera JPA i Quarkus-lösningen och beskriva persistence- och transaktionsgränser.
 - Nivå/faktadjup: JPA antas känt.
 - Nya huvudbegrepp/faktaområden: entiteter, persistence-lager, transaktioner, Quarkus/Hibernate ORM-integration.
-- Exempel/case: `Task` som central entitet.
-- Status: planerad
+- Exempel/case: `TaskEntity`, `TaskRepository`, `EntityManager`, JPQL, dirty checking och `@Version`.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur använder vi känd JPA-teknik utan att låta ORM styra hela applikationsarkitekturen?
 - Centrala fakta: mapping, repositories/persistence access, transaktionsgränser, schemahantering separerad från JPA.
 - Fördjupning/faktaruta: varför Flyway, inte automatisk schemaevolution, äger produktionsschemat.

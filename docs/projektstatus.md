@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–6 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–7 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -21,7 +21,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 4 | PWA som frontendarkitektur | Skriven | Första manusversion, grundad i faktisk vite-plugin-pwa- och Nginx-konfiguration |
 | 5 | Frontend med React och TypeScript | Skriven | Första manusversion, grundad i faktisk `App.tsx`- och `api.ts`-implementation |
 | 6 | Backend med Quarkus | Skriven | Första manusversion, grundad i faktisk REST-resurs, DTO-, CDI-, validerings- och tjänstelagerimplementation |
-| 7 | Persistens med JPA | Planerad | Stomme skapad |
+| 7 | Persistens med JPA | Skriven | Första manusversion, grundad i faktisk `TaskEntity`, `TaskRepository`, `EntityManager`- och transaktionsimplementation |
 | 8 | PostgreSQL som databas | Planerad | Stomme skapad |
 | 9 | Databasschemat som kod med Flyway | Planerad | Stomme skapad |
 | 10 | Från frontend till databas och tillbaka | Planerad | Stomme skapad |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 7 om persistens med JPA med den faktiska `TaskEntity`, `TaskRepository` och transaktionsmodellen som grund.
-- Vid nästa manuspass hålls gränsen tydlig mellan kapitel 6:s Quarkus-/API-perspektiv och kapitel 7:s JPA-/persistensperspektiv.
+- Skriv kapitel 8 om PostgreSQL som databas med den faktiska Compose-/datasource-konfigurationen och det verkliga `task_item`-schemat som grund.
+- Behåll gränsen tydlig mellan kapitel 7:s ORM-/persistensperspektiv, kapitel 8:s PostgreSQL-perspektiv och kapitel 9:s Flyway-/schemaevolution.
