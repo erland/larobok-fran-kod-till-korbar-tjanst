@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd; projekt initierat. Inget numrerat kapitel är ännu skrivet.
+Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget numrerat kapitel är ännu skrivet.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -34,17 +34,27 @@ Planering slutförd; projekt initierat. Inget numrerat kapitel är ännu skrivet
 | 17 | Arkitekturen i backspegeln | Planerad | Stomme skapad |
 | – | Källförteckning | Planerad | Exporterad efter kapitel 17 |
 
+## Referensimplementation
+- Plats: `code/taskboard/`
+- Status: initierad som komplett körbar kedja.
+- Frontend: React 19.2.7, TypeScript 6.0.3, Vite 8.2.1 och vite-plugin-pwa 1.3.0.
+- Runtime frontend: Nginx 1.30.4 stable, som serverar PWA:n och proxar `/api`.
+- Backend: Java 21 och Quarkus 3.33.3.1 LTS med REST/Jackson, Hibernate ORM/JPA, PostgreSQL JDBC, Flyway, Bean Validation och SmallRye Health.
+- Databas: PostgreSQL 18.4.
+- Leverans: Docker Compose med persistent PostgreSQL-volume och health-baserad startordning.
+- Lokal utveckling: Vite-proxy till Quarkus; Quarkus Dev Services kan tillhandahålla PostgreSQL.
+- Känd verifieringsbegränsning: projektmiljön där revisionen skapades saknade Docker och nätåtkomst för npm/Maven, så full container-build och runtime smoke test återstår.
+
 ## Faktakontroll
-- Öppna verifieringspunkter: 10 initiala områden registrerade i `docs/faktakontroll.md`.
-- Senast genomgången: 2026-08-16
+- Initiala versionsval och huvudkonfiguration för referensimplementationen verifierade 2026-08-16 mot officiella primärkällor.
+- Detaljer som hör till senare kapitel ska fortfarande omverifieras nära skriv-/publiceringstillfället.
 
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
-- Exakta kompatibla versioner för referensimplementationens teknikstack.
-- Val av PWA-plugin/tooling för React/Vite.
-- Val av teststack för frontend och PostgreSQL-baserade integrationstester.
+- Val av teststack för frontend och exakt strategi för PostgreSQL-baserade integrationstester i kapitel 12.
 - Exakt presentationsformat för synliga källhänvisningar.
+- Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Initiera `code/taskboard/` som körbar referensimplementation och fastställ samtidigt aktuella, kompatibla teknikversioner mot officiell dokumentation.
-- Därefter skriv `chapters/00-inledning.md` och kapitel 1 med referensimplementationens faktiska struktur som grund.
+- Skriv `chapters/00-inledning.md` och kapitel 1 med den faktiska TaskBoard-referensimplementationen som grund.
+- Därefter kan kapitel 2–3 etablera arkitekturbilden och projektstrukturen innan teknikdelarna skrivs.

@@ -62,7 +62,7 @@ Teknisk, saklig och förklarande. Boken ska ligga mellan arkitekturhandbok och p
 TaskBoard är en liten tjänst för hantering av arbetsuppgifter och används genom hela boken som referensimplementation.
 
 Grundläggande funktioner:
-- skapa, visa, ändra och arkivera uppgifter
+- skapa, visa, ändra och ta bort uppgifter
 - titel och beskrivning
 - status: OPEN, IN_PROGRESS, DONE
 - prioritet
