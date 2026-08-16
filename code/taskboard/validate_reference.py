@@ -61,9 +61,11 @@ def main() -> int:
             fail(f"Backend-POM saknar {token}")
 
     compose = (ROOT / "docker-compose.yml").read_text()
-    for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres"]:
+    for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres:/var/lib/postgresql"]:
         if token not in compose:
             fail(f"docker-compose.yml saknar {token}")
+    if "taskboard-postgres:/var/lib/postgresql/data" in compose:
+        fail("PostgreSQL 18 ska montera den persistenta volymen på /var/lib/postgresql, inte /var/lib/postgresql/data")
 
     nginx = (ROOT / "frontend/nginx.conf").read_text()
     for token in ["location /api/", "proxy_pass http://backend:8080", "try_files $uri $uri/ /index.html"]:

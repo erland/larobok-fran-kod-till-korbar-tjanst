@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r7.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r8.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,16 +26,17 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "code/taskboard/backend/Dockerfile",
-      "code/taskboard/backend/pom.xml"
+      ".github/workflows/04-test-reference-implementation.yml",
+      "code/taskboard/docker-compose.yml",
+      "code/taskboard/validate_reference.py"
     ],
-    "operation": "Rättade Quarkus Maven-packaging och offline-dependencyhämtning för Dockerbygget",
-    "source_revision": 6
+    "operation": "Rättade PostgreSQL 18-volym och förbättrade CI-startdiagnostik",
+    "source_revision": 7
   },
-  "parent_revision": 6,
+  "parent_revision": 7,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 7,
+  "revision": 8,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -52,8 +53,8 @@
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
     },
     ".github/workflows/04-test-reference-implementation.yml": {
-      "bytes": 4905,
-      "sha256": "053bede2dd35ebab6315410345b8e9df27f7e0c5ffd063e5ea2624ebe31c36d9"
+      "bytes": 5176,
+      "sha256": "6fb2f5314cdc72cd09ac97d51c6c8ab41f9fa5fa0146e198deabed11a4c5bb98"
     },
     "README.md": {
       "bytes": 1160,
@@ -228,8 +229,8 @@
       "sha256": "7329c4346a31e45e83df11a47cefea7e82a403dc8468007361bba395504c6e63"
     },
     "code/taskboard/docker-compose.yml": {
-      "bytes": 1231,
-      "sha256": "f36a274042af2d3e3b13913670cd42b8ff27c788b2f32801f905895ed29095af"
+      "bytes": 1226,
+      "sha256": "8993e8a596d3c7702bc642270d42b4b858717510db81b2ce5f6ed664737b6463"
     },
     "code/taskboard/frontend/.dockerignore": {
       "bytes": 23,
@@ -292,8 +293,8 @@
       "sha256": "0237771c37ec5268f7c49765907cc9b3824ea10b03ba7a3ceb70b08d9f9c77b3"
     },
     "code/taskboard/validate_reference.py": {
-      "bytes": 2928,
-      "sha256": "4cd0c92bf66363e1abe1786f59239ac3877e0ac074184452f2a2dea4780bcdd3"
+      "bytes": 3134,
+      "sha256": "f4a21f77f9bd7ddf6e8cd934ad16ecf7a9139b29cac32598fd655b99d4a022e6"
     },
     "docs/bokspecifikation.md": {
       "bytes": 5989,
@@ -376,8 +377,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 5151,
-      "sha256": "46dc2bb8438fbea48173166722de3a688b9bbbd996bb5316002b37cb9544a93b"
+      "bytes": 5423,
+      "sha256": "f710411298f4f0bd2a064b05d9e17835800f068fc1ff930d71ba5b36a672b9ef"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -400,5 +401,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T18:37:35Z"
+  "updated_at": "2026-08-16T18:59:57Z"
 }

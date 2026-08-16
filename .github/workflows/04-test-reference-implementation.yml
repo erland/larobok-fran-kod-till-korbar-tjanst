@@ -84,7 +84,15 @@ jobs:
         working-directory: ${{ env.TASKBOARD_DIR }}
         env:
           TASKBOARD_PORT: "18080"
-        run: docker compose up -d --wait --wait-timeout 120
+        run: |
+          set -euo pipefail
+          if ! docker compose up -d --wait --wait-timeout 120; then
+            echo "Service startup failed. Container status:"
+            docker compose ps -a || true
+            echo "Container logs:"
+            docker compose logs --no-color || true
+            exit 1
+          fi
 
       - name: Smoke test complete request path
         env:
