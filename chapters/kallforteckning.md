@@ -84,3 +84,18 @@ Quarkus. *Using Hibernate ORM and Jakarta Persistence*. https://quarkus.io/guide
 ## Jakarta Persistence
 
 Jakarta EE. *Jakarta Persistence Specification 3.2*. https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2 (kontrollerad 2026-08-16).
+
+
+## PostgreSQL
+
+PostgreSQL Global Development Group. *PostgreSQL 18: Constraints*. https://www.postgresql.org/docs/18/ddl-constraints.html (kontrollerad 2026-08-16).
+
+PostgreSQL Global Development Group. *PostgreSQL 18: UUID Type*. https://www.postgresql.org/docs/18/datatype-uuid.html (kontrollerad 2026-08-16).
+
+PostgreSQL Global Development Group. *PostgreSQL 18: Indexes*. https://www.postgresql.org/docs/18/indexes.html (kontrollerad 2026-08-16).
+
+## Docker Official Image for PostgreSQL
+
+Docker Library. *PostgreSQL Docker Official Image – PGDATA*. https://github.com/docker-library/docs/blob/master/postgres/README.md (kontrollerad 2026-08-16).
+
+Docker Library. *PostgreSQL 18 Dockerfile*. https://github.com/docker-library/postgres/blob/master/18/alpine3.23/Dockerfile (kontrollerad 2026-08-16).

@@ -94,9 +94,9 @@
 ### Kapitel 8: PostgreSQL som databas
 - Syfte: Ge den praktiska PostgreSQL-kunskap som behövs för referenstjänsten.
 - Nivå/faktadjup: setup och relevanta egenskaper, inte generell SQL-kurs.
-- Nya huvudbegrepp/faktaområden: databas, användare, JDBC-anslutning, datatyper, index, persistenta volumes.
-- Exempel/case: TaskBoard-databasen.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: databas, användare, JDBC-anslutning, datatyper, constraints, index, healthcheck och persistenta volumes.
+- Exempel/case: TaskBoards faktiska `task_item`-schema och Compose-databas.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad behöver applikationsutvecklaren förstå om PostgreSQL för att tjänsten ska bli robust och portabel?
 - Centrala fakta: anslutningsdata, datatyper, indexering på relevant nivå, containeriserad databas.
 - Fördjupning/faktaruta: databasdata är inte samma sak som containerlivscykel.

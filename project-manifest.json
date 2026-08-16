@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r18.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r19.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -10,7 +10,7 @@
       "chapters/05-frontend-med-react-och-typescript.md": "30793666245d6b3d7ff4186ba28fcad63951426d14048d606f89e8339ce34a4a",
       "chapters/06-backend-med-quarkus.md": "3ee85862ac21ac44cba2d1529b68d29997db7aa4498a63584500bdd8b0f5f7ab",
       "chapters/07-persistens-med-jpa.md": "14caefcbcc712120e331b5b3c30141ac4e04b938126fc4cdf0f7f78e188b5f33",
-      "chapters/08-postgresql-som-databas.md": "9cb1b8bcb3a936f529978281b074381000edce349cbf8306a4fe1b53e5e40d5d",
+      "chapters/08-postgresql-som-databas.md": "ee00019e0cbf0608f9099b98274428913ec9d12e01567a724a5d24d67c2466f0",
       "chapters/09-databasschemat-som-kod-med-flyway.md": "447f44d703016be7d6134f280e016d87351d33103af27a304cad77cfaf1b51a3",
       "chapters/10-fran-frontend-till-databas-och-tillbaka.md": "07c554c83749cffb1a318410374eb896ef1ce8d1269dbb82f4c008d8514374e1",
       "chapters/11-konfiguration-och-sakerhet.md": "d205070c4a70bedabd55dc6ed35687ac67596dcb57a8bd4fb584f8b1f499efb6",
@@ -26,20 +26,20 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "chapters/07-persistens-med-jpa.md",
+      "chapters/08-postgresql-som-databas.md",
       "chapters/kallforteckning.md",
       "docs/faktakontroll.md",
       "docs/kapitelplan.md",
       "docs/projektstatus.md",
       "project-index.md"
     ],
-    "operation": "Skrev kapitel 7 om persistens med JPA utifrån TaskBoards faktiska Hibernate ORM-implementation",
-    "source_revision": 17
+    "operation": "Skrev kapitel 8 om PostgreSQL som databas",
+    "source_revision": 18
   },
-  "parent_revision": 17,
+  "parent_revision": 18,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 18,
+  "revision": 19,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -112,8 +112,8 @@
       "sha256": "14caefcbcc712120e331b5b3c30141ac4e04b938126fc4cdf0f7f78e188b5f33"
     },
     "chapters/08-postgresql-som-databas.md": {
-      "bytes": 28,
-      "sha256": "9cb1b8bcb3a936f529978281b074381000edce349cbf8306a4fe1b53e5e40d5d"
+      "bytes": 15410,
+      "sha256": "ee00019e0cbf0608f9099b98274428913ec9d12e01567a724a5d24d67c2466f0"
     },
     "chapters/09-databasschemat-som-kod-med-flyway.md": {
       "bytes": 39,
@@ -152,8 +152,8 @@
       "sha256": "5235fc587339ebcb9113f122ed403a18b0ddea01f28557c54515d95a36e12933"
     },
     "chapters/kallforteckning.md": {
-      "bytes": 3940,
-      "sha256": "66fea75a289205fa1e17c4b78d5611cde82e99692798e8fda7d2db0ac596ad46"
+      "bytes": 4747,
+      "sha256": "0513d2f2b69d53aa61a377ca129031134416ddb490e1afe2e24684c22037ab5f"
     },
     "chapters/kapitelmall-faktabok.md": {
       "bytes": 337,
@@ -308,8 +308,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 6272,
-      "sha256": "d405df88405b449ae2efa9d5765b12357573cd867605c68e392d2a80539cdd1d"
+      "bytes": 6572,
+      "sha256": "09c51a0c1548d826a022232d1ec30a0bc4c14b2d9ef09e1783b23643ce14dd59"
     },
     "docs/illustration-plan.md": {
       "bytes": 222,
@@ -324,12 +324,12 @@
       "sha256": "841494ab832d37a294b5e0a042729a3514331ad2e58b87f0337161f513895c18"
     },
     "docs/kapitelplan.md": {
-      "bytes": 15429,
-      "sha256": "13a1824ac52066495e4b49b638cc61bb5c985151777e6bea00edaf0667619cbf"
+      "bytes": 15518,
+      "sha256": "b5e6c21486e2c373c6db8e87df3012cf69f4ad9a658dc23c1b2965f8f51acfbb"
     },
     "docs/projektstatus.md": {
-      "bytes": 4228,
-      "sha256": "4186e87c4f7be5d95a2fc3bf36921568dcfc84ed725d1b5a8c2317cf42ac4e53"
+      "bytes": 4321,
+      "sha256": "f4e3757443c423bb88d8ab30e51cb514a92fa3d108bc7a90e251908e11b23316"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -357,7 +357,7 @@
     },
     "project-index.md": {
       "bytes": 1441,
-      "sha256": "c740fb4f7ae5e77a48447b73806afb2e93bd3cb5bb5bc2b60a4f7d5c9702fc72"
+      "sha256": "b4d451d1432941be582a36328630971ca15a06e6fa642a4f1df7f5f25175e7b8"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -380,8 +380,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 8553,
-      "sha256": "4a1434d6037d51f9c5096af3f8308d956d46c2b5e67d0e02d369f57dced45f4a"
+      "bytes": 8833,
+      "sha256": "15abd848109003ae46e9ebaf7e7fd462aba08ac6d0a173e5e29ff1d4765e6d1c"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -404,5 +404,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T20:03:33Z"
+  "updated_at": "2026-08-16T20:07:05Z"
 }

@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–7 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–8 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -22,7 +22,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 5 | Frontend med React och TypeScript | Skriven | Första manusversion, grundad i faktisk `App.tsx`- och `api.ts`-implementation |
 | 6 | Backend med Quarkus | Skriven | Första manusversion, grundad i faktisk REST-resurs, DTO-, CDI-, validerings- och tjänstelagerimplementation |
 | 7 | Persistens med JPA | Skriven | Första manusversion, grundad i faktisk `TaskEntity`, `TaskRepository`, `EntityManager`- och transaktionsimplementation |
-| 8 | PostgreSQL som databas | Planerad | Stomme skapad |
+| 8 | PostgreSQL som databas | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, `task_item`-schema, PostgreSQL 18.4 och verifierad volymmount |
 | 9 | Databasschemat som kod med Flyway | Planerad | Stomme skapad |
 | 10 | Från frontend till databas och tillbaka | Planerad | Stomme skapad |
 | 11 | Konfiguration och säkerhet | Planerad | Stomme skapad |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 8 om PostgreSQL som databas med den faktiska Compose-/datasource-konfigurationen och det verkliga `task_item`-schemat som grund.
-- Behåll gränsen tydlig mellan kapitel 7:s ORM-/persistensperspektiv, kapitel 8:s PostgreSQL-perspektiv och kapitel 9:s Flyway-/schemaevolution.
+- Skriv kapitel 9 om databasschemat som kod med Flyway, med `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering som faktisk grund.
+- Behåll gränsen tydlig mellan kapitel 8:s PostgreSQL-runtime/schema och kapitel 9:s versionshanterade schemaevolution.
