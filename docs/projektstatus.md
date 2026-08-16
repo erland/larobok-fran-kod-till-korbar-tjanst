@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–9 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–11 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -24,8 +24,8 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 7 | Persistens med JPA | Skriven | Första manusversion, grundad i faktisk `TaskEntity`, `TaskRepository`, `EntityManager`- och transaktionsimplementation |
 | 8 | PostgreSQL som databas | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, `task_item`-schema, PostgreSQL 18.4 och verifierad volymmount |
 | 9 | Databasschemat som kod med Flyway | Skriven | Första manusversion, grundad i faktisk `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering |
-| 10 | Från frontend till databas och tillbaka | Planerad | Stomme skapad |
-| 11 | Konfiguration och säkerhet | Planerad | Stomme skapad |
+| 10 | Från frontend till databas och tillbaka | Skriven | Första manusversion, grundad i den faktiska request/response-kedjan och verifierat end-to-end-test |
+| 11 | Konfiguration och säkerhet | Skriven | Första manusversion, grundad i faktisk Compose-, Nginx- och Quarkus-konfiguration samt explicit säkerhetsavgränsning |
 | 12 | Testning av den kompletta tjänsten | Planerad | Stomme skapad |
 | 13 | Frontend, reverse proxy och backend som Docker-images | Planerad | Stomme skapad |
 | 14 | Den kompletta tjänsten med Docker Compose | Planerad | Stomme skapad |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 11 om konfiguration och säkerhet med utgångspunkt i den faktiska Nginx-, Compose- och Quarkus-konfigurationen.
-- Fokusera på externa konfigurationsvärden, same-origin/reverse proxy, forwarded headers, databashemligheter och rimlig härdning utan att överdriva säkerhetsnivån i referensimplementationen.
+- Skriv kapitel 12 om testning av den kompletta tjänsten med utgångspunkt i den befintliga GitHub Actions-workflowen och smoke-testet.
+- Bygg ut teststrategin från dagens verifierade end-to-end-test utan att påstå att referensprojektet redan har en fullständig frontend- eller integrationstestsvit.

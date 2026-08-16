@@ -6,6 +6,14 @@ Docker Docs. *Networking in Compose*. https://docs.docker.com/compose/how-tos/ne
 
 Docker Docs. *Define services in Docker Compose*. https://docs.docker.com/reference/compose-file/services/ (kontrollerad 2026-08-16).
 
+Docker Docs. *Set, use, and manage variables in a Compose file with interpolation*. https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/ (kontrollerad 2026-08-16).
+
+Docker Docs. *Set environment variables within your container's environment*. https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/ (kontrollerad 2026-08-16).
+
+Docker Docs. *Manage secrets securely in Docker Compose*. https://docs.docker.com/compose/how-tos/use-secrets/ (kontrollerad 2026-08-16).
+
+Docker Docs. *Networking overview*. https://docs.docker.com/engine/network/ (kontrollerad 2026-08-16).
+
 ## NGINX
 
 NGINX. *Module ngx_http_proxy_module*. https://nginx.org/en/docs/http/ngx_http_proxy_module.html (kontrollerad 2026-08-16).
@@ -44,6 +52,10 @@ MDN Web Docs. *Web application manifest*. https://developer.mozilla.org/en-US/do
 MDN Web Docs. *start_url – Web app manifest*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/start_url (kontrollerad 2026-08-16).
 
 MDN Web Docs. *Using the Fetch API*. https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (kontrollerad 2026-08-16).
+
+MDN Web Docs. *Same-origin policy*. https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy (kontrollerad 2026-08-16).
+
+MDN Web Docs. *Cross-Origin Resource Sharing (CORS) configuration*. https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/CORS (kontrollerad 2026-08-16).
 
 ## Vite PWA
 

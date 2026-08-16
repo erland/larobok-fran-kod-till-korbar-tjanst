@@ -131,7 +131,7 @@
 - Nivå/faktadjup: arkitektur och praktisk konfiguration.
 - Nya huvudbegrepp/faktaområden: environment variables, secrets, same-origin, CORS, proxy headers, TLS-principer, autentisering/auktorisering på översiktsnivå.
 - Exempel/case: Nginx som enda exponerade entry point; Quarkus och PostgreSQL på internt nätverk.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur undviker vi att bygga in miljöspecifika adresser och credentials i våra images?
 - Centrala fakta: runtime-konfiguration, secrets, origin-modell och nätverksgränser.
 - Fördjupning/faktaruta: varför reverse proxy förenklar frontend/backend-kommunikation men inte ersätter autentisering.
