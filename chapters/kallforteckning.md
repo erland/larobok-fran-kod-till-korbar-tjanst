@@ -22,6 +22,19 @@ Quarkus. *Dev Services for Databases*. https://quarkus.io/guides/databases-dev-s
 
 Vite. *Server Options*. https://vite.dev/config/server-options.html (kontrollerad 2026-08-16).
 
+
+## React
+
+React. *useState*. https://react.dev/reference/react/useState (kontrollerad 2026-08-16).
+
+React. *useEffect*. https://react.dev/reference/react/useEffect (kontrollerad 2026-08-16).
+
+## TypeScript
+
+TypeScript. *Everyday Types*. https://www.typescriptlang.org/docs/handbook/2/everyday-types.html (kontrollerad 2026-08-16).
+
+TypeScript. *Object Types*. https://www.typescriptlang.org/docs/handbook/2/objects.html (kontrollerad 2026-08-16).
+
 ## MDN Web Docs
 
 MDN Web Docs. *Making PWAs installable*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable (kontrollerad 2026-08-16).
@@ -29,6 +42,8 @@ MDN Web Docs. *Making PWAs installable*. https://developer.mozilla.org/en-US/doc
 MDN Web Docs. *Web application manifest*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest (kontrollerad 2026-08-16).
 
 MDN Web Docs. *start_url – Web app manifest*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/start_url (kontrollerad 2026-08-16).
+
+MDN Web Docs. *Using the Fetch API*. https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (kontrollerad 2026-08-16).
 
 ## Vite PWA
 

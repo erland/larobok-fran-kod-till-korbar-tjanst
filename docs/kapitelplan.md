@@ -59,9 +59,9 @@
 ### Kapitel 5: Frontend med React och TypeScript
 - Syfte: Visa frontendens interna struktur och dess kontrakt mot API:t.
 - Nivå/faktadjup: erfaren React/TypeScript-läsare.
-- Nya huvudbegrepp/faktaområden: views, routing, API-lager, state, formulär, felhantering.
-- Exempel/case: TaskBoard-lista, detaljvy och redigering.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: komponentkomposition, API-lager, state, formulär, felhantering, transporttyper och expansionspunkter för routing.
+- Exempel/case: TaskBoards sammanhållna lista, skapande, statusändring och radering.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur håller vi frontendens struktur ren när backend och PWA-beteende växer fram?
 - Centrala fakta: tydligt API-lager, separering mellan UI och transportmodell, konsekvent felhantering.
 - Fördjupning/faktaruta: frontendens API-bas i utveckling kontra via Nginx i körmiljö.
