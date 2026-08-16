@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r5.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r6.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,15 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "code/taskboard/frontend/tsconfig.node.json"
+      ".github/workflows/04-test-reference-implementation.yml"
     ],
-    "operation": "Rättade TypeScript-konfiguration efter misslyckat TaskBoard CI-bygge",
-    "source_revision": 4
+    "operation": "Gjorde Docker image-bygget robust mot tillfälliga externa registry- och Maven-fel",
+    "source_revision": 5
   },
-  "parent_revision": 4,
+  "parent_revision": 5,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 5,
+  "revision": 6,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -51,8 +51,8 @@
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
     },
     ".github/workflows/04-test-reference-implementation.yml": {
-      "bytes": 4520,
-      "sha256": "ec8a4df04601b13d29a67607f10611de85ef9c0b3b6920bd4865faa0250d8885"
+      "bytes": 4905,
+      "sha256": "053bede2dd35ebab6315410345b8e9df27f7e0c5ffd063e5ea2624ebe31c36d9"
     },
     "README.md": {
       "bytes": 1160,
@@ -375,8 +375,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 4714,
-      "sha256": "61e618fe5cc9e858e966418d85abc2b5af3a23e0fc5869aba4f93c588d99dba3"
+      "bytes": 4926,
+      "sha256": "760473aa49a34a40223d9c4674ecfee62d9961171a812b8f25371627ad9b90e9"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -399,5 +399,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T17:49:56Z"
+  "updated_at": "2026-08-16T18:15:19Z"
 }

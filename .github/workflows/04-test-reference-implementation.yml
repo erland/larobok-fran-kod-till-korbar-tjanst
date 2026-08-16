@@ -66,7 +66,19 @@ jobs:
 
       - name: Build Docker images
         working-directory: ${{ env.TASKBOARD_DIR }}
-        run: docker compose build
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if docker compose build; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Docker build failed after $attempt attempts."
+              exit 1
+            fi
+            echo "Docker build attempt $attempt failed; retrying in 15 seconds..."
+            sleep 15
+          done
 
       - name: Start complete service
         working-directory: ${{ env.TASKBOARD_DIR }}
