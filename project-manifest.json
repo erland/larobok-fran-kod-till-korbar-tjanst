@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r9.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r10.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,15 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "code/taskboard/frontend/Dockerfile"
+      ".github/workflows/04-test-reference-implementation.yml"
     ],
-    "operation": "Rättade web-containerns healthcheck till explicit IPv4-loopback för Nginx",
-    "source_revision": 8
+    "operation": "Fix smoke test priority value to match TaskBoard API enum",
+    "source_revision": 9
   },
-  "parent_revision": 8,
+  "parent_revision": 9,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 9,
+  "revision": 10,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -52,7 +52,7 @@
     },
     ".github/workflows/04-test-reference-implementation.yml": {
       "bytes": 5176,
-      "sha256": "6fb2f5314cdc72cd09ac97d51c6c8ab41f9fa5fa0146e198deabed11a4c5bb98"
+      "sha256": "4aa75ab89b8b25faaba8f3d93da38b28980a3519cb9e178ad96e6ac40fb8f82c"
     },
     "README.md": {
       "bytes": 1160,
@@ -375,8 +375,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 5608,
-      "sha256": "5af7b3f2f8daf02afb4de74702224d866601210e1c2275a10140f2c54b4fb4dd"
+      "bytes": 5797,
+      "sha256": "b81fd9879f943c70d80ed420ae8c388eee18e8cf46219b6313955e2c1205c61e"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -399,5 +399,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T19:13:35Z"
+  "updated_at": "2026-08-16T19:19:32Z"
 }

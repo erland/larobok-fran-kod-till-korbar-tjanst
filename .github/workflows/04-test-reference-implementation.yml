@@ -118,7 +118,7 @@ jobs:
               "title": "GitHub Actions smoke test",
               "description": "Created through Nginx, Quarkus and PostgreSQL",
               "status": "OPEN",
-              "priority": "MEDIUM",
+              "priority": "NORMAL",
               "dueDate": None,
           }).encode()
           request = urllib.request.Request(
@@ -137,7 +137,7 @@ jobs:
               assert response.status == 200
               fetched = json.load(response)
               assert fetched["id"] == task_id
-              assert fetched["priority"] == "MEDIUM"
+              assert fetched["priority"] == "NORMAL"
 
           with urllib.request.urlopen(base + "/api/tasks", timeout=10) as response:
               assert response.status == 200
