@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r8.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r9.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,17 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/04-test-reference-implementation.yml",
-      "code/taskboard/docker-compose.yml",
-      "code/taskboard/validate_reference.py"
+      "code/taskboard/frontend/Dockerfile"
     ],
-    "operation": "Rättade PostgreSQL 18-volym och förbättrade CI-startdiagnostik",
-    "source_revision": 7
+    "operation": "Rättade web-containerns healthcheck till explicit IPv4-loopback för Nginx",
+    "source_revision": 8
   },
-  "parent_revision": 7,
+  "parent_revision": 8,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 8,
+  "revision": 9,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -238,7 +236,7 @@
     },
     "code/taskboard/frontend/Dockerfile": {
       "bytes": 359,
-      "sha256": "bff2038a8482564605e6b0693a2409e314cc2c4bf415f5ce12cdffcd1eae960b"
+      "sha256": "259b09c383ea9fb37f2a304ddc1e9ba4a3ba514ce0326dd1f15a15317722ec7f"
     },
     "code/taskboard/frontend/index.html": {
       "bytes": 346,
@@ -377,8 +375,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 5423,
-      "sha256": "f710411298f4f0bd2a064b05d9e17835800f068fc1ff930d71ba5b36a672b9ef"
+      "bytes": 5608,
+      "sha256": "5af7b3f2f8daf02afb4de74702224d866601210e1c2275a10140f2c54b4fb4dd"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -401,5 +399,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T18:59:57Z"
+  "updated_at": "2026-08-16T19:13:35Z"
 }

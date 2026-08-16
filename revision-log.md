@@ -10,3 +10,4 @@
 | 6 | 2026-08-16T18:15:19Z | Gjorde Docker image-bygget robust mot tillfälliga externa registry- och Maven-fel | `.github/workflows/04-test-reference-implementation.yml` | `fran-kod-till-korbar-tjanst-r6.zip` |
 | 7 | 2026-08-16T18:37:35Z | Rättade Quarkus Maven-packaging och offline-dependencyhämtning för Dockerbygget | `code/taskboard/backend/Dockerfile`, `code/taskboard/backend/pom.xml` | `fran-kod-till-korbar-tjanst-r7.zip` |
 | 8 | 2026-08-16T18:59:57Z | Rättade PostgreSQL 18-volym och förbättrade CI-startdiagnostik | `.github/workflows/04-test-reference-implementation.yml`, `code/taskboard/docker-compose.yml`, `code/taskboard/validate_reference.py` | `fran-kod-till-korbar-tjanst-r8.zip` |
+| 9 | 2026-08-16T19:13:35Z | Rättade web-containerns healthcheck till explicit IPv4-loopback för Nginx | `code/taskboard/frontend/Dockerfile` | `fran-kod-till-korbar-tjanst-r9.zip` |
