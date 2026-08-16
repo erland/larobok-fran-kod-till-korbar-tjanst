@@ -3,6 +3,7 @@
 | ID | Kapitel | Påstående/faktaområde | Status | Källa/verifiering | Kontrollerad | Kommentar |
 |---|---|---|---|---|---|---|
 | F011 | 1 | Referensimplementationens kompletta requestkedja och runtime-form | Kontrollerad | GitHub Actions `04-test-reference-implementation.yml`: build, Compose-start och smoke test | 2026-08-16 | Verifierad kedja Nginx → Quarkus → PostgreSQL; smoke test skapar och läser tillbaka en uppgift. |
+| F012 | 2 | Compose-standardnätverk, service discovery, reverse proxy, Quarkus HTTP-bindning och health-baserad startordning | Kontrollerad | Docker Docs (Networking in Compose; Services), NGINX proxy module, Quarkus HTTP/config-dokumentation samt verifierad TaskBoard-runtime | 2026-08-16 | Kapitlet skiljer uttryckligen på ej publicerad databasport och faktisk nätverkssegmentering. |
 | F001 | 4 | Aktuell PWA-setup för React/Vite | Delvis kontrollerad | React/Vite/vite-plugin-pwa officiella releaser och dokumentation | 2026-08-16 | React 19.2.7, Vite 8.2.1 och vite-plugin-pwa 1.3.0 valda; omverifiera detaljer vid kapitelarbete. |
 | F002 | 6 | Quarkus-version, extensions och REST-konfiguration | Kontrollerad för referenskod | Quarkus officiell release-/guide-dokumentation | 2026-08-16 | Quarkus 3.33.3.1 i 3.33 LTS-serien vald. REST/Jackson, Hibernate ORM, PostgreSQL JDBC, Flyway, Validator och Health används. |
 | F003 | 8 | PostgreSQL-version/image och relevant containerkonfiguration | Kontrollerad för referenskod | PostgreSQL officiella release-/versionssidor samt genomförd runtime-verifiering | 2026-08-16 | PostgreSQL 18.4 vald; PostgreSQL 18-volymmount och containerstart verifierade i Compose-smoke test. |
@@ -30,7 +31,6 @@ Detaljer finns även i `code/taskboard/STACK-VERSIONS.md`.
 
 ## Öppna verifieringspunkter
 - Fastställ testverktyg och strategi för frontend samt PostgreSQL-integrationstester.
-- Fastställ format för synliga källhänvisningar i kapiteltexten.
 - Omverifiera tidskänsliga versioner och kommandon när respektive kapitel skrivs och före publicering.
 
 ## Publiceringskontroll

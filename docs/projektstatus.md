@@ -9,14 +9,14 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen och kapitel 1 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–2 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
 |---|---|---|---|
 | 0 | Inledning | Skriven | Första manusversion, grundad i verifierad referensimplementation |
 | 1 | Från kod till körbar tjänst | Skriven | Första manusversion, grundad i verifierad referensimplementation |
-| 2 | Tjänstens arkitektur | Planerad | Stomme skapad |
+| 2 | Tjänstens arkitektur | Skriven | Första manusversion, grundad i verifierad runtime-arkitektur |
 | 3 | Projektstruktur och utvecklingsmiljö | Planerad | Stomme skapad |
 | 4 | PWA som frontendarkitektur | Planerad | Stomme skapad |
 | 5 | Frontend med React och TypeScript | Planerad | Stomme skapad |
@@ -57,5 +57,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 2–3 för att etablera arkitekturbilden och projektstrukturen innan teknikdelarna skrivs.
-- Vid nästa manuspass kontrolleras även att kapitel 1 inte föregriper detaljförklaringar som hör hemma i kapitel 2–3.
+- Skriv kapitel 3 för att etablera projektstruktur och utvecklingsmiljö innan teknikdelarna skrivs.
+- Vid nästa manuspass kontrolleras övergången mellan kapitel 2 och 3 så att runtime-arkitektur och utvecklingsstruktur hålls isär.

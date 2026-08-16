@@ -26,7 +26,7 @@
 - Nivå/faktadjup: arkitekturnivå med konkreta teknikval.
 - Nya huvudbegrepp/faktaområden: same-origin, `/api`, reverse proxy, intern Docker-nätverkstrafik, databasgräns.
 - Exempel/case: Browser/PWA → Nginx → Quarkus → PostgreSQL.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Var ska respektive ansvar ligga för att lösningen ska vara enkel att förstå, köra och överlämna?
 - Centrala fakta: Nginx serverar frontend och proxar API; Quarkus äger backendlogik; PostgreSQL är intern persistence.
 - Fördjupning/faktaruta: varför PostgreSQL normalt inte exponeras från produktionslik Compose-miljö.
