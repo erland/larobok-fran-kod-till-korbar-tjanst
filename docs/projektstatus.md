@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–8 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–9 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -23,7 +23,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 6 | Backend med Quarkus | Skriven | Första manusversion, grundad i faktisk REST-resurs, DTO-, CDI-, validerings- och tjänstelagerimplementation |
 | 7 | Persistens med JPA | Skriven | Första manusversion, grundad i faktisk `TaskEntity`, `TaskRepository`, `EntityManager`- och transaktionsimplementation |
 | 8 | PostgreSQL som databas | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, `task_item`-schema, PostgreSQL 18.4 och verifierad volymmount |
-| 9 | Databasschemat som kod med Flyway | Planerad | Stomme skapad |
+| 9 | Databasschemat som kod med Flyway | Skriven | Första manusversion, grundad i faktisk `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering |
 | 10 | Från frontend till databas och tillbaka | Planerad | Stomme skapad |
 | 11 | Konfiguration och säkerhet | Planerad | Stomme skapad |
 | 12 | Testning av den kompletta tjänsten | Planerad | Stomme skapad |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 9 om databasschemat som kod med Flyway, med `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering som faktisk grund.
-- Behåll gränsen tydlig mellan kapitel 8:s PostgreSQL-runtime/schema och kapitel 9:s versionshanterade schemaevolution.
+- Skriv kapitel 10 genom att följa ett konkret TaskBoard-anrop från React via Nginx och Quarkus till JPA/PostgreSQL och tillbaka.
+- Använd de redan beskrivna lagren som grund och fokusera på integration, kontrakt, validering, transaktion och felvägar i stället för att återförklara varje teknik.

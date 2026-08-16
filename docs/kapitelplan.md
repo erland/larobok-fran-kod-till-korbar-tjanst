@@ -106,8 +106,8 @@
 - Syfte: Göra schemaevolution reproducerbar och versionshanterad.
 - Nivå/faktadjup: praktisk migrationsstrategi.
 - Nya huvudbegrepp/faktaområden: migrationer, versionsordning, baseline/repair-koncept vid behov, kompatibla uppgraderingar.
-- Exempel/case: `V1__create_task.sql`, `V2__add_priority.sql`, `V3__add_task_status_index.sql`.
-- Status: planerad
+- Exempel/case: faktisk `V1__create_task.sql` samt tydligt markerade hypotetiska V2/V3-exempel för framtida schemaevolution.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur ser vi till att en ny release kan uppgradera en befintlig databas i stället för att skapa om den?
 - Centrala fakta: migrationsfiler som kod, körordning, kopplingen till applikationsrelease.
 - Fördjupning/faktaruta: JPA-modell och databasschema måste utvecklas i samordning.

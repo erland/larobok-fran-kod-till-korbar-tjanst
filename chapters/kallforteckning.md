@@ -80,6 +80,8 @@ Quarkus. *How dev mode differs from a production application*. https://quarkus.i
 
 Quarkus. *Using Hibernate ORM and Jakarta Persistence*. https://quarkus.io/guides/hibernate-orm (kontrollerad 2026-08-16).
 
+Quarkus. *Using Flyway*. https://quarkus.io/guides/flyway (kontrollerad 2026-08-16).
+
 
 ## Jakarta Persistence
 
@@ -99,3 +101,16 @@ PostgreSQL Global Development Group. *PostgreSQL 18: Indexes*. https://www.postg
 Docker Library. *PostgreSQL Docker Official Image – PGDATA*. https://github.com/docker-library/docs/blob/master/postgres/README.md (kontrollerad 2026-08-16).
 
 Docker Library. *PostgreSQL 18 Dockerfile*. https://github.com/docker-library/postgres/blob/master/18/alpine3.23/Dockerfile (kontrollerad 2026-08-16).
+
+
+## Redgate Flyway
+
+Redgate. *Versioned migrations*. https://documentation.red-gate.com/fd/versioned-migrations-273973333.html (kontrollerad 2026-08-16).
+
+Redgate. *Flyway schema history table*. https://documentation.red-gate.com/flyway/flyway-concepts/migrations/flyway-schema-history-table (kontrollerad 2026-08-16).
+
+Redgate. *Repair*. https://documentation.red-gate.com/flyway/reference/commands/repair (kontrollerad 2026-08-16).
+
+Redgate. *Baselines*. https://documentation.red-gate.com/flyway/flyway-concepts/baselines (kontrollerad 2026-08-16).
+
+Redgate. *Baseline migrations*. https://documentation.red-gate.com/flyway/flyway-concepts/migrations/baseline-migrations (kontrollerad 2026-08-16).
