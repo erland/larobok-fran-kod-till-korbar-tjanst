@@ -57,3 +57,25 @@ Vite PWA. *Service Worker Precache*. https://vite-pwa-org.netlify.app/guide/serv
 
 Apache Maven. *Introduction to the Standard Directory Layout*. https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html (kontrollerad 2026-08-16).
 
+
+Quarkus. *Writing JSON REST Services*. https://quarkus.io/guides/rest-json (kontrollerad 2026-08-16).
+
+Quarkus. *Writing REST Services with Quarkus REST*. https://quarkus.io/guides/rest (kontrollerad 2026-08-16).
+
+Quarkus. *Validation with Hibernate Validator*. https://quarkus.io/guides/validation (kontrollerad 2026-08-16).
+
+Quarkus. *Introduction to Contexts and Dependency Injection (CDI)*. https://quarkus.io/guides/cdi (kontrollerad 2026-08-16).
+
+Quarkus. *Contexts and Dependency Injection*. https://quarkus.io/guides/cdi-reference (kontrollerad 2026-08-16).
+
+Quarkus. *Configuration Reference Guide*. https://quarkus.io/guides/config-reference (kontrollerad 2026-08-16).
+
+Quarkus. *Quarkus Maven Plugin*. https://quarkus.io/guides/quarkus-maven-plugin (kontrollerad 2026-08-16).
+
+Quarkus. *Creating Your First Application*. https://quarkus.io/guides/getting-started (kontrollerad 2026-08-16).
+
+Quarkus. *Continuous Testing*. https://quarkus.io/guides/continuous-testing (kontrollerad 2026-08-16).
+
+Quarkus. *How dev mode differs from a production application*. https://quarkus.io/guides/dev-mode-differences (kontrollerad 2026-08-16).
+
+Quarkus. *Using Hibernate ORM and Jakarta Persistence*. https://quarkus.io/guides/hibernate-orm (kontrollerad 2026-08-16).

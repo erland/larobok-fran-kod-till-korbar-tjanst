@@ -74,7 +74,7 @@
 - Nivå/faktadjup: praktisk introduktion för erfaren Java-utvecklare.
 - Nya huvudbegrepp/faktaområden: Quarkus-projekt, extensions, CDI, REST-resurser, konfiguration, dev mode.
 - Exempel/case: `/api/tasks`.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad behöver en erfaren Java-utvecklare faktiskt känna till för att bli produktiv i Quarkus?
 - Centrala fakta: projektsetup, relevanta extensions, REST- och konfigurationsmodell.
 - Fördjupning/faktaruta: Quarkus dev mode och skillnaden mot paketerad körning.

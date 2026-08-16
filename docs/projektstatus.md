@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–5 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–6 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -20,7 +20,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 3 | Projektstruktur och utvecklingsmiljö | Skriven | Första manusversion, grundad i faktisk repo- och utvecklingsstruktur |
 | 4 | PWA som frontendarkitektur | Skriven | Första manusversion, grundad i faktisk vite-plugin-pwa- och Nginx-konfiguration |
 | 5 | Frontend med React och TypeScript | Skriven | Första manusversion, grundad i faktisk `App.tsx`- och `api.ts`-implementation |
-| 6 | Backend med Quarkus | Planerad | Stomme skapad |
+| 6 | Backend med Quarkus | Skriven | Första manusversion, grundad i faktisk REST-resurs, DTO-, CDI-, validerings- och tjänstelagerimplementation |
 | 7 | Persistens med JPA | Planerad | Stomme skapad |
 | 8 | PostgreSQL som databas | Planerad | Stomme skapad |
 | 9 | Databasschemat som kod med Flyway | Planerad | Stomme skapad |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 6 om backend med Quarkus med den faktiska REST-resursen, DTO:erna och tjänstelagret som grund.
-- Vid nästa manuspass kontrolleras övergången mellan kapitel 5 och 6 så att HTTP-kontraktet beskrivs konsekvent från båda sidor utan att duplicera kapitel 10:s end-to-end-perspektiv.
+- Skriv kapitel 7 om persistens med JPA med den faktiska `TaskEntity`, `TaskRepository` och transaktionsmodellen som grund.
+- Vid nästa manuspass hålls gränsen tydlig mellan kapitel 6:s Quarkus-/API-perspektiv och kapitel 7:s JPA-/persistensperspektiv.
