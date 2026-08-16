@@ -35,9 +35,9 @@
 ### Kapitel 3: Projektstruktur och utvecklingsmiljö
 - Syfte: Visa hur referensprojektet organiseras och hur utvecklingsflödet skiljer sig från den färdiga körmiljön.
 - Nivå/faktadjup: praktisk struktur utan grundläggande språkintroduktion.
-- Nya huvudbegrepp/faktaområden: repo-struktur, frontend/backend, miljökonfiguration, Vite dev proxy, lokal PostgreSQL/Docker.
+- Nya huvudbegrepp/faktaområden: repo-struktur, frontend/backend, miljökonfiguration, Vite dev proxy, Quarkus Dev Services, lokal PostgreSQL/Docker och CI som ren verifieringsmiljö.
 - Exempel/case: `code/taskboard/`.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur organiserar man projektet så att både utveckling och leverans förblir begripliga?
 - Centrala fakta: rekommenderad katalogstruktur och lokalt arbetsflöde.
 - Fördjupning/faktaruta: mono-repo som vald referensmodell och alternativens trade-offs.

@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–2 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–3 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -17,7 +17,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 0 | Inledning | Skriven | Första manusversion, grundad i verifierad referensimplementation |
 | 1 | Från kod till körbar tjänst | Skriven | Första manusversion, grundad i verifierad referensimplementation |
 | 2 | Tjänstens arkitektur | Skriven | Första manusversion, grundad i verifierad runtime-arkitektur |
-| 3 | Projektstruktur och utvecklingsmiljö | Planerad | Stomme skapad |
+| 3 | Projektstruktur och utvecklingsmiljö | Skriven | Första manusversion, grundad i faktisk repo- och utvecklingsstruktur |
 | 4 | PWA som frontendarkitektur | Planerad | Stomme skapad |
 | 5 | Frontend med React och TypeScript | Planerad | Stomme skapad |
 | 6 | Backend med Quarkus | Planerad | Stomme skapad |
@@ -53,9 +53,8 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
 - Val av mer detaljerad frontend-teststack och eventuell separat testcontainerstrategi för kapitel 12; grundläggande end-to-end smoke test finns nu i GitHub Actions.
-- Exakt presentationsformat för synliga källhänvisningar.
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 3 för att etablera projektstruktur och utvecklingsmiljö innan teknikdelarna skrivs.
-- Vid nästa manuspass kontrolleras övergången mellan kapitel 2 och 3 så att runtime-arkitektur och utvecklingsstruktur hålls isär.
+- Skriv kapitel 4 om PWA som frontendarkitektur med den faktiska Vite/vite-plugin-pwa-konfigurationen som grund.
+- Vid nästa manuspass kontrolleras övergången mellan kapitel 3 och 4 så att generell frontendstruktur och PWA-specifikt beteende hålls isär.
