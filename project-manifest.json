@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r20.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r21.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -12,7 +12,7 @@
       "chapters/07-persistens-med-jpa.md": "14caefcbcc712120e331b5b3c30141ac4e04b938126fc4cdf0f7f78e188b5f33",
       "chapters/08-postgresql-som-databas.md": "ee00019e0cbf0608f9099b98274428913ec9d12e01567a724a5d24d67c2466f0",
       "chapters/09-databasschemat-som-kod-med-flyway.md": "aaef5e87a4fa43b3a98838b645591bc0f4e8acca374010226ccfb5ddf2aaa68e",
-      "chapters/10-fran-frontend-till-databas-och-tillbaka.md": "07c554c83749cffb1a318410374eb896ef1ce8d1269dbb82f4c008d8514374e1",
+      "chapters/10-fran-frontend-till-databas-och-tillbaka.md": "ca655c2a6210d3d4eb021f598f376d3814340f3d3353c1506fd2ee307e356b50",
       "chapters/11-konfiguration-och-sakerhet.md": "d205070c4a70bedabd55dc6ed35687ac67596dcb57a8bd4fb584f8b1f499efb6",
       "chapters/12-testning-av-den-kompletta-tjansten.md": "10a1667ae77019d75540da5e1dff69ac62d8988eed5112fd8b7cdf1bb4be47f0",
       "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": "097c49561a01e1489e990cae8db3e9d0382b9cefe15176022864ead2df3ad315",
@@ -26,20 +26,19 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "chapters/09-databasschemat-som-kod-med-flyway.md",
-      "chapters/kallforteckning.md",
+      "chapters/10-fran-frontend-till-databas-och-tillbaka.md",
       "docs/faktakontroll.md",
       "docs/kapitelplan.md",
       "docs/projektstatus.md",
       "project-index.md"
     ],
-    "operation": "Skrev kapitel 9 om databasschemat som kod med Flyway och uppdaterade projektstatus, faktakontroll och källor",
-    "source_revision": 19
+    "operation": "Skrev kapitel 10 om den kompletta requestkedjan från frontend till databas och tillbaka",
+    "source_revision": 20
   },
-  "parent_revision": 19,
+  "parent_revision": 20,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 20,
+  "revision": 21,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -120,8 +119,8 @@
       "sha256": "aaef5e87a4fa43b3a98838b645591bc0f4e8acca374010226ccfb5ddf2aaa68e"
     },
     "chapters/10-fran-frontend-till-databas-och-tillbaka.md": {
-      "bytes": 47,
-      "sha256": "07c554c83749cffb1a318410374eb896ef1ce8d1269dbb82f4c008d8514374e1"
+      "bytes": 14780,
+      "sha256": "ca655c2a6210d3d4eb021f598f376d3814340f3d3353c1506fd2ee307e356b50"
     },
     "chapters/11-konfiguration-och-sakerhet.md": {
       "bytes": 34,
@@ -308,8 +307,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 6916,
-      "sha256": "e0928b6e88713385d016a31d40c15009e43d0a90db1ead980c52bbfdee620387"
+      "bytes": 7407,
+      "sha256": "157d76dfbf22060e5eb209efbc29714c42e0b76b02ccd0959938a1d661f74407"
     },
     "docs/illustration-plan.md": {
       "bytes": 222,
@@ -324,12 +323,12 @@
       "sha256": "841494ab832d37a294b5e0a042729a3514331ad2e58b87f0337161f513895c18"
     },
     "docs/kapitelplan.md": {
-      "bytes": 15569,
-      "sha256": "38de1b5d61b8c3c82e7802e3c08e6ebca496e76f3597dbae26a3df33d094068b"
+      "bytes": 15590,
+      "sha256": "c1a46e0c28e1773743d54d608eb40b85479722de1152e9d3b1ed7c96c05e5001"
     },
     "docs/projektstatus.md": {
-      "bytes": 4450,
-      "sha256": "b2dad798d216c722aa5655f607eccf6fe3c6d18c33a6a616cf3c68cfe5638fe8"
+      "bytes": 4471,
+      "sha256": "6b90aa3e3de3fd219c4c316fcc2ddf669a6362f8cb1040b1d110834a50ca1e96"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -356,8 +355,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 1441,
-      "sha256": "70f929877bd6b312926cf7f836015f34dfb81afb23b3d5949d9da4897bc9a8ee"
+      "bytes": 1517,
+      "sha256": "c7b980b88e1498a793f8537ffd21868e69c1f2b7b37e6cf8ce2abaa740329a78"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -380,8 +379,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 9192,
-      "sha256": "e59e3941cd3d0d8b6e7f01e2926ea136dfcfca6f7b6f59852aaed548936f9b84"
+      "bytes": 9505,
+      "sha256": "ec3638935c68b866ab2066618c4e0f2a323d914a5f9bc20d2e6a76ff812e8d0e"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -404,5 +403,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T20:11:08Z"
+  "updated_at": "2026-08-16T20:14:48Z"
 }

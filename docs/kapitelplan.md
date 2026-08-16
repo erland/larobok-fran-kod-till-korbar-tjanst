@@ -120,7 +120,7 @@
 - Nivå/faktadjup: integrationsfokus.
 - Nya huvudbegrepp/faktaområden: DTO, JSON, HTTP-status, validering, tjänstelager, transaktion, felrespons.
 - Exempel/case: markera en TaskBoard-uppgift som klar.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad händer egentligen i varje lager när användaren klickar på "Klar"?
 - Centrala fakta: request/response-kedjan och ansvar i varje komponent.
 - Fördjupning/faktaruta: kontrakt och felhantering över lagringsgränser.

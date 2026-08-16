@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 10 genom att följa ett konkret TaskBoard-anrop från React via Nginx och Quarkus till JPA/PostgreSQL och tillbaka.
-- Använd de redan beskrivna lagren som grund och fokusera på integration, kontrakt, validering, transaktion och felvägar i stället för att återförklara varje teknik.
+- Skriv kapitel 11 om konfiguration och säkerhet med utgångspunkt i den faktiska Nginx-, Compose- och Quarkus-konfigurationen.
+- Fokusera på externa konfigurationsvärden, same-origin/reverse proxy, forwarded headers, databashemligheter och rimlig härdning utan att överdriva säkerhetsnivån i referensimplementationen.
