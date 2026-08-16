@@ -43,7 +43,8 @@ Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget n
 - Databas: PostgreSQL 18.4.
 - Leverans: Docker Compose med persistent PostgreSQL-volume och health-baserad startordning.
 - Lokal utveckling: Vite-proxy till Quarkus; Quarkus Dev Services kan tillhandahålla PostgreSQL.
-- Känd verifieringsbegränsning: projektmiljön där revisionen skapades saknade Docker och nätåtkomst för npm/Maven, så full container-build och runtime smoke test återstår.
+- GitHub Actions: `04-test-reference-implementation.yml` bygger frontend/backend, kör Maven-testfasen, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
+- Lokal verifieringsbegränsning: projektmiljön där revisionen skapades saknar Docker och extern npm/Maven-åtkomst; den nya GitHub Actionen är därför den kanoniska fullständiga runtime-verifieringen.
 
 ## Faktakontroll
 - Initiala versionsval och huvudkonfiguration för referensimplementationen verifierade 2026-08-16 mot officiella primärkällor.
@@ -51,7 +52,7 @@ Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget n
 
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
-- Val av teststack för frontend och exakt strategi för PostgreSQL-baserade integrationstester i kapitel 12.
+- Val av mer detaljerad frontend-teststack och eventuell separat testcontainerstrategi för kapitel 12; grundläggande end-to-end smoke test finns nu i GitHub Actions.
 - Exakt presentationsformat för synliga källhänvisningar.
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 

@@ -48,3 +48,15 @@ Flyway-migrationerna ligger i `backend/src/main/resources/db/migration/`. Hibern
 ## Versionsval
 
 Se `STACK-VERSIONS.md` för de versioner som valdes när referensimplementationen initierades och varför de valdes.
+## Automatisk verifiering i GitHub Actions
+
+Workflowen `.github/workflows/04-test-reference-implementation.yml` verifierar referensimplementationen vid ändringar under `code/taskboard/` och kan även köras manuellt. Den:
+
+1. kör den statiska referensvalideringen,
+2. bygger React/TypeScript-frontenden,
+3. kompilerar och testar Quarkus-backenden med Maven,
+4. validerar och bygger Docker Compose-konfigurationen,
+5. startar hela tjänsten och gör ett smoke test genom Nginx → Quarkus → PostgreSQL.
+
+Smoke testet skapar en uppgift via REST-API:t och läser tillbaka den för att kontrollera att hela kedjan fungerar.
+

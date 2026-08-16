@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r3.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r4.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,53 +26,17 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "code/README.md",
-      "code/taskboard/.env.example",
-      "code/taskboard/.gitignore",
+      ".github/workflows/04-test-reference-implementation.yml",
       "code/taskboard/README.md",
-      "code/taskboard/STACK-VERSIONS.md",
-      "code/taskboard/backend/.dockerignore",
-      "code/taskboard/backend/Dockerfile",
-      "code/taskboard/backend/pom.xml",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskDtos.java",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskEntity.java",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskPriority.java",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskRepository.java",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskResource.java",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskService.java",
-      "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskStatus.java",
-      "code/taskboard/backend/src/main/resources/application.properties",
-      "code/taskboard/backend/src/main/resources/db/migration/V1__create_task.sql",
-      "code/taskboard/docker-compose.yml",
-      "code/taskboard/frontend/.dockerignore",
-      "code/taskboard/frontend/Dockerfile",
-      "code/taskboard/frontend/index.html",
-      "code/taskboard/frontend/nginx.conf",
-      "code/taskboard/frontend/package.json",
-      "code/taskboard/frontend/public/icon.svg",
-      "code/taskboard/frontend/src/App.tsx",
-      "code/taskboard/frontend/src/api.ts",
-      "code/taskboard/frontend/src/main.tsx",
-      "code/taskboard/frontend/src/styles.css",
-      "code/taskboard/frontend/src/vite-env.d.ts",
-      "code/taskboard/frontend/tsconfig.app.json",
-      "code/taskboard/frontend/tsconfig.json",
-      "code/taskboard/frontend/tsconfig.node.json",
-      "code/taskboard/frontend/vite.config.ts",
-      "code/taskboard/validate_reference.py",
-      "docs/bokspecifikation.md",
-      "docs/faktakontroll.md",
-      "docs/innehalls-canon.md",
-      "docs/projektstatus.md",
-      "project-index.md"
+      "docs/projektstatus.md"
     ],
-    "operation": "Initierade körbar TaskBoard-referensimplementation och fastställde teknikversioner",
-    "source_revision": 2
+    "operation": "Lade till GitHub Actions-verifiering för TaskBoard-referensimplementationen",
+    "source_revision": 3
   },
-  "parent_revision": 2,
+  "parent_revision": 3,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 3,
+  "revision": 4,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -87,6 +51,10 @@
     ".github/workflows/03-release.yml": {
       "bytes": 1621,
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
+    },
+    ".github/workflows/04-test-reference-implementation.yml": {
+      "bytes": 4520,
+      "sha256": "ec8a4df04601b13d29a67607f10611de85ef9c0b3b6920bd4865faa0250d8885"
     },
     "README.md": {
       "bytes": 1160,
@@ -205,8 +173,8 @@
       "sha256": "5eea3bc53a4d06a345fd6e663581d53cfae5bea348029a91962388f03124d52a"
     },
     "code/taskboard/README.md": {
-      "bytes": 1454,
-      "sha256": "0794bb81e520d47b7cf934fd3891f7e9a7c79ace9c512ffe7a1c64d9a48c06cb"
+      "bytes": 2079,
+      "sha256": "cd90c9aa3964d4bd89f32a95df5145ebfceeb5f223f532f90c79415192a4d337"
     },
     "code/taskboard/STACK-VERSIONS.md": {
       "bytes": 1225,
@@ -357,8 +325,8 @@
       "sha256": "74bfb197a1ffa103fc664c2ec6a30238b8ea1eafc38ba1fa7ddb61b69e3b860f"
     },
     "docs/projektstatus.md": {
-      "bytes": 3331,
-      "sha256": "e7d9635f79e06682d101d1bb0433932f22a52c8a093407a8b186fde88b86188c"
+      "bytes": 3601,
+      "sha256": "e6fb4eb30d1fafcc8822c110cd267c57cc5b491f024f823656eecf3df2d3c144"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -409,8 +377,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 4268,
-      "sha256": "867c5f355e29808f3185e83a21a09dd3b9d266860c09eec507ce8d8e125d4c3c"
+      "bytes": 4527,
+      "sha256": "96b676161164def55b4e370dae0508ee64f88a373f8f9653849596ac48421f0f"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -433,5 +401,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T17:36:17Z"
+  "updated_at": "2026-08-16T17:43:54Z"
 }
