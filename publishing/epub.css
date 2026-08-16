@@ -1,0 +1,8 @@
+body { line-height: 1.6; }
+p { margin: 0 0 0.8em; }
+h1, h2, h3 { line-height: 1.2; }
+h1 { text-align: center; margin: 1.2em 0 0.7em; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #999; padding: 0.35em 0.5em; vertical-align: top; }
+pre { white-space: pre-wrap; padding: 0.7em; }

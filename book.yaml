@@ -1,0 +1,47 @@
+title: "Från kod till körbar tjänst"
+subtitle: "PWA med React och TypeScript, Quarkus, PostgreSQL och Docker"
+author: "Erland Lindmark"
+language: "sv"
+book_kind: "factbook"
+book_type: "subject_overview"
+difficulty: "experienced"
+audience: "Erfarna utvecklare med god förståelse för TypeScript, React, Java och JPA som vill sätta samman en komplett, portabel webbtjänst med Quarkus, PostgreSQL, Flyway, Nginx och Docker."
+edition: "1"
+version: "0.1"
+date: "2026-08-16"
+rights: "Alla rättigheter reserverade"
+publisher: ""
+cover_image: ""
+identifier: ""
+subject: "Utveckling och leverans av containeriserade webbtjänster"
+description: "En teknisk faktabok om hur en PWA-baserad frontend i React och TypeScript kopplas till en Quarkus-backend med Java, JPA, Flyway och PostgreSQL, serveras via Nginx och levereras reproducerbart med Docker Compose."
+project_slug: "fran-kod-till-korbar-tjanst"
+chapters:
+  - chapters/00-inledning.md
+  - chapters/01-fran-kod-till-korbar-tjanst.md
+  - chapters/02-tjanstens-arkitektur.md
+  - chapters/03-projektstruktur-och-utvecklingsmiljo.md
+  - chapters/04-pwa-som-frontendarkitektur.md
+  - chapters/05-frontend-med-react-och-typescript.md
+  - chapters/06-backend-med-quarkus.md
+  - chapters/07-persistens-med-jpa.md
+  - chapters/08-postgresql-som-databas.md
+  - chapters/09-databasschemat-som-kod-med-flyway.md
+  - chapters/10-fran-frontend-till-databas-och-tillbaka.md
+  - chapters/11-konfiguration-och-sakerhet.md
+  - chapters/12-testning-av-den-kompletta-tjansten.md
+  - chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md
+  - chapters/14-den-kompletta-tjansten-med-docker-compose.md
+  - chapters/15-fran-lokal-korning-till-driftbar-tjanst.md
+  - chapters/16-en-reproducerbar-leverans.md
+  - chapters/17-arkitekturen-i-backspegeln.md
+  - chapters/kallforteckning.md
+exports:
+  epub:
+    enabled: true
+    include_text_toc: false
+    toc_depth: 1
+  pdf:
+    enabled: true
+    include_toc_before_introduction: true
+    toc_depth: 3
