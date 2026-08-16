@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r2.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r10.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,15 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "project-index.md"
+      ".github/workflows/04-test-reference-implementation.yml"
     ],
-    "operation": "Synkroniserade projektindex med initierat project-id och leveransrevision",
-    "source_revision": 1
+    "operation": "Fix smoke test priority value to match TaskBoard API enum",
+    "source_revision": 9
   },
-  "parent_revision": 1,
+  "parent_revision": 9,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 2,
+  "revision": 10,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -49,6 +49,10 @@
     ".github/workflows/03-release.yml": {
       "bytes": 1621,
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
+    },
+    ".github/workflows/04-test-reference-implementation.yml": {
+      "bytes": 5176,
+      "sha256": "4aa75ab89b8b25faaba8f3d93da38b28980a3519cb9e178ad96e6ac40fb8f82c"
     },
     "README.md": {
       "bytes": 1160,
@@ -155,28 +159,160 @@
       "sha256": "84280ff1d5ca1f3743a8103d6e3342030e7055293ef947c7b2d07002287a7957"
     },
     "code/README.md": {
-      "bytes": 657,
-      "sha256": "edcdd03e7b9853fa3a4078adf525804cd09a91c65ae58bf9791d3a18ded25687"
+      "bytes": 524,
+      "sha256": "cda28086d4c200d72d820401adc372008c601bb646926e0a7523a918d8c40b41"
+    },
+    "code/taskboard/.env.example": {
+      "bytes": 104,
+      "sha256": "df27997e7d8b235f958ab13584d9c8263ed1647a1d697ae2568056b206c6c01e"
+    },
+    "code/taskboard/.gitignore": {
+      "bytes": 59,
+      "sha256": "5eea3bc53a4d06a345fd6e663581d53cfae5bea348029a91962388f03124d52a"
+    },
+    "code/taskboard/README.md": {
+      "bytes": 2079,
+      "sha256": "cd90c9aa3964d4bd89f32a95df5145ebfceeb5f223f532f90c79415192a4d337"
+    },
+    "code/taskboard/STACK-VERSIONS.md": {
+      "bytes": 1225,
+      "sha256": "6ba659d707abcca58a22e9f1dfad597c7e11dfba79881eb8219c6ad3a9616ffd"
+    },
+    "code/taskboard/backend/.dockerignore": {
+      "bytes": 12,
+      "sha256": "3dc85d1be4945d3a8a3d7bde3023c41e45b606931fa2111f86b97082965bf41f"
+    },
+    "code/taskboard/backend/Dockerfile": {
+      "bytes": 526,
+      "sha256": "970ac96781debb1613faecba73671630408dd74c1f3ed3cd1512207ac718ad3b"
+    },
+    "code/taskboard/backend/pom.xml": {
+      "bytes": 3046,
+      "sha256": "30896187e44821a032c3985f8fb9015147da55e2e68f3d68bb00891ccc9b4185"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskDtos.java": {
+      "bytes": 1205,
+      "sha256": "6718c90aae242926db56d838b36270e0b717c1e700387381970cf224a6b98978"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskEntity.java": {
+      "bytes": 1284,
+      "sha256": "c3ad5ed85dc08936d64d3d65ad3da9b89fdcc0bbcd3c3315666daa3bd322dbf3"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskPriority.java": {
+      "bytes": 94,
+      "sha256": "a6254829af2820cfcf0a78261b0cdcda3bde3e5a1ace1b3e0ca6c4cb7361a241"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskRepository.java": {
+      "bytes": 1226,
+      "sha256": "84ea915405b5ce3e036ba39300f47537ab0749affed8a9c79ce1d643a6e1a245"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskResource.java": {
+      "bytes": 1689,
+      "sha256": "0f903793e73e2a08fd93eb2a44c2c185f8e20156c2ccc6b396d3ebaf5b3e9552"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskService.java": {
+      "bytes": 2369,
+      "sha256": "9f01706d130a191e1840d1d6949ff031b2203628fa248e3e80da45d37aa2a8f7"
+    },
+    "code/taskboard/backend/src/main/java/se/erland/taskboard/task/TaskStatus.java": {
+      "bytes": 98,
+      "sha256": "b1c08e0a70cd860947f7739a81b1f55feb97a74ce0a6f8b78f43aca253266aea"
+    },
+    "code/taskboard/backend/src/main/resources/application.properties": {
+      "bytes": 197,
+      "sha256": "1059fcf2fd0243a740a09d8abd0426411def80aa7ec9cc4bc954ac1e04f1bea6"
+    },
+    "code/taskboard/backend/src/main/resources/db/migration/V1__create_task.sql": {
+      "bytes": 493,
+      "sha256": "7329c4346a31e45e83df11a47cefea7e82a403dc8468007361bba395504c6e63"
+    },
+    "code/taskboard/docker-compose.yml": {
+      "bytes": 1226,
+      "sha256": "8993e8a596d3c7702bc642270d42b4b858717510db81b2ce5f6ed664737b6463"
+    },
+    "code/taskboard/frontend/.dockerignore": {
+      "bytes": 23,
+      "sha256": "5985ba75c332d6ce36a2033c285af89089cab26078cbc83d6c903103ed61ecb0"
+    },
+    "code/taskboard/frontend/Dockerfile": {
+      "bytes": 359,
+      "sha256": "259b09c383ea9fb37f2a304ddc1e9ba4a3ba514ce0326dd1f15a15317722ec7f"
+    },
+    "code/taskboard/frontend/index.html": {
+      "bytes": 346,
+      "sha256": "c41e372c70094b6d86594b215d4d5ba254df105ef114f85c429fadbbec384a2c"
+    },
+    "code/taskboard/frontend/nginx.conf": {
+      "bytes": 672,
+      "sha256": "dfc77ef7642c481541eaa298c8f3b5c8c7f45b890e1ba5f64c56fd1bcda1771f"
+    },
+    "code/taskboard/frontend/package.json": {
+      "bytes": 486,
+      "sha256": "f70eda91370b60688032156251e777a80b700bd4d5ad58984a9c245314387256"
+    },
+    "code/taskboard/frontend/public/icon.svg": {
+      "bytes": 467,
+      "sha256": "128bcf4c143e98f60e64e64d0195b932412e2be3bdfc754571c4d20650b86607"
+    },
+    "code/taskboard/frontend/src/App.tsx": {
+      "bytes": 4370,
+      "sha256": "1943ead5f21bc4444bede2f21ea609b317b5b551eab43c5ce6efd4541b659359"
+    },
+    "code/taskboard/frontend/src/api.ts": {
+      "bytes": 1321,
+      "sha256": "722115fa4d1b1407bb0d8f8a460bb2d5ad83087cf8f3506633e114c39c4daeb6"
+    },
+    "code/taskboard/frontend/src/main.tsx": {
+      "bytes": 313,
+      "sha256": "d37d40727bcceafcf14db84b2862aad414ed5c2b1be9cbdfafc34f41b559669d"
+    },
+    "code/taskboard/frontend/src/styles.css": {
+      "bytes": 1853,
+      "sha256": "c34f1d1f55c119b2d4ee18c1dea9c9d0e7f5c59ccec3bbdcb70706f813ffc42e"
+    },
+    "code/taskboard/frontend/src/vite-env.d.ts": {
+      "bytes": 87,
+      "sha256": "63402eb45931ed925cec4f2a9bc8bda714753d3fb9aef48bb09ea05493fe8fa8"
+    },
+    "code/taskboard/frontend/tsconfig.app.json": {
+      "bytes": 507,
+      "sha256": "a7266d1c85fa6947c70073256d9a73e4c459e97b0b4ef24b5c48dcab498ef4c5"
+    },
+    "code/taskboard/frontend/tsconfig.json": {
+      "bytes": 119,
+      "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808"
+    },
+    "code/taskboard/frontend/tsconfig.node.json": {
+      "bytes": 171,
+      "sha256": "f08d33457fe4c71b2cd0aac534bf59acd68c769447eb175ef3d471ae12de1a14"
+    },
+    "code/taskboard/frontend/vite.config.ts": {
+      "bytes": 803,
+      "sha256": "0237771c37ec5268f7c49765907cc9b3824ea10b03ba7a3ceb70b08d9f9c77b3"
+    },
+    "code/taskboard/validate_reference.py": {
+      "bytes": 3134,
+      "sha256": "f4a21f77f9bd7ddf6e8cd934ad16ecf7a9139b29cac32598fd655b99d4a022e6"
     },
     "docs/bokspecifikation.md": {
-      "bytes": 5990,
-      "sha256": "88a1e641297036b47f159f2531270ed3f3d934cb741cd3ff1039ca166874c4f7"
+      "bytes": 5989,
+      "sha256": "5cdf7008130821b431a3cd0d3cf48621f564fece2a3670509caf7933e1818a95"
     },
     "docs/export-guide.md": {
       "bytes": 563,
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 2450,
-      "sha256": "e38c3e7069f3171ab567e3a20a8a3fee58cf8516aa119dee634f8b8a5ec098b5"
+      "bytes": 3596,
+      "sha256": "d7e7e4fb765cbb958f0673edca0e33140dc858561a7ccbe2b71f2d08aa68b75f"
     },
     "docs/illustration-plan.md": {
       "bytes": 222,
       "sha256": "b2807af7c1743f908201740e389cab2446050ddff022f76e04552209b1265924"
     },
     "docs/innehalls-canon.md": {
-      "bytes": 2836,
-      "sha256": "9b4cb5df8b5cf8dccf4cc0bf390755117cfe8437903fd2f14f37ad74a5692e25"
+      "bytes": 3036,
+      "sha256": "50fc4c93cf3d5de109c1eb19144bc9956357816b38e9ab69f00aac140f9ba959"
     },
     "docs/kallpolicy.md": {
       "bytes": 2134,
@@ -187,8 +323,8 @@
       "sha256": "74bfb197a1ffa103fc664c2ec6a30238b8ea1eafc38ba1fa7ddb61b69e3b860f"
     },
     "docs/projektstatus.md": {
-      "bytes": 2423,
-      "sha256": "909961ce618b9110a4742c676eb121d4bba87f77fc0b0ede75338f2d2762edad"
+      "bytes": 3601,
+      "sha256": "e6fb4eb30d1fafcc8822c110cd267c57cc5b491f024f823656eecf3df2d3c144"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -215,8 +351,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 863,
-      "sha256": "f9e310d16bbb8576a2c2f16efcf7f6450c073dac510dc2fe7643ba723174f1f7"
+      "bytes": 1247,
+      "sha256": "abd45176841926886074973bafeba6de562c21b65fbb29946510edc1e941db76"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -239,8 +375,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 2321,
-      "sha256": "645628964e7d1940938db9a57c5e15a77071e345674c5f76d25ba5cfa3411065"
+      "bytes": 5797,
+      "sha256": "b81fd9879f943c70d80ed420ae8c388eee18e8cf46219b6313955e2c1205c61e"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -263,5 +399,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T17:21:11Z"
+  "updated_at": "2026-08-16T19:19:32Z"
 }
