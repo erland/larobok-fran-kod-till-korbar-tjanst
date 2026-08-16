@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r4.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r5.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,17 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/04-test-reference-implementation.yml",
-      "code/taskboard/README.md",
-      "docs/projektstatus.md"
+      "code/taskboard/frontend/tsconfig.node.json"
     ],
-    "operation": "Lade till GitHub Actions-verifiering för TaskBoard-referensimplementationen",
-    "source_revision": 3
+    "operation": "Rättade TypeScript-konfiguration efter misslyckat TaskBoard CI-bygge",
+    "source_revision": 4
   },
-  "parent_revision": 3,
+  "parent_revision": 4,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 4,
+  "revision": 5,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -285,8 +283,8 @@
       "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808"
     },
     "code/taskboard/frontend/tsconfig.node.json": {
-      "bytes": 211,
-      "sha256": "4d899360a26430461f39fa0b9297a566eab26e2fc53c28c6eb34d3c5f344d9c6"
+      "bytes": 171,
+      "sha256": "f08d33457fe4c71b2cd0aac534bf59acd68c769447eb175ef3d471ae12de1a14"
     },
     "code/taskboard/frontend/vite.config.ts": {
       "bytes": 803,
@@ -377,8 +375,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 4527,
-      "sha256": "96b676161164def55b4e370dae0508ee64f88a373f8f9653849596ac48421f0f"
+      "bytes": 4714,
+      "sha256": "61e618fe5cc9e858e966418d85abc2b5af3a23e0fc5869aba4f93c588d99dba3"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -401,5 +399,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T17:43:54Z"
+  "updated_at": "2026-08-16T17:49:56Z"
 }
