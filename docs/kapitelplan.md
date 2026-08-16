@@ -50,7 +50,7 @@
 - Nivå/faktadjup: arkitektur och praktisk setup, inte webbutvecklingsgrundkurs.
 - Nya huvudbegrepp/faktaområden: web app manifest, service worker, installation, cache, uppdateringar, offline-strategi.
 - Exempel/case: TaskBoard installeras som PWA och får en medvetet begränsad offline-modell.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: När blir en React-app en PWA, och vilka driftkonsekvenser följer med det?
 - Centrala fakta: manifest, service worker, HTTPS-krav i riktiga miljöer, cachekontroll.
 - Fördjupning/faktaruta: varför service worker och `index.html` kräver genomtänkta cache headers.

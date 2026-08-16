@@ -22,6 +22,22 @@ Quarkus. *Dev Services for Databases*. https://quarkus.io/guides/databases-dev-s
 
 Vite. *Server Options*. https://vite.dev/config/server-options.html (kontrollerad 2026-08-16).
 
+## MDN Web Docs
+
+MDN Web Docs. *Making PWAs installable*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable (kontrollerad 2026-08-16).
+
+MDN Web Docs. *Web application manifest*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest (kontrollerad 2026-08-16).
+
+MDN Web Docs. *start_url – Web app manifest*. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/start_url (kontrollerad 2026-08-16).
+
+## Vite PWA
+
+Vite PWA. *Getting Started*. https://vite-pwa-org.netlify.app/guide/ (kontrollerad 2026-08-16).
+
+Vite PWA. *Automatic reload*. https://vite-pwa-org.netlify.app/guide/auto-update (kontrollerad 2026-08-16).
+
+Vite PWA. *Service Worker Precache*. https://vite-pwa-org.netlify.app/guide/service-worker-precache (kontrollerad 2026-08-16).
+
 ## Apache Maven
 
 Apache Maven. *Introduction to the Standard Directory Layout*. https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html (kontrollerad 2026-08-16).

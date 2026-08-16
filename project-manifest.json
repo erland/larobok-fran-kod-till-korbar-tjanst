@@ -1,12 +1,12 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r14.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r15.zip",
   "chapters": {
     "count": 17,
     "hashes": {
       "chapters/01-fran-kod-till-korbar-tjanst.md": "e0c90b9cf29ff588bb72b618cf8950c9e8c39358ad3179bf5200b2d410a68fce",
       "chapters/02-tjanstens-arkitektur.md": "4c5a9b5cba46f6c1eba544581b88b04baea91d6448128a97f9fb2a1d8ea926d7",
       "chapters/03-projektstruktur-och-utvecklingsmiljo.md": "a91549745ea8d818bb47f24064f6019ba60233d333246fee9378f1988dfc6f4b",
-      "chapters/04-pwa-som-frontendarkitektur.md": "9a1316fa0bae290f74863225a3c2dad36e8ada317030fb055bf223c31a18a637",
+      "chapters/04-pwa-som-frontendarkitektur.md": "9ca62b956ec724def11ece2aa20cdf914739a12fe6807d85315f18ecec1d767f",
       "chapters/05-frontend-med-react-och-typescript.md": "9328655959ff74dff636f8ba1be70810c07f9265402f5f78f6dbe3ca4fe38bb8",
       "chapters/06-backend-med-quarkus.md": "6e36f80500f7df4af07d519924945a43968018bd2c00aec46b0d6af9bddf34f1",
       "chapters/07-persistens-med-jpa.md": "47bc80982784b12ec44dea1cddb0d1b64da73b5976dd32129ac6222a46e68e1d",
@@ -26,16 +26,20 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "chapters/03-projektstruktur-och-utvecklingsmiljo.md",
+      "chapters/04-pwa-som-frontendarkitektur.md",
+      "chapters/kallforteckning.md",
+      "docs/faktakontroll.md",
+      "docs/kapitelplan.md",
+      "docs/projektstatus.md",
       "project-index.md"
     ],
-    "operation": "Justera shell-exempel i kapitel 3 för projektets Markdown-validator och synkronisera leveransrevision.",
-    "source_revision": 13
+    "operation": "Skriv kapitel 4 om PWA som frontendarkitektur utifrån faktisk TaskBoard-konfiguration och uppdatera kapitelplan, projektstatus, faktakontroll, källor och projektindex.",
+    "source_revision": 14
   },
-  "parent_revision": 13,
+  "parent_revision": 14,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 14,
+  "revision": 15,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -92,8 +96,8 @@
       "sha256": "a91549745ea8d818bb47f24064f6019ba60233d333246fee9378f1988dfc6f4b"
     },
     "chapters/04-pwa-som-frontendarkitektur.md": {
-      "bytes": 32,
-      "sha256": "9a1316fa0bae290f74863225a3c2dad36e8ada317030fb055bf223c31a18a637"
+      "bytes": 16604,
+      "sha256": "9ca62b956ec724def11ece2aa20cdf914739a12fe6807d85315f18ecec1d767f"
     },
     "chapters/05-frontend-med-react-och-typescript.md": {
       "bytes": 39,
@@ -148,8 +152,8 @@
       "sha256": "5235fc587339ebcb9113f122ed403a18b0ddea01f28557c54515d95a36e12933"
     },
     "chapters/kallforteckning.md": {
-      "bytes": 1056,
-      "sha256": "92a5990d930626873a5e13a1ba92aed11e8c29e8426f2103fe572b4965cae5bc"
+      "bytes": 1902,
+      "sha256": "1547fe6773f317c0bf8ba581c5b82f1823b9331654d37a51d4e5b80c938e1c68"
     },
     "chapters/kapitelmall-faktabok.md": {
       "bytes": 337,
@@ -304,8 +308,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 4775,
-      "sha256": "79f0445fd9794a8030864755b3c468835f7b162f99ad2a9526575e9ef6705156"
+      "bytes": 5080,
+      "sha256": "f6f4ed79c8917822cc2c9204b7ed0fe69abedd87d9012fb779431a6a4992b2d7"
     },
     "docs/illustration-plan.md": {
       "bytes": 222,
@@ -320,12 +324,12 @@
       "sha256": "841494ab832d37a294b5e0a042729a3514331ad2e58b87f0337161f513895c18"
     },
     "docs/kapitelplan.md": {
-      "bytes": 15201,
-      "sha256": "7a01c2a1e11d8b69f58fa9e47ac30db30b6e42190557b906d8348127130f8d21"
+      "bytes": 15222,
+      "sha256": "b4177fe62504ada3b85acc47f20daaed960c747cabd0a5383a726a193dea5fd3"
     },
     "docs/projektstatus.md": {
-      "bytes": 3866,
-      "sha256": "2afdd2bd039366bf71ee25447a57d7c04a92c251844b336695d89d6a410ab8f2"
+      "bytes": 3953,
+      "sha256": "04bcf1be6b5439f7b7035c8a26f6068bd6cb1ea7474ae5300658c8911d5bf0b0"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -353,7 +357,7 @@
     },
     "project-index.md": {
       "bytes": 1441,
-      "sha256": "31a362ad638aa16db64195d6dc3a0c814ed2356333c2d0fd0b64e6148ea6df5e"
+      "sha256": "80ed6b01693cf76b9cde714a631c52d080e0ed6f667310741cbe87fbe5927f6e"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -376,8 +380,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 7140,
-      "sha256": "377130d8392fd63c80e3408a68cf3652fd8bc5dfc7875276373fe352b3cddefc"
+      "bytes": 7552,
+      "sha256": "3959c9b1a96d206fe7d2c9362da6b2bd06ee8512504f7693581aef50dbddb3f9"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -400,5 +404,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T19:48:33Z"
+  "updated_at": "2026-08-16T19:52:31Z"
 }
