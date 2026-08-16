@@ -9,13 +9,13 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget numrerat kapitel är ännu skrivet.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen och kapitel 1 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
 |---|---|---|---|
-| 0 | Inledning | Planerad | Stomme skapad |
-| 1 | Från kod till körbar tjänst | Planerad | Stomme skapad |
+| 0 | Inledning | Skriven | Första manusversion, grundad i verifierad referensimplementation |
+| 1 | Från kod till körbar tjänst | Skriven | Första manusversion, grundad i verifierad referensimplementation |
 | 2 | Tjänstens arkitektur | Planerad | Stomme skapad |
 | 3 | Projektstruktur och utvecklingsmiljö | Planerad | Stomme skapad |
 | 4 | PWA som frontendarkitektur | Planerad | Stomme skapad |
@@ -36,7 +36,7 @@ Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget n
 
 ## Referensimplementation
 - Plats: `code/taskboard/`
-- Status: initierad som komplett körbar kedja.
+- Status: komplett körbar kedja, end-to-end-verifierad i GitHub Actions.
 - Frontend: React 19.2.7, TypeScript 6.0.3, Vite 8.2.1 och vite-plugin-pwa 1.3.0.
 - Runtime frontend: Nginx 1.30.4 stable, som serverar PWA:n och proxar `/api`.
 - Backend: Java 21 och Quarkus 3.33.3.1 LTS med REST/Jackson, Hibernate ORM/JPA, PostgreSQL JDBC, Flyway, Bean Validation och SmallRye Health.
@@ -44,7 +44,7 @@ Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget n
 - Leverans: Docker Compose med persistent PostgreSQL-volume och health-baserad startordning.
 - Lokal utveckling: Vite-proxy till Quarkus; Quarkus Dev Services kan tillhandahålla PostgreSQL.
 - GitHub Actions: `04-test-reference-implementation.yml` bygger frontend/backend, kör Maven-testfasen, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
-- Lokal verifieringsbegränsning: projektmiljön där revisionen skapades saknar Docker och extern npm/Maven-åtkomst; den nya GitHub Actionen är därför den kanoniska fullständiga runtime-verifieringen.
+- Full runtime-verifiering: GitHub Actions bygger images, startar Compose-stacken och smoke-testar Nginx → Quarkus → PostgreSQL. Denna workflow är projektets kanoniska end-to-end-verifiering.
 
 ## Faktakontroll
 - Initiala versionsval och huvudkonfiguration för referensimplementationen verifierade 2026-08-16 mot officiella primärkällor.
@@ -57,5 +57,5 @@ Planering slutförd. Körbar TaskBoard-referensimplementation initierad. Inget n
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv `chapters/00-inledning.md` och kapitel 1 med den faktiska TaskBoard-referensimplementationen som grund.
-- Därefter kan kapitel 2–3 etablera arkitekturbilden och projektstrukturen innan teknikdelarna skrivs.
+- Skriv kapitel 2–3 för att etablera arkitekturbilden och projektstrukturen innan teknikdelarna skrivs.
+- Vid nästa manuspass kontrolleras även att kapitel 1 inte föregriper detaljförklaringar som hör hemma i kapitel 2–3.

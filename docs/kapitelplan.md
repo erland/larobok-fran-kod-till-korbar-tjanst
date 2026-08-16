@@ -6,7 +6,7 @@
 
 ## Inledning
 - Syfte: Presentera bokens mål, målgrupp, förkunskaper, referenstjänsten TaskBoard, den valda teknikstacken och hur boken ska användas.
-- Status: planerad
+- Status: skriven, första manusversion
 
 ## Del 1: Tjänsten och arkitekturen
 
@@ -15,7 +15,7 @@
 - Nivå/faktadjup: erfaren utvecklare; översikt med tydliga tekniska gränser.
 - Nya huvudbegrepp/faktaområden: tjänst, frontend, backend, persistence, reverse proxy, containerisering, reproducerbar leverans.
 - Exempel/case: TaskBoard introduceras som genomgående referenstjänst.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad krävs för att gå från två kodbaser till en tjänst någon annan faktiskt kan starta och drifta?
 - Centrala fakta: stackens komponenter och deras övergripande ansvar.
 - Fördjupning/faktaruta: utvecklingsmiljö kontra körmiljö.

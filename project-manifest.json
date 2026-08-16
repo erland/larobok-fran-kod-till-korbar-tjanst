@@ -1,9 +1,9 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r10.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r11.zip",
   "chapters": {
     "count": 17,
     "hashes": {
-      "chapters/01-fran-kod-till-korbar-tjanst.md": "57ef11d0cc7a94c44e6219323585ca5b04b280bbb5abf719169d050f2b32e53f",
+      "chapters/01-fran-kod-till-korbar-tjanst.md": "e0c90b9cf29ff588bb72b618cf8950c9e8c39358ad3179bf5200b2d410a68fce",
       "chapters/02-tjanstens-arkitektur.md": "3240e3e45518acba39b86923c3067b3c96342fe78a8da015e6a0d6fde5543595",
       "chapters/03-projektstruktur-och-utvecklingsmiljo.md": "b39a448ca7b7f255f2ae906ba5bdcd4d0322c106a1d69d71bbe6f96c79bd828d",
       "chapters/04-pwa-som-frontendarkitektur.md": "9a1316fa0bae290f74863225a3c2dad36e8ada317030fb055bf223c31a18a637",
@@ -26,15 +26,20 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/04-test-reference-implementation.yml"
+      "chapters/00-inledning.md",
+      "chapters/01-fran-kod-till-korbar-tjanst.md",
+      "docs/faktakontroll.md",
+      "docs/kapitelplan.md",
+      "docs/projektstatus.md",
+      "project-index.md"
     ],
-    "operation": "Fix smoke test priority value to match TaskBoard API enum",
-    "source_revision": 9
+    "operation": "Skrev inledningen och kapitel 1 med den verifierade TaskBoard-referensimplementationen som grund",
+    "source_revision": 10
   },
-  "parent_revision": 9,
+  "parent_revision": 10,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 10,
+  "revision": 11,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -75,12 +80,12 @@
       "sha256": "e250e8d9e2384da25e9b9ceb6305b307efa02bb9376f4333941370dc463e3dfb"
     },
     "chapters/00-inledning.md": {
-      "bytes": 12,
-      "sha256": "9d4b673e7e803f3406d3f97508f48cb9e2b7c014cedf059c95c85f99d314159e"
+      "bytes": 7694,
+      "sha256": "401c4b9d4523dc02141fe59883166718a5c47836118e18ab323d2c10b3b53952"
     },
     "chapters/01-fran-kod-till-korbar-tjanst.md": {
-      "bytes": 36,
-      "sha256": "57ef11d0cc7a94c44e6219323585ca5b04b280bbb5abf719169d050f2b32e53f"
+      "bytes": 14963,
+      "sha256": "e0c90b9cf29ff588bb72b618cf8950c9e8c39358ad3179bf5200b2d410a68fce"
     },
     "chapters/02-tjanstens-arkitektur.md": {
       "bytes": 27,
@@ -303,8 +308,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 3596,
-      "sha256": "d7e7e4fb765cbb958f0673edca0e33140dc858561a7ccbe2b71f2d08aa68b75f"
+      "bytes": 4043,
+      "sha256": "e4e35d00c5e58ae21f7f5a9c4fc20bc6106991895964293a4b7638bb2edd5bff"
     },
     "docs/illustration-plan.md": {
       "bytes": 222,
@@ -319,12 +324,12 @@
       "sha256": "324ef0b9c95866cbe5beb81945c695f93c22b02fb523d94c53dfc2828beb3ebc"
     },
     "docs/kapitelplan.md": {
-      "bytes": 15061,
-      "sha256": "74bfb197a1ffa103fc664c2ec6a30238b8ea1eafc38ba1fa7ddb61b69e3b860f"
+      "bytes": 15103,
+      "sha256": "4a4f63e2856753ca5a4c45eb0c807a943e4f918409bd52dc504fc33142001b9c"
     },
     "docs/projektstatus.md": {
-      "bytes": 3601,
-      "sha256": "e6fb4eb30d1fafcc8822c110cd267c57cc5b491f024f823656eecf3df2d3c144"
+      "bytes": 3792,
+      "sha256": "0f48cb0572e1d8252e355b490691d512b2f7278e43e83f03bb07ba85974e5723"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -351,8 +356,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 1247,
-      "sha256": "abd45176841926886074973bafeba6de562c21b65fbb29946510edc1e941db76"
+      "bytes": 1341,
+      "sha256": "9322fb16b8fb4843ba910f82587f2c4052dca8cb7010043b235029fa9fc76d75"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -375,8 +380,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 5797,
-      "sha256": "b81fd9879f943c70d80ed420ae8c388eee18e8cf46219b6313955e2c1205c61e"
+      "bytes": 6134,
+      "sha256": "19d820e88553eeb6961b1499ccc539281c5fba46a7d8a7c62151956e77e02bd3"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -399,5 +404,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-16T19:19:32Z"
+  "updated_at": "2026-08-16T19:38:37Z"
 }
