@@ -26,6 +26,10 @@ Quarkus. *HTTP Reference*. https://quarkus.io/guides/http-reference (kontrollera
 
 Quarkus. *Dev Services for Databases*. https://quarkus.io/guides/databases-dev-services (kontrollerad 2026-08-16).
 
+Quarkus. *Testing Your Application*. https://quarkus.io/guides/getting-started-testing (kontrollerad 2026-08-16).
+
+Quarkus. *Dev Services Overview*. https://quarkus.io/guides/dev-services (kontrollerad 2026-08-16).
+
 ## Vite
 
 Vite. *Server Options*. https://vite.dev/config/server-options.html (kontrollerad 2026-08-16).
@@ -126,3 +130,12 @@ Redgate. *Repair*. https://documentation.red-gate.com/flyway/reference/commands/
 Redgate. *Baselines*. https://documentation.red-gate.com/flyway/flyway-concepts/baselines (kontrollerad 2026-08-16).
 
 Redgate. *Baseline migrations*. https://documentation.red-gate.com/flyway/flyway-concepts/migrations/baseline-migrations (kontrollerad 2026-08-16).
+
+
+## Vitest
+
+Vitest. *Getting Started*. https://vitest.dev/guide/ (kontrollerad 2026-08-16).
+
+## Testing Library
+
+Testing Library. *React Testing Library*. https://testing-library.com/docs/react-testing-library/intro/ (kontrollerad 2026-08-16).

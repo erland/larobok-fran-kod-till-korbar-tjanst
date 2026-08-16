@@ -142,9 +142,9 @@
 ### Kapitel 12: Testning av den kompletta tjänsten
 - Syfte: Ge en rimlig teststrategi över frontend, backend, persistence och integration.
 - Nivå/faktadjup: principer och representativa körbara exempel.
-- Nya huvudbegrepp/faktaområden: unit, component, API, integration, testdatabas, containerbaserade tester vid behov.
-- Exempel/case: TaskBoard CRUD och statusändring.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: statisk verifiering, unit, component, API, integration, testdatabas, Dev Services, healthchecks och full-stack smoke test.
+- Exempel/case: TaskBoards faktiska GitHub Actions-workflow, create/read-smoke-testet och en rekommenderad CRUD-utbyggnad.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vilka fel kan respektive testnivå hitta, och vilka tester bör få använda en riktig PostgreSQL-instans?
 - Centrala fakta: testpyramid/-portfölj, isolering, databasmigrationer i test.
 - Fördjupning/faktaruta: testmiljön ska likna produktionsförutsättningarna där det faktiskt spelar roll.

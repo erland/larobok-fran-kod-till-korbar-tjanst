@@ -5,14 +5,14 @@
 - book_kind: factbook
 - book_type: subject_overview
 - Project-id: bda7fd5f-8515-4a5a-b548-a42496aa66aa
-- Revision: 22
-- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r22.zip`
+- Revision: 23
+- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r23.zip`
 
 ## Kapitel
 - Inledning: skriven, första manusversion
 - Planerade numrerade kapitel: 17
-- Skapade kapitel med brödtext: kapitel 1–11
-- Källförteckning: kompletterad med primärkällor för kapitel 2–11; kapitel 10 bygger främst på verifierad referenskod och end-to-end-test.
+- Skapade kapitel med brödtext: kapitel 1–12
+- Källförteckning: kompletterad med primärkällor för kapitel 2–12; kapitel 10 och 12 bygger också på verifierad referenskod och end-to-end-test.
 
 ## Referensimplementation
 - Case: TaskBoard
@@ -25,7 +25,7 @@
 - Policy: `docs/kallpolicy.md`
 - Register: `docs/faktakontroll.md`
 - Versionsval för referensimplementationen: fastställda och primärkällekontrollerade 2026-08-16.
-- Öppna punkter: utökad teststack och digest-policy. Synliga källhänvisningar använder nu kort parentetisk form med fullständig post i källförteckningen.
+- Öppna punkter: eventuell implementation av den rekommenderade utökade teststacken samt digest-policy. Synliga källhänvisningar använder nu kort parentetisk form med fullständig post i källförteckningen.
 
 ## Export
 - EPUB: ej skapad
