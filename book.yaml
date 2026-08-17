@@ -44,4 +44,4 @@ exports:
   pdf:
     enabled: true
     include_toc_before_introduction: true
-    toc_depth: 3
+    toc_depth: 1

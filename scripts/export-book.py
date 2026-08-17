@@ -62,11 +62,17 @@ def validate_markdown(paths):
     if errors: raise SystemExit('Markdown-validering misslyckades:\n- '+'\n- '.join(errors))
 def run(cmd): print('+',' '.join(map(str,cmd))); subprocess.run(cmd,cwd=ROOT,check=True)
 def find_font_dir():
-    for base in (Path('/usr/share/fonts'),Path('/usr/local/share/fonts')):
+    names=['texgyrepagella-regular.otf','texgyrepagella-bold.otf','texgyrepagella-italic.otf','texgyrepagella-bolditalic.otf']
+    for base in (Path('/usr/share/fonts'),Path('/usr/local/share/fonts'),Path('/usr/share/texmf'),Path('/usr/share/texlive')):
         if base.exists():
-            for p in base.rglob('texgyrepagella-regular.otf'):
-                names=['texgyrepagella-regular.otf','texgyrepagella-bold.otf','texgyrepagella-italic.otf','texgyrepagella-bolditalic.otf']
+            for p in base.rglob(names[0]):
                 if all((p.parent/n).is_file() for n in names): return p.parent
+    kpsewhich=shutil.which('kpsewhich')
+    if kpsewhich:
+        found=subprocess.run([kpsewhich,names[0]],capture_output=True,text=True,check=False).stdout.strip()
+        if found:
+            parent=Path(found).resolve().parent
+            if all((parent/n).is_file() for n in names): return parent
     return None
 def main()->int:
     ap=argparse.ArgumentParser(); ap.add_argument('--format',choices=['epub','pdf','all'],default='all'); ap.add_argument('--output-dir',default=str(ROOT/'exports')); args=ap.parse_args()
