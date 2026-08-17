@@ -7,9 +7,14 @@ $else$
 % Använd XeLaTeX/fontspec-standardfont om Pagella-OTF inte hittas.
 $endif$
 \usepackage[paperwidth=170mm,paperheight=240mm,inner=20mm,outer=18mm,top=20mm,bottom=22mm,headsep=5mm,footskip=9mm]{geometry}
-\usepackage{graphicx}\usepackage{microtype}\usepackage{setspace}\usepackage{parskip}\usepackage{fancyhdr}\usepackage[hidelinks]{hyperref}\usepackage{bookmark}\usepackage{tocloft}\usepackage{ragged2e}\usepackage{xcolor}\usepackage{longtable}\usepackage{booktabs}\usepackage{array}\usepackage{calc}\usepackage{etoolbox}
+\usepackage{graphicx}\usepackage{microtype}\usepackage{setspace}\usepackage{parskip}\usepackage{fancyhdr}\usepackage[hidelinks]{hyperref}\usepackage{bookmark}\usepackage{tocloft}\usepackage{ragged2e}\usepackage{xcolor}\usepackage{longtable}\usepackage{booktabs}\usepackage{array}\usepackage{calc}\usepackage{etoolbox}\usepackage{fvextra}\usepackage{mdframed}
 $if(highlighting-macros)$
 $highlighting-macros$
+% Kodblock i PDF: bryt långa rader och ge blocken en diskret tryckvänlig yta.
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines=true,breakanywhere=true,fontsize=\small}
+\renewenvironment{Shaded}{%
+  \begin{mdframed}[backgroundcolor=black!3,linecolor=black!18,linewidth=0.4pt,roundcorner=1.5pt,innerleftmargin=7pt,innerrightmargin=7pt,innertopmargin=6pt,innerbottommargin=6pt,skipabove=0.8em,skipbelow=0.8em]%
+}{\end{mdframed}}
 $endif$
 \setstretch{1.24}\setlength{\parindent}{0pt}\setlength{\parskip}{0.5em plus 0.08em minus 0.04em}\setlength{\emergencystretch}{1.5em}\widowpenalty=10000\clubpenalty=10000\displaywidowpenalty=10000\raggedbottom
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
