@@ -34,4 +34,4 @@
 - [x] Metadata och publiceringsdatum är uppdaterade.
 - [x] Terminologi och rubriknivåer är genomgångna.
 - [x] EPUB/PDF har byggts efter slutputsen och representativa PDF-sidor har visuellt kontrollerats.
-- [ ] Omslag är beslutat och infört om publiceringskanalen kräver det.
+- [x] Omslag är beslutat och infört i EPUB/PDF-exporten.

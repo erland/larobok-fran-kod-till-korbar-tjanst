@@ -35,4 +35,4 @@ Följande tidskänsliga principer omverifierades mot officiella primärkällor 2
 
 ## Kvar före faktisk publicering
 
-Det redaktionella och tekniska manuset samt exportkedjan är publiceringsberedda. Kvar är i första hand beslut om omslag och eventuell kanalmetadata som publisher/identifier.
+Det redaktionella och tekniska manuset samt exportkedjan är publiceringsberedda. Omslag har därefter beslutats och införts i projektet. Kvar inför faktisk kanalpublicering är främst eventuell kanalmetadata som publisher/identifier/ISBN.

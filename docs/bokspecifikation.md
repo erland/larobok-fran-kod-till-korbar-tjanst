@@ -44,7 +44,7 @@ Teknisk, saklig och förklarande. Boken ska ligga mellan arkitekturhandbok och p
 3. Hur kopplas den till resten av tjänsten?
 
 ## Omslag och illustrationer
-- Omslagsbild: öppet beslut.
+- Omslagsbild: `assets/cover/cover.jpg`, beslutad och kopplad till `book.yaml` för EPUB/PDF-export.
 - Inre illustrationer: avstängda tills de uttryckligen beställs.
 - Arkitekturdiagram kan senare skapas som tekniska figurer om användaren vill ha inre illustrationer.
 

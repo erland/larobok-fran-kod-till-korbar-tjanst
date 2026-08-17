@@ -52,10 +52,10 @@ Planering, grundmanus, teknisk helhetsrevision, slutsynk och publiceringsslutput
 - Detaljer som hör till senare kapitel ska fortfarande omverifieras nära skriv-/publiceringstillfället.
 
 ## Öppna beslut
-- Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
+- Eventuell kanalmetadata som publisher/identifier/ISBN inför faktisk publicering.
 - Ytterligare supply-chain-härdning som attestering/SBOM och explicit Maven-reproducerbarhetskontroll är valfria nästa nivåer, inte krav för bokens referensmål.
 
 ## Nästa rekommenderade steg
 - Kör projektets EPUB/PDF-preview och gör en slutlig visuell kontroll av sidbrytningar, kodblock, tabeller, titelblad och innehållsförteckning.
-- Ta fram omslag om boken ska publiceras med omslagsbild.
+- Kör slutlig EPUB/PDF-preview med det beslutade omslaget och kontrollera publiceringsfilerna visuellt.
 - Produktionsfunktioner som autentisering, TLS/trusted proxy, secrets-hantering, backup/restore och observability ska endast införas om TaskBoard ska gå från pedagogisk referens till verklig tjänst.

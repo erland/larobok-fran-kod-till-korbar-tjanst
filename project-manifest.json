@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r39.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r40.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,27 +26,23 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
+      "assets/cover/README.md",
+      "assets/cover/cover.jpg",
       "book.yaml",
-      "chapters/01-fran-kod-till-korbar-tjanst.md",
-      "chapters/03-projektstruktur-och-utvecklingsmiljo.md",
-      "chapters/05-frontend-med-react-och-typescript.md",
-      "chapters/09-databasschemat-som-kod-med-flyway.md",
-      "chapters/11-konfiguration-och-sakerhet.md",
-      "chapters/16-en-reproducerbar-leverans.md",
-      "chapters/kallforteckning.md",
-      "docs/innehalls-canon.md",
+      "docs/bokspecifikation.md",
+      "docs/illustration-plan.md",
       "docs/projektstatus.md",
       "docs/publiceringsslutputs-r39.md",
       "docs/quality-checklist.md",
       "publishing/pdf-template.tex"
     ],
-    "operation": "Slutputs inför publicering: språk, faktasynk, källor och exportpreflight",
-    "source_revision": 38
+    "operation": "Införde beslutad omslagsbild och kopplade den till EPUB/PDF-exporten utan inledande blank PDF-sida",
+    "source_revision": 39
   },
-  "parent_revision": 38,
+  "parent_revision": 39,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 39,
+  "revision": 40,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -75,8 +71,12 @@
       "sha256": "8362d2dcc44024b205555f797a128f881043492ec3d4ee3310e558f55a36b2be"
     },
     "assets/cover/README.md": {
-      "bytes": 55,
-      "sha256": "9ae0299913b2c9ecc17c81203421c3f106ff095fbdea0985f449d2fb562b7c10"
+      "bytes": 217,
+      "sha256": "d07efaca2d605e8abd7d4ae447d381a7d98a32cc046d5bab179ce7b9cc5d8052"
+    },
+    "assets/cover/cover.jpg": {
+      "bytes": 362365,
+      "sha256": "375905a7e8c03e938d8feb1fccf5891705162b6e0db7f54e33157aa9ba2782c4"
     },
     "assets/image-prompts/README.md": {
       "bytes": 71,
@@ -87,8 +87,8 @@
       "sha256": "3ca661eed049895bf1314529400eb0e2719817b82569f15b58aeb794a7966fa3"
     },
     "book.yaml": {
-      "bytes": 2033,
-      "sha256": "9f712f2cca79c75aad9d09149442184b6902f7d934c12fed819d8a8bd9a53075"
+      "bytes": 2055,
+      "sha256": "2fa60ad21c199c81a82fca1c0693e9b3bfa795a1c5e046f83042cf7d795a8d32"
     },
     "chapters/00-inledning.md": {
       "bytes": 7724,
@@ -343,8 +343,8 @@
       "sha256": "88217a4611c62e5d673737fa4648fb0f1f37ec70bb484346b73d4046c4b9ba66"
     },
     "docs/bokspecifikation.md": {
-      "bytes": 5989,
-      "sha256": "5cdf7008130821b431a3cd0d3cf48621f564fece2a3670509caf7933e1818a95"
+      "bytes": 6060,
+      "sha256": "6c99431680818ae67fe4247c05700e0e172b7c3ebd322beda24b7512cd8b5063"
     },
     "docs/export-guide.md": {
       "bytes": 563,
@@ -359,8 +359,8 @@
       "sha256": "0368b4a5413578cd964321fe101550393b7cd70950f7a075e8d02290c02fe4ee"
     },
     "docs/illustration-plan.md": {
-      "bytes": 222,
-      "sha256": "b2807af7c1743f908201740e389cab2446050ddff022f76e04552209b1265924"
+      "bytes": 297,
+      "sha256": "db6a37c0b1fb2453e57f65324165fbae1b30465fab82f500d01bad260f636252"
     },
     "docs/innehalls-canon.md": {
       "bytes": 3194,
@@ -375,16 +375,16 @@
       "sha256": "479f36bcd083f3402dc62dc837b68a5593475416430a8d3802239171139aadbd"
     },
     "docs/projektstatus.md": {
-      "bytes": 6133,
-      "sha256": "230be0ca01b47d9e5104f3ea837b42d8d1a901522868787cb84a18aed4e5382e"
+      "bytes": 6183,
+      "sha256": "41c20fef9cdbe5a936adceb4d90b3d04638843edd469af656c4ba9c50b446364"
     },
     "docs/publiceringsslutputs-r39.md": {
-      "bytes": 2896,
-      "sha256": "7b1b8433edd29a5f23c59fa96732a5da8f67d47236014c7c26178c8b0f072452"
+      "bytes": 2962,
+      "sha256": "f2cc2ba6fde6794cbc4d008b3d2c18149b2b1c432f394c20d256e25f6b663a71"
     },
     "docs/quality-checklist.md": {
-      "bytes": 1507,
-      "sha256": "4dbb1ca81842869f20dd90afc91bed28bf995900465e5e2ab81a8c8fd532908d"
+      "bytes": 1492,
+      "sha256": "54d1aa12b61a0ab48652da801bc0c2d6459459269798c7934ff21c86ad01fca9"
     },
     "docs/slutsynk-r38.md": {
       "bytes": 2680,
@@ -431,12 +431,12 @@
       "sha256": "cfe827087f31a1b3200ff7324303771e7844a55dcf6b0182c3363b47e06fbf04"
     },
     "publishing/pdf-template.tex": {
-      "bytes": 2533,
-      "sha256": "a2ce1ff532e0737a1f63a15ce616ae4ff2908f0ebb8ea2cfdfff1bd9b0c40072"
+      "bytes": 2621,
+      "sha256": "145ac1855097b9bd5508bff12021c461b16603be5fc13d8c5f5960a933459080"
     },
     "revision-log.md": {
-      "bytes": 18076,
-      "sha256": "c5a4181dcf8124473a1553ca6eb071a48e09f1072879bab3395661d290fdb7c7"
+      "bytes": 18492,
+      "sha256": "9bb832928020a64956e7f0bdd6396b8637a57981fd188d551c59b34ec007ec76"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -459,5 +459,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T17:44:30Z"
+  "updated_at": "2026-08-17T18:17:41Z"
 }
