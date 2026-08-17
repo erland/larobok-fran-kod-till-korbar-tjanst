@@ -91,15 +91,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          docker compose build
           repository="$(printf '%s' "$GITHUB_REPOSITORY" | tr '[:upper:]' '[:lower:]')"
           web_image="ghcr.io/${repository}-taskboard-web:${RELEASE_VERSION}"
           backend_image="ghcr.io/${repository}-taskboard-backend:${RELEASE_VERSION}"
-          web_id="$(docker compose images -q web)"
-          backend_id="$(docker compose images -q backend)"
-          test -n "$web_id" && test -n "$backend_id"
-          docker tag "$web_id" "$web_image"
-          docker tag "$backend_id" "$backend_image"
+          export TASKBOARD_WEB_IMAGE="$web_image"
+          export TASKBOARD_BACKEND_IMAGE="$backend_image"
+          docker compose build
+          docker image inspect "$web_image" >/dev/null
+          docker image inspect "$backend_image" >/dev/null
+          echo "TASKBOARD_WEB_IMAGE=$web_image" >> "$GITHUB_ENV"
+          echo "TASKBOARD_BACKEND_IMAGE=$backend_image" >> "$GITHUB_ENV"
           echo "WEB_IMAGE=$web_image" >> "$GITHUB_ENV"
           echo "BACKEND_IMAGE=$backend_image" >> "$GITHUB_ENV"
 

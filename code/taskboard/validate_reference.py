@@ -149,6 +149,10 @@ def main() -> int:
         "npm ci --no-audit --no-fund",
         "mvn -B --no-transfer-progress verify",
         "docker compose build",
+        'export TASKBOARD_WEB_IMAGE="$web_image"',
+        'export TASKBOARD_BACKEND_IMAGE="$backend_image"',
+        'docker image inspect "$web_image"',
+        'docker image inspect "$backend_image"',
         "TASKBOARD_POSTGRES_IMAGE=x",
         "docker compose -f docker-compose.release.yml config --quiet",
         "docker compose up -d --no-build --wait --wait-timeout 120",
@@ -186,7 +190,13 @@ def main() -> int:
             fail(f"Releasepaket-generatorn saknar: {token}")
 
     compose = (ROOT / "docker-compose.yml").read_text()
-    for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres:/var/lib/postgresql"]:
+    for token in [
+        "postgres:18.4-alpine",
+        "condition: service_healthy",
+        "taskboard-postgres:/var/lib/postgresql",
+        "TASKBOARD_WEB_IMAGE",
+        "TASKBOARD_BACKEND_IMAGE",
+    ]:
         if token not in compose:
             fail(f"docker-compose.yml saknar {token}")
     if "taskboard-postgres:/var/lib/postgresql/data" in compose:
