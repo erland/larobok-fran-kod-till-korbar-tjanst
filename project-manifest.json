@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r32.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r33.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,15 +26,18 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "code/taskboard/frontend/src/test/setup.ts"
+      ".github/workflows/04-test-reference-implementation.yml",
+      "code/taskboard/validate_reference.py",
+      "docs/projektstatus.md",
+      "project-index.md"
     ],
-    "operation": "Rättade frontendtesternas globala DOM-städning mellan Vitest-testfall",
-    "source_revision": 31
+    "operation": "Påbörjade Steg C genom att publicera npm-genererad package-lock.json som CI-artefakt inför övergång till npm ci",
+    "source_revision": 32
   },
-  "parent_revision": 31,
+  "parent_revision": 32,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 32,
+  "revision": 33,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -51,8 +54,8 @@
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
     },
     ".github/workflows/04-test-reference-implementation.yml": {
-      "bytes": 5208,
-      "sha256": "2d6306d7940ba24cfff023fc1ff8a5f10419be301c1b02af92837d5a10b6474a"
+      "bytes": 5482,
+      "sha256": "d9d57d4b1d9751065398880d43cc335f6c271da248c6cc885de5018f7bc7ab66"
     },
     "README.md": {
       "bytes": 1160,
@@ -307,8 +310,8 @@
       "sha256": "a3d13f77b781cf86cbf283ebb9575cabfb1c3bcb9081fcc0b335abf340eea79a"
     },
     "code/taskboard/validate_reference.py": {
-      "bytes": 5236,
-      "sha256": "2082072f495ccf8980586fe30372abcd3adc27478a0861aa193f462ae54b7832"
+      "bytes": 5670,
+      "sha256": "185c260f79c843afe1071a42734d6cf567ee58b106453101c2ba402e1e8760ad"
     },
     "docs/bokspecifikation.md": {
       "bytes": 5989,
@@ -343,8 +346,8 @@
       "sha256": "479f36bcd083f3402dc62dc837b68a5593475416430a8d3802239171139aadbd"
     },
     "docs/projektstatus.md": {
-      "bytes": 5382,
-      "sha256": "20c482919fac435b14a0f21bf9657b6713f0165fb9df8221664335df11eb2142"
+      "bytes": 5704,
+      "sha256": "faf5b1e1bdbb215d00694ffcf5b2fffb9669d605a63049e27cd5ab629a311f6d"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -371,8 +374,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 1979,
-      "sha256": "82bb5117365b1e77fe74c425856d6006b2b78831acb9e1f5cb887421a17824fd"
+      "bytes": 2083,
+      "sha256": "8daae14912d26e2d8e9cf2e058264e8b5470528b8c7f247812d973a1b5582a07"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -395,8 +398,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 14434,
-      "sha256": "26bf7b8c4bcb863da710832120d2e18fdc091716d964c4b8325805f7fc4c5f2f"
+      "bytes": 14767,
+      "sha256": "92eb7e2256dc63ce7264c6a9ec8434c6addd0e7fda865dae82adb3c299fea7be"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -419,5 +422,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T07:48:59Z"
+  "updated_at": "2026-08-17T08:02:34Z"
 }

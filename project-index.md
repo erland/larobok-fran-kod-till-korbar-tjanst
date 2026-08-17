@@ -5,8 +5,8 @@
 - book_kind: factbook
 - book_type: subject_overview
 - Project-id: bda7fd5f-8515-4a5a-b548-a42496aa66aa
-- Revision: 31
-- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r31.zip`
+- Revision: 33
+- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r33.zip`
 
 ## Kapitel
 - Inledning: helhetsreviderad
@@ -27,7 +27,7 @@
 - Policy: `docs/kallpolicy.md`
 - Register: `docs/faktakontroll.md`
 - Versionsval för referensimplementationen: fastställda och primärkällekontrollerade 2026-08-16.
-- Öppna punkter: den starkare leveransmodellen från kapitel 16. Frontend- och backendteststacken är implementerad; digest-policyn är fastställd på manusnivå. Synliga källhänvisningar använder kort parentetisk form med fullständig post i källförteckningen.
+- Öppna punkter: Steg C för den starkare leveransmodellen är påbörjat. Workflow 04 publicerar npm-genererad `package-lock.json` som artefakt; efter att den tagits in i projektet återstår övergången till `npm ci`. Digest-policyn är fastställd på manusnivå. Synliga källhänvisningar använder kort parentetisk form med fullständig post i källförteckningen.
 
 ## Export
 - EPUB: ej skapad

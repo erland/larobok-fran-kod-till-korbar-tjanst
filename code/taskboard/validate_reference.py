@@ -111,6 +111,17 @@ def main() -> int:
         if token not in backend_test:
             fail(f"Backendtestet saknar kontraktskontroll: {token}")
 
+
+    workflow = (ROOT.parent.parent / ".github/workflows/04-test-reference-implementation.yml").read_text()
+    for token in [
+        "npm install --no-audit --no-fund",
+        "actions/upload-artifact@v7",
+        "taskboard-frontend-package-lock",
+        "code/taskboard/frontend/package-lock.json",
+    ]:
+        if token not in workflow:
+            fail(f"Referensworkflowen saknar reproducerbarhetsförberedelse: {token}")
+
     compose = (ROOT / "docker-compose.yml").read_text()
     for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres:/var/lib/postgresql"]:
         if token not in compose:
