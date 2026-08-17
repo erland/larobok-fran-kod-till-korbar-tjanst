@@ -325,11 +325,11 @@ Detta gör frontendens dependency-installation betydligt mer reproducerbar, men 
 GitHub Actions-workflowen för TaskBoard gör mer än respektive utvecklare normalt gör efter varje kodändring. Den:
 
 1. validerar referensstrukturen,
-2. bygger frontend,
-3. kör Maven `verify` för backend,
+2. installerar frontendberoenden med `npm ci`, kör Vitest-testsviten och bygger frontend,
+3. kör Maven `verify`, inklusive backendens Quarkus API-/integrationstester mot PostgreSQL Dev Services,
 4. validerar Compose-konfigurationen,
 5. bygger Docker-images,
-6. startar hela stacken,
+6. startar hela stacken och väntar på healthchecks,
 7. smoke-testar requestvägen genom Nginx, Quarkus och PostgreSQL.
 
 Det ger oss tre tydliga miljöperspektiv:

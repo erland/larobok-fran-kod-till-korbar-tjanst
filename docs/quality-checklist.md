@@ -25,3 +25,11 @@
 - [x] `book.yaml` är komplett och kapitelordningen stämmer.
 - [x] Canonical markdown är validerad.
 - [x] Arbetsnoteringar från `docs/` exporteras inte av misstag.
+
+## Publiceringsputs revision 39
+- [x] Huvudmanuset är språkputsat utan ändring av referensimplementationens tekniska beteende.
+- [x] Inaktuella framtidsformuleringar om release-manifest och image-digests är borttagna.
+- [x] Boken skiljer nu tydligt mellan verifierad teknisk release och framtida produktionssättning.
+- [x] Bokmetadata är satt till version 1.0 med publiceringsdatum 2026-08-17.
+- [ ] EPUB/PDF är visuellt slutkontrollerade.
+- [ ] Omslagsbild är beslutad och införd, om omslag ska användas.

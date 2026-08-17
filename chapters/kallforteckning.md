@@ -30,9 +30,13 @@ Quarkus. *Testing Your Application*. https://quarkus.io/guides/getting-started-t
 
 Quarkus. *Dev Services Overview*. https://quarkus.io/guides/dev-services (kontrollerad 2026-08-16).
 
+Quarkus. *Quarkus 3.33.3.1 released – LTS emergency release*. https://quarkus.io/blog/quarkus-3-33-3-1-released/ (kontrollerad 2026-08-17).
+
 ## Vite
 
 Vite. *Server Options*. https://vite.dev/config/server-options.html (kontrollerad 2026-08-16).
+
+Vite. *Vite 8.0 is out!*. https://vite.dev/blog/announcing-vite8 (kontrollerad 2026-08-17).
 
 
 ## React
@@ -41,11 +45,19 @@ React. *useState*. https://react.dev/reference/react/useState (kontrollerad 2026
 
 React. *useEffect*. https://react.dev/reference/react/useEffect (kontrollerad 2026-08-16).
 
+React. *React Versions*. https://react.dev/versions (kontrollerad 2026-08-17).
+
 ## TypeScript
 
 TypeScript. *Everyday Types*. https://www.typescriptlang.org/docs/handbook/2/everyday-types.html (kontrollerad 2026-08-16).
 
 TypeScript. *Object Types*. https://www.typescriptlang.org/docs/handbook/2/objects.html (kontrollerad 2026-08-16).
+
+TypeScript. *TypeScript 6.0*. https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html (kontrollerad 2026-08-17).
+
+## Node.js
+
+Node.js. *Node.js v24 (Krypton) Download Archive*. https://nodejs.org/en/download/archive/v24 (kontrollerad 2026-08-17).
 
 ## MDN Web Docs
 
@@ -111,6 +123,8 @@ PostgreSQL Global Development Group. *PostgreSQL 18: Constraints*. https://www.p
 PostgreSQL Global Development Group. *PostgreSQL 18: UUID Type*. https://www.postgresql.org/docs/18/datatype-uuid.html (kontrollerad 2026-08-16).
 
 PostgreSQL Global Development Group. *PostgreSQL 18: Indexes*. https://www.postgresql.org/docs/18/indexes.html (kontrollerad 2026-08-16).
+
+PostgreSQL Global Development Group. *PostgreSQL 18.4 Release Notes*. https://www.postgresql.org/docs/release/18.4/ (kontrollerad 2026-08-17).
 
 ## Docker Official Image for PostgreSQL
 
