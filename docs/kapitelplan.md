@@ -164,13 +164,13 @@
 ### Kapitel 14: Den kompletta tjänsten med Docker Compose
 - Syfte: Koppla samman de tre runtime-delarna till en portabel installation.
 - Nivå/faktadjup: komplett men liten Compose-lösning.
-- Nya huvudbegrepp/faktaområden: services, networks, volumes, health checks, dependency/readiness, miljövariabler.
-- Exempel/case: `docker compose up` startar TaskBoard.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: services, default network/service discovery, volumes, health checks, `depends_on`/readiness, miljövariabler och publicerade portar.
+- Exempel/case: `docker compose up --build` startar TaskBoard; CI använder `docker compose up -d --wait --wait-timeout 120` före smoke-test.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad krävs för att mottagaren ska kunna starta hela tjänsten med ett fåtal kommandon?
-- Centrala fakta: Nginx som publicerad service, backend/databas internt, persistent PostgreSQL-volume.
-- Fördjupning/faktaruta: `depends_on` är inte i sig samma sak som applikationsmässig readiness.
-- Käll-/verifieringsbehov: aktuell Docker Compose-specifikation och healthcheck-beteende.
+- Centrala fakta: Nginx som enda publicerad service, backend/databas internt på Compose-standardnätet, persistent PostgreSQL-volume och health-baserad startkedja db → backend → web.
+- Fördjupning/faktaruta: vanlig startordning är inte samma sak som readiness; `service_healthy` kopplar dependency till healthcheck.
+- Käll-/verifieringsbehov: verifierat 2026-08-17 mot Docker Compose officiella dokumentation och faktisk CI-körning.
 
 ## Del 6: Drift och leverans
 

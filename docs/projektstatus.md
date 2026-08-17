@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–13 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–14 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -28,7 +28,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 11 | Konfiguration och säkerhet | Skriven | Första manusversion, grundad i faktisk Compose-, Nginx- och Quarkus-konfiguration samt explicit säkerhetsavgränsning |
 | 12 | Testning av den kompletta tjänsten | Skriven | Första manusversion, grundad i faktisk CI-workflow och smoke-test samt verifierad Quarkus-/frontend-teststrategi |
 | 13 | Frontend, reverse proxy och backend som Docker-images | Skriven | Första manusversion, grundad i faktiska multi-stage Dockerfiles, Nginx-konfiguration, Quarkus fast-jar och verifierad image-start i CI |
-| 14 | Den kompletta tjänsten med Docker Compose | Planerad | Stomme skapad |
+| 14 | Den kompletta tjänsten med Docker Compose | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
 | 15 | Från lokal körning till driftbar tjänst | Planerad | Stomme skapad |
 | 16 | En reproducerbar leverans | Planerad | Stomme skapad |
 | 17 | Arkitekturen i backspegeln | Planerad | Stomme skapad |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 14 om den kompletta tjänsten med Docker Compose med utgångspunkt i den stack som redan startas och smoke-testas i GitHub Actions.
-- Behåll digest-policy som ett öppet leveransbeslut till kapitel 16; kapitel 13 skiljer uttryckligen på fungerande images och exakt reproducerbar basimageupplösning.
+- Skriv kapitel 15 om vägen från lokal körning till driftbar tjänst, med fokus på backup/restore, observability, uppgraderingsdisciplin och driftkonfiguration.
+- Behåll digest-policy som ett öppet leveransbeslut till kapitel 16; kapitel 14 skiljer uttryckligen på portabel Compose-definition och fullt reproducerbar leverans.

@@ -147,3 +147,12 @@ Docker Docs. *Multi-stage builds*. https://docs.docker.com/build/building/multi-
 Docker Official Image. *nginx*. https://hub.docker.com/_/nginx/ (kontrollerad 2026-08-17).
 
 Quarkus. *Quarkus and Maven*. https://quarkus.io/guides/maven-tooling (kontrollerad 2026-08-17).
+
+## Docker Compose – komplettering kapitel 14
+
+Docker Docs. *Networking in Compose*. https://docs.docker.com/compose/how-tos/networking/ (kontrollerad 2026-08-17).
+
+Docker Docs. *Control startup and shutdown order in Compose*. https://docs.docker.com/compose/how-tos/startup-order/ (kontrollerad 2026-08-17).
+
+Docker Docs. *Services top-level elements*. https://docs.docker.com/reference/compose-file/services/ (kontrollerad 2026-08-17).
+
