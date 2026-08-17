@@ -1,0 +1,208 @@
+name: Release Reference Implementation
+
+on:
+  push:
+    tags: ["taskboard-v*"]
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: "SemVer utan prefix, exempelvis 1.0.0"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: taskboard-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  TASKBOARD_DIR: code/taskboard
+  NODE_VERSION: "24.19.0"
+  JAVA_VERSION: "21"
+
+jobs:
+  release:
+    name: Verify and release TaskBoard
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Resolve and validate release identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            version='${{ inputs.release_version }}'
+            tag="taskboard-v${version}"
+          else
+            tag="${GITHUB_REF_NAME}"
+            version="${tag#taskboard-v}"
+          fi
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([+-][0-9A-Za-z.-]+)?$ ]] || { echo "Versionen måste vara SemVer" >&2; exit 1; }
+          [[ "$tag" == "taskboard-v${version}" ]] || { echo "Taggen måste vara taskboard-v<SemVer>" >&2; exit 1; }
+          echo "RELEASE_VERSION=$version" >> "$GITHUB_ENV"
+          echo "RELEASE_TAG=$tag" >> "$GITHUB_ENV"
+
+      - name: Validate reference structure
+        run: python3 "$TASKBOARD_DIR/validate_reference.py"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Test and build frontend
+        working-directory: ${{ env.TASKBOARD_DIR }}/frontend
+        run: |
+          npm ci --no-audit --no-fund
+          npm run test
+          npm run build
+
+      - name: Set up Java
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+          cache-dependency-path: code/taskboard/backend/pom.xml
+
+      - name: Compile and test backend
+        working-directory: ${{ env.TASKBOARD_DIR }}/backend
+        run: mvn -B --no-transfer-progress verify
+
+      - name: Validate Docker Compose configuration
+        working-directory: ${{ env.TASKBOARD_DIR }}
+        run: |
+          docker compose config --quiet
+          docker compose --env-file <(printf 'TASKBOARD_WEB_IMAGE=x\nTASKBOARD_BACKEND_IMAGE=x\nTASKBOARD_POSTGRES_IMAGE=x\nPOSTGRES_PASSWORD=x\n') -f docker-compose.release.yml config --quiet
+
+      - name: Build release images once
+        working-directory: ${{ env.TASKBOARD_DIR }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker compose build
+          repository="$(printf '%s' "$GITHUB_REPOSITORY" | tr '[:upper:]' '[:lower:]')"
+          web_image="ghcr.io/${repository}-taskboard-web:${RELEASE_VERSION}"
+          backend_image="ghcr.io/${repository}-taskboard-backend:${RELEASE_VERSION}"
+          web_id="$(docker compose images -q web)"
+          backend_id="$(docker compose images -q backend)"
+          test -n "$web_id" && test -n "$backend_id"
+          docker tag "$web_id" "$web_image"
+          docker tag "$backend_id" "$backend_image"
+          echo "WEB_IMAGE=$web_image" >> "$GITHUB_ENV"
+          echo "BACKEND_IMAGE=$backend_image" >> "$GITHUB_ENV"
+
+      - name: Start and smoke test the exact built images
+        working-directory: ${{ env.TASKBOARD_DIR }}
+        env:
+          TASKBOARD_PORT: "18080"
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker compose up -d --no-build --wait --wait-timeout 120
+          python3 - <<'PY'
+          import json
+          import urllib.request
+
+          base = "http://localhost:18080"
+          with urllib.request.urlopen(base + "/healthz", timeout=10) as response:
+              assert response.status == 200
+              assert response.read().decode().strip() == "ok"
+
+          payload = json.dumps({
+              "title": "TaskBoard release smoke test",
+              "description": "Verified before publishing release images",
+              "status": "OPEN",
+              "priority": "NORMAL",
+              "dueDate": None,
+          }).encode()
+          request = urllib.request.Request(
+              base + "/api/tasks",
+              data=payload,
+              method="POST",
+              headers={"Content-Type": "application/json"},
+          )
+          with urllib.request.urlopen(request, timeout=10) as response:
+              assert response.status == 201
+              task = json.load(response)
+          with urllib.request.urlopen(base + "/api/tasks/" + task["id"], timeout=10) as response:
+              assert response.status == 200
+              assert json.load(response)["priority"] == "NORMAL"
+          print("OK: exact release images passed full-stack smoke test")
+          PY
+
+      - name: Capture PostgreSQL digest used by the smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+          postgres_ref="$(docker image inspect postgres:18.4-alpine --format '{{index .RepoDigests 0}}')"
+          [[ "$postgres_ref" == *@sha256:* ]] || { echo "Kunde inte läsa PostgreSQL-digest" >&2; exit 1; }
+          echo "POSTGRES_IMAGE=$postgres_ref" >> "$GITHUB_ENV"
+
+      - name: Stop verified service
+        if: always()
+        working-directory: ${{ env.TASKBOARD_DIR }}
+        env:
+          TASKBOARD_PORT: "18080"
+        run: docker compose down -v --remove-orphans || true
+
+      - name: Log in to GitHub Container Registry
+        shell: bash
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Publish the exact verified images
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker push "$WEB_IMAGE"
+          docker push "$BACKEND_IMAGE"
+          web_digest="$(docker image inspect "$WEB_IMAGE" --format '{{index .RepoDigests 0}}')"
+          backend_digest="$(docker image inspect "$BACKEND_IMAGE" --format '{{index .RepoDigests 0}}')"
+          [[ "$web_digest" == *@sha256:* ]] || { echo "Web-image saknar registry-digest" >&2; exit 1; }
+          [[ "$backend_digest" == *@sha256:* ]] || { echo "Backend-image saknar registry-digest" >&2; exit 1; }
+          echo "WEB_DIGEST=$web_digest" >> "$GITHUB_ENV"
+          echo "BACKEND_DIGEST=$backend_digest" >> "$GITHUB_ENV"
+
+      - name: Create release manifest and deployment bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          out="${RUNNER_TEMP}/taskboard-release"
+          python3 "$TASKBOARD_DIR/create_release_bundle.py" \
+            --release-version "$RELEASE_VERSION" \
+            --tag "$RELEASE_TAG" \
+            --commit "$GITHUB_SHA" \
+            --repository "$GITHUB_REPOSITORY" \
+            --run-id "$GITHUB_RUN_ID" \
+            --web-image "$WEB_DIGEST" \
+            --backend-image "$BACKEND_DIGEST" \
+            --postgres-image "$POSTGRES_IMAGE" \
+            --node-version "$NODE_VERSION" \
+            --java-version "$JAVA_VERSION" \
+            --output-dir "$out"
+          (cd "$out" && zip -qr "${RUNNER_TEMP}/taskboard-release-${RELEASE_VERSION}.zip" .)
+          sha256sum "${RUNNER_TEMP}/taskboard-release-${RELEASE_VERSION}.zip" > "${RUNNER_TEMP}/taskboard-release-${RELEASE_VERSION}.zip.sha256"
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          zip_file="${RUNNER_TEMP}/taskboard-release-${RELEASE_VERSION}.zip"
+          checksum_file="${zip_file}.sha256"
+          manifest="${RUNNER_TEMP}/taskboard-release/release-manifest.json"
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "$zip_file" "$checksum_file" "$manifest" --clobber
+          else
+            gh release create "$RELEASE_TAG" "$zip_file" "$checksum_file" "$manifest" \
+              --title "TaskBoard ${RELEASE_VERSION}" \
+              --notes "Verifierad TaskBoard-release. Deploymentpaketet refererar web-, backend- och PostgreSQL-images med exakta SHA-256-digests."
+          fi

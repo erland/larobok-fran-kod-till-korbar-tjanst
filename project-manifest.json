@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r34.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r35.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -18,8 +18,8 @@
       "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": "c16174f6a0861a071336fcf239c8209cafabf029c8d905578d9a78d54333f86e",
       "chapters/14-den-kompletta-tjansten-med-docker-compose.md": "d032c30b3f63acac79b8a4381b91ced8787bd41ea804f8ac3b533177190e6d38",
       "chapters/15-fran-lokal-korning-till-driftbar-tjanst.md": "c204da527fb2fea845ce35fc7691a31d4956b3ddda659d443bbbf8dab6d0e2c6",
-      "chapters/16-en-reproducerbar-leverans.md": "e79a0cf24b9fc6eaf17463e5564d9649b779dec5a7fea042989a0bd78ba1d162",
-      "chapters/17-arkitekturen-i-backspegeln.md": "acc0992ceebf2812b5d2f294793e90d6b5e2014468ac5c046a84eead5237578f"
+      "chapters/16-en-reproducerbar-leverans.md": "c2f5350775e19538d0872f746bd1207dd78354c0c4708b142797fab46d671e4e",
+      "chapters/17-arkitekturen-i-backspegeln.md": "f4c521650d215aebfced33d4e201b9e4920116d4be80886c39e5da08df2883e3"
     },
     "latest": 17
   },
@@ -27,24 +27,25 @@
   "last_operation": {
     "changed_files": [
       ".github/workflows/04-test-reference-implementation.yml",
-      "chapters/03-projektstruktur-och-utvecklingsmiljo.md",
-      "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md",
+      ".github/workflows/05-release-reference-implementation.yml",
       "chapters/16-en-reproducerbar-leverans.md",
       "chapters/17-arkitekturen-i-backspegeln.md",
-      "code/taskboard/frontend/Dockerfile",
-      "code/taskboard/frontend/package-lock.json",
+      "code/taskboard/README.md",
+      "code/taskboard/RELEASE.md",
+      "code/taskboard/create_release_bundle.py",
+      "code/taskboard/docker-compose.release.yml",
       "code/taskboard/validate_reference.py",
       "docs/faktakontroll.md",
       "docs/projektstatus.md",
       "project-index.md"
     ],
-    "operation": "Slutförde Steg C med npm-genererad package-lock och npm ci i CI/Docker",
-    "source_revision": 33
+    "operation": "Införde TaskBoard releasekedja med verifierade GHCR-images, immutable digests, release-manifest och SHA-pinnade CI-Actions",
+    "source_revision": 34
   },
-  "parent_revision": 33,
+  "parent_revision": 34,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 34,
+  "revision": 35,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -61,8 +62,12 @@
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
     },
     ".github/workflows/04-test-reference-implementation.yml": {
-      "bytes": 5204,
-      "sha256": "e7a8c9af7fbd482fe4296f2d49ec9a89a279b9e2a01960dd0316412504b81908"
+      "bytes": 5333,
+      "sha256": "1278d35a342f1d2daaae5bec445ca2dc40dc9dc11a565d738f657916d17067c5"
+    },
+    ".github/workflows/05-release-reference-implementation.yml": {
+      "bytes": 8372,
+      "sha256": "d6effc9b63f2bbba48fb5f8708c8ea2dcf3571a2e5631f6c00792a5977eb030d"
     },
     "README.md": {
       "bytes": 1160,
@@ -149,12 +154,12 @@
       "sha256": "c204da527fb2fea845ce35fc7691a31d4956b3ddda659d443bbbf8dab6d0e2c6"
     },
     "chapters/16-en-reproducerbar-leverans.md": {
-      "bytes": 19757,
-      "sha256": "e79a0cf24b9fc6eaf17463e5564d9649b779dec5a7fea042989a0bd78ba1d162"
+      "bytes": 21985,
+      "sha256": "c2f5350775e19538d0872f746bd1207dd78354c0c4708b142797fab46d671e4e"
     },
     "chapters/17-arkitekturen-i-backspegeln.md": {
-      "bytes": 17295,
-      "sha256": "acc0992ceebf2812b5d2f294793e90d6b5e2014468ac5c046a84eead5237578f"
+      "bytes": 17374,
+      "sha256": "f4c521650d215aebfced33d4e201b9e4920116d4be80886c39e5da08df2883e3"
     },
     "chapters/kallforteckning.md": {
       "bytes": 9704,
@@ -181,8 +186,12 @@
       "sha256": "5eea3bc53a4d06a345fd6e663581d53cfae5bea348029a91962388f03124d52a"
     },
     "code/taskboard/README.md": {
-      "bytes": 2079,
-      "sha256": "cd90c9aa3964d4bd89f32a95df5145ebfceeb5f223f532f90c79415192a4d337"
+      "bytes": 2918,
+      "sha256": "21231753a2236dbcdb0c3977d364f866f402fd6c3194ea599ae0957912b2edea"
+    },
+    "code/taskboard/RELEASE.md": {
+      "bytes": 1125,
+      "sha256": "c7d3aab6d55a235d11973a20609d09d24a2ceaaf37a7059cac1ac6023d9d41fc"
     },
     "code/taskboard/STACK-VERSIONS.md": {
       "bytes": 1225,
@@ -239,6 +248,14 @@
     "code/taskboard/backend/src/test/java/se/erland/taskboard/task/TaskResourceTest.java": {
       "bytes": 4574,
       "sha256": "6fbed0235edc609ac1b6f5a88b9735992208f08cc43b90d49469d321c1ae2891"
+    },
+    "code/taskboard/create_release_bundle.py": {
+      "bytes": 5134,
+      "sha256": "145f85d6d889bda646f9885e374b9abf10f20be64148b7fcf4dd118170c90628"
+    },
+    "code/taskboard/docker-compose.release.yml": {
+      "bytes": 1395,
+      "sha256": "bcd18add4a96972730ecfbd2578c057c919ad2355faa30170f0f19b9754a1388"
     },
     "code/taskboard/docker-compose.yml": {
       "bytes": 1226,
@@ -321,8 +338,8 @@
       "sha256": "a3d13f77b781cf86cbf283ebb9575cabfb1c3bcb9081fcc0b335abf340eea79a"
     },
     "code/taskboard/validate_reference.py": {
-      "bytes": 6173,
-      "sha256": "2ba0ea5e3caed5d0e82c7c80d82ce36c64476a2fe330e24f664fdbe7dc93b561"
+      "bytes": 8169,
+      "sha256": "c3afe3a8c18fc8747cdf40df3df4f8c18e87b315e511b6bd208bccc6f476be24"
     },
     "docs/bokspecifikation.md": {
       "bytes": 5989,
@@ -333,8 +350,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 10756,
-      "sha256": "6f9e19444c68cf0464c20cc8533e02994246cb8d5df1281d140e25169f50ad89"
+      "bytes": 11030,
+      "sha256": "45cba773f9e917de1d97d4605657a0a1d8599c7fbe5571a92f88c8f5362cec6c"
     },
     "docs/helhetsrevision-r29.md": {
       "bytes": 1232,
@@ -357,8 +374,8 @@
       "sha256": "479f36bcd083f3402dc62dc837b68a5593475416430a8d3802239171139aadbd"
     },
     "docs/projektstatus.md": {
-      "bytes": 5697,
-      "sha256": "10a6a0eed8394c19c5653d2babc5a32b8af2663528de036fd0beb215619dda1a"
+      "bytes": 6166,
+      "sha256": "e7ecc0f3d50994e0ad34a57291d42c54f9eba063eb63bcd2184d3e7b4ff64ee8"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -385,8 +402,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 2038,
-      "sha256": "f448cbee4d4aab319492486fd78fecbdcf33d3bb7ed857a6f45f981266ce05dc"
+      "bytes": 2280,
+      "sha256": "3ac481b36b645e108c5770660704824da11b13c0a5d47cfe8ea2c9c288cbc132"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -409,8 +426,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 15378,
-      "sha256": "2bf4c9774c0bef2523ecb45436e0ab2f3d3ee2cdd68e248556e3db9ea1fb600e"
+      "bytes": 16038,
+      "sha256": "210e218535d5726e5dfc285b51c76055243530c2d9b940e625cf87a09e96c25a"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -433,5 +450,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T10:35:03Z"
+  "updated_at": "2026-08-17T10:49:00Z"
 }

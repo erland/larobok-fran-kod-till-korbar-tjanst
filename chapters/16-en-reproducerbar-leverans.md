@@ -488,27 +488,53 @@ Vi kan nu sammanfatta referensimplementationen utan att överdriva.
 - Git-versionsstyrd källkod,
 - deterministisk kapitel-/projektintegritet för bokprojektet,
 - verifierad GitHub Actions-build,
+- incheckad npm-genererad `package-lock.json` och `npm ci` i både CI och frontendens Docker-build,
 - frontend- och backend-Dockerfiles,
-- versionerade base-image-taggar,
+- full-SHA-pinning av de externa Actions som används i TaskBoards CI- och releaseworkflow,
 - Compose-definition i samma repository,
 - `.env.example`,
 - Flyway-migrationer i källkod,
-- full-stack smoke test,
-- SHA-256-checksummor för bokens PDF/EPUB-release.
+- frontend-/backendtester och full-stack smoke test,
+- en separat TaskBoard-releasekedja på taggar `taskboard-v<SemVer>`,
+- web- och backend-images som smoke-testas före publicering till GHCR,
+- releasekopplade registry-digests för web, backend och PostgreSQL,
+- `docker-compose.release.yml` som kör publicerade images utan lokal rebuild,
+- maskinläsbart `release-manifest.json` med Git commit, Actions-run, image-digests och källchecksummor,
+- SHA-256-checksummor för TaskBoards releasepaket samt bokens PDF/EPUB-release.
 
 ### Det som fortfarande saknas för en starkare tjänsteleverans
 
-- incheckad `package-lock.json` och `npm ci` (infört i referensimplementationen),
 - explicit testad Maven-reproducerbarhet,
-- publicerade TaskBoard-images med releaseversion,
-- registrerade image-digests,
-- digest-policy för tredjepartsimages,
-- full-SHA-pinning av GitHub Actions om den säkerhetsnivån krävs,
-- maskinläsbart release-manifest,
-- signerad/attesterad releaseproveniens,
-- separat installations- och uppgraderingsguide för en extern mottagare.
+- signerad eller attesterad releaseproveniens,
+- automatiskt genererad SBOM om kravbilden kräver det,
+- fullt testad uppgraderingsguide från en tidigare skarp TaskBoard-release,
+- produktionshärdning som autentisering, TLS, secrets-hantering, backup/restore och observability enligt kapitel 11 och 15.
 
 Det är inte brister som gör referensprojektet oanvändbart. De visar vilken gräns vi har nått: från **verifierad referensimplementation** till **formaliserad distributionsprodukt**.
+
+## TaskBoards konkreta releasekedja
+
+Referensimplementationen har nu gjort målbilden i det här kapitlet konkret. Bokens vanliga `v*`-taggar är fortsatt reserverade för EPUB/PDF, medan TaskBoard använder en egen releaseidentitet:
+
+```text
+taskboard-v1.0.0
+```
+
+När en sådan tagg körs bygger releaseworkflowen frontend och backend, kör samma typer av test som den kanoniska CI:n och bygger sedan Docker-images **en gång**. Compose startar därefter tjänsten med `--no-build`, så smoke-testet kör exakt de imageobjekt som senare taggas och pushas till GHCR. Först efter godkänt smoke test publiceras images.
+
+Efter push läses registry-digests ut för web och backend. PostgreSQL-imagen som faktiskt användes i smoke-testet får på motsvarande sätt sin digest registrerad. Dessa tre immutable referenser skrivs till releasepaketets `release.env`. `docker-compose.release.yml` innehåller inga `build:`-sektioner, vilket betyder att mottagaren inte gör en ny applikationsbuild vid installationen.
+
+`create_release_bundle.py` producerar samtidigt ett maskinläsbart `release-manifest.json` med bland annat:
+
+- SemVer och TaskBoard-taggen,
+- repository och full Git commit,
+- GitHub Actions-run-id,
+- exakta image-referenser med SHA-256-digest,
+- Node- och Java-version,
+- vilka test-/verifieringssteg releasen gått igenom,
+- SHA-256 för `package-lock.json`, Dockerfiles och Compose-definitionerna.
+
+Releasepaketet innehåller dessutom `SHA256SUMS.txt` och en separat installationsinstruktion. Resultatet är inte en garanti för bitidentisk rebuild av varje komponent, men det ger en spårbar överlämning där mottagaren kan identifiera **vilken källa, vilka images och vilken deploymentdefinition som hör ihop**.
 
 ## Definition of done för en leverans
 

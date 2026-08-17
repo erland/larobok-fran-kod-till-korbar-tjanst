@@ -11,6 +11,9 @@ ROOT = Path(__file__).resolve().parent
 REQUIRED = [
     ".env.example",
     "docker-compose.yml",
+    "docker-compose.release.yml",
+    "RELEASE.md",
+    "create_release_bundle.py",
     "STACK-VERSIONS.md",
     "frontend/package.json",
     "frontend/vite.config.ts",
@@ -129,9 +132,56 @@ def main() -> int:
     workflow = (ROOT.parent.parent / ".github/workflows/04-test-reference-implementation.yml").read_text()
     for token in [
         "npm ci --no-audit --no-fund",
+        "actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+        "actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+        "actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
     ]:
         if token not in workflow:
-            fail(f"Referensworkflowen saknar fryst frontendinstallation: {token}")
+            fail(f"Referensworkflowen saknar reproducerbarhetskrav: {token}")
+
+    release_workflow_path = ROOT.parent.parent / ".github/workflows/05-release-reference-implementation.yml"
+    if not release_workflow_path.exists():
+        fail("Releaseworkflow för TaskBoard saknas")
+    release_workflow = release_workflow_path.read_text()
+    for token in [
+        'tags: ["taskboard-v*"]',
+        "packages: write",
+        "npm ci --no-audit --no-fund",
+        "mvn -B --no-transfer-progress verify",
+        "docker compose build",
+        "docker compose up -d --no-build --wait --wait-timeout 120",
+        'docker push \"$WEB_IMAGE\"',
+        'docker push \"$BACKEND_IMAGE\"',
+        "create_release_bundle.py",
+        "release-manifest.json",
+        "gh release create",
+    ]:
+        if token not in release_workflow:
+            fail(f"TaskBoard-releaseworkflowen saknar: {token}")
+
+    release_compose = (ROOT / "docker-compose.release.yml").read_text()
+    for token in [
+        "TASKBOARD_WEB_IMAGE",
+        "TASKBOARD_BACKEND_IMAGE",
+        "TASKBOARD_POSTGRES_IMAGE",
+        "condition: service_healthy",
+    ]:
+        if token not in release_compose:
+            fail(f"docker-compose.release.yml saknar {token}")
+    if "build:" in release_compose:
+        fail("Release-Compose ska använda publicerade images och får inte bygga om källkoden")
+
+    release_bundle = (ROOT / "create_release_bundle.py").read_text()
+    for token in [
+        '"schemaVersion": 1',
+        '"gitCommit": args.commit',
+        '"githubActionsRunId": str(args.run_id)',
+        '"sourceChecksums"',
+        '"release-manifest.json"',
+        '"SHA256SUMS.txt"',
+    ]:
+        if token not in release_bundle:
+            fail(f"Releasepaket-generatorn saknar: {token}")
 
     compose = (ROOT / "docker-compose.yml").read_text()
     for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres:/var/lib/postgresql"]:

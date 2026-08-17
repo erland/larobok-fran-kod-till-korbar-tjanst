@@ -262,17 +262,17 @@ Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
 
 ## Vad bör förbättras innan en verklig release?
 
-Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Backend/API-testning mot PostgreSQL Dev Services och frontendkomponenttester med Vitest + React Testing Library är nu genomförda i referensimplementationen; när hela boken ligger framför oss blir prioriteringen för de återstående stegen tydligare.
+Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Test- och leveranshärdningen är nu genomförd på den nivå boken behöver: backend/API-testning mot PostgreSQL Dev Services, frontendkomponenttester, `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, en separat releasekedja, publicerade release-images, registry-digests och maskinläsbart release-manifest finns i referensimplementationen.
 
-För referensimplementationen är de mest värdefulla nästa stegen:
+De mest värdefulla nästa stegen ligger därför i verkliga produktionskrav:
 
 ```text
-1. Behåll frontend- och backendtesterna som snabba regressionstest och bygg ut dem när nya beteenden tillkommer.
-2. Behåll den nu införda `package-lock.json`/`npm ci`-kedjan och komplettera vid behov med starkare image- och Actions-pinning.
-3. Skapa en releasekedja som bygger och publicerar verifierade images.
-4. Registrera image-digests och checksummor i releaseinformationen.
-5. Lägg till autentisering/auktorisering innan publik användning.
-6. Definiera TLS-terminering, secrets, backup/restore och observability för vald driftmiljö.
+1. Behåll frontend-, backend- och full-stack-testerna som regressionstest och bygg ut dem när nya beteenden tillkommer.
+2. Lägg till autentisering och auktorisering innan publik användning.
+3. Definiera TLS-terminering och en genomtänkt trusted-proxy-policy.
+4. Flytta känsliga värden till en lämplig secrets-lösning.
+5. Etablera backup/restore-test, central loggning, metrics och larm.
+6. Lägg till attestering/signering, SBOM eller annan supply-chain-härdning om risk- och regelkraven motiverar det.
 ```
 
 Ordningen kan ändras beroende på mål. Om nästa steg bara är fortsatt bokutveckling är test- och reproducerbarhetshärdning mest relevant. Om tjänsten i stället ska publiceras till verkliga användare flyttar identitet, TLS, secrets och driftrutiner snabbt upp i prioritet.

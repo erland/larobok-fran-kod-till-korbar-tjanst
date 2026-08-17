@@ -43,8 +43,9 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Databas: PostgreSQL 18.4.
 - Leverans: Docker Compose med persistent PostgreSQL-volume och health-baserad startordning.
 - Lokal utveckling: Vite-proxy till Quarkus; Quarkus Dev Services kan tillhandahålla PostgreSQL.
-- GitHub Actions: `04-test-reference-implementation.yml` installerar frontendberoenden, kör Vitest-komponenttesterna, bygger frontenden, kör backendens `@QuarkusTest`/Rest Assured-test mot PostgreSQL Dev Services via `mvn verify`, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
+- GitHub Actions: `04-test-reference-implementation.yml` använder SHA-pinnade externa Actions, installerar frontendberoenden med `npm ci`, kör Vitest-komponenttesterna, bygger frontenden, kör backendens `@QuarkusTest`/Rest Assured-test mot PostgreSQL Dev Services via `mvn verify`, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
 - Full runtime-verifiering: GitHub Actions bygger images, startar Compose-stacken och smoke-testar Nginx → Quarkus → PostgreSQL. Denna workflow är projektets kanoniska end-to-end-verifiering.
+- TaskBoard-release: `05-release-reference-implementation.yml` triggas av `taskboard-v<SemVer>`, bygger images en gång, smoke-testar dem med `--no-build`, publicerar exakt de verifierade web-/backend-images till GHCR och skapar ett deploymentpaket med image-digests, `release-manifest.json` och SHA-256-checksummor.
 
 ## Faktakontroll
 - Initiala versionsval och huvudkonfiguration för referensimplementationen verifierade 2026-08-16 mot officiella primärkällor.
@@ -56,6 +57,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - `package-lock.json` är nu genererad av npm i GitHub Actions, incheckad i referensimplementationen och används av både CI och frontend-Dockerfile via `npm ci`.
 
 ## Nästa rekommenderade steg
-- Steg C är slutfört för frontendberoenden: npm-genererad `package-lock.json` är incheckad och både CI och frontend-Dockerfile använder `npm ci`. Starkare image-/Actions-pinning och release-manifest hör till nästa leveranshärdning.
-- Genomför därefter en slutputs med fokus på språk, kodexempel, källhänvisningar och exportberedskap.
-- Digest-policyn är fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.
+- Steg D är implementerat: TaskBoards CI-Actions är full-SHA-pinnade och en separat `taskboard-v<SemVer>`-releasekedja publicerar verifierade GHCR-images samt ett manifest/checksummebaserat deploymentpaket med immutable digests.
+- Kör den nya releaseworkflowen minst en gång med en testrelease för runtime-verifiering av GHCR-publicering och GitHub Release-paketet.
+- Genomför därefter slutputs med fokus på språk, kodexempel, källhänvisningar och exportberedskap.
+- Ytterligare supply-chain-härdning som attestering/SBOM och explicit Maven-reproducerbarhetskontroll är valfria nästa nivåer, inte krav för bokens referensmål.
