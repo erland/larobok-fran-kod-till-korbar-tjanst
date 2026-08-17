@@ -62,15 +62,15 @@ TaskBoards frontend-Dockerfile börjar så här:
 ```dockerfile
 FROM node:24-alpine AS build
 WORKDIR /app
-COPY package.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci
 COPY . .
 RUN npm run build
 ```
 
 Detta är inte webbservern. Det är en tillfällig byggmiljö.
 
-`node:24-alpine` tillhandahåller Node.js och npm. Projektets `package.json` kopieras in och beroendena installeras. Därefter kopieras källkoden in och produktionsbygget körs.
+`node:24-alpine` tillhandahåller Node.js och npm. Projektets `package.json` och `package-lock.json` kopieras in och beroendena installeras med `npm ci`, så Dockerbygget använder samma låsta dependency tree som CI. Därefter kopieras källkoden in och produktionsbygget körs.
 
 I TaskBoard betyder:
 

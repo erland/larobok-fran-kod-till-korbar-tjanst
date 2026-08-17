@@ -55,7 +55,7 @@ Den kör i följande ordning:
 
 Detta är redan mer än ett vanligt byggjobb. Det verifierar att de artefakter som boken beskriver faktiskt går att sätta ihop till en körande tjänst.
 
-Samtidigt är det viktigt att inte tillskriva workflowen tester som inte finns. Frontendens `package.json` har i dagsläget inget `test`-script och inga testberoenden. Backendens `pom.xml` innehåller `quarkus-junit5` och Rest Assured som testberoenden, men projektet har ännu inga incheckade klasser under `src/test`.
+Samtidigt är det viktigt att beskriva vad workflowen faktiskt exekverar. Frontenden har nu ett `test`-script som kör Vitest och en incheckad komponenttestsvit med React Testing Library. Backenddelen har en incheckad `TaskResourceTest` under `src/test` som använder `@QuarkusTest` och Rest Assured.
 
 Kommandot:
 
@@ -63,7 +63,9 @@ Kommandot:
 mvn -B --no-transfer-progress verify
 ```
 
-är därför värdefullt som bygg- och livscykelkontroll, men det ska inte beskrivas som en omfattande backend-testsuite. Om det inte finns några testklasser finns det heller inga applikationsbeteenden för Surefire att verifiera.
+kör därför inte längre bara backendens bygglivscykel. Det startar också Quarkus-testmiljön och exekverar API-testet. Testprofilen låser PostgreSQL Dev Services till samma PostgreSQL-version som referensstacken, `postgres:18.4-alpine`, så att Flyway, Hibernate ORM, repository och HTTP-lager provas tillsammans mot riktig PostgreSQL när en container-runtime finns tillgänglig.
+
+Testsuiten är fortfarande medvetet liten. Den ska beskrivas som ett representativt API-/integrationstestlager, inte som fullständig täckning av all backendlogik.
 
 Det är en viktig generell regel:
 
@@ -124,37 +126,22 @@ Om en regel kan testas så är det onödigt dyrt att bara upptäcka felet i full
 
 ## Frontend: testa beteende, inte implementation
 
-TaskBoards frontend är liten. `App.tsx` laddar uppgifter, visar formulär och lista och anropar `taskApi` för create, update och delete.
+TaskBoards frontend är liten. `App.tsx` laddar uppgifter, visar formulär och lista och anropar `taskApi` för create, update och delete. Referensimplementationen använder nu **Vitest 4.1.10**, **React Testing Library 16.3.2** och **jsdom 30.0.1** för komponenttesterna. Vitest körs med ett browserliknande jsdom-environment, medan Testing Library låter testet fråga efter samma typer av DOM-element som användaren möter i gränssnittet. (Vitest, *Test Environment*; Testing Library, *React Testing Library*.)
 
-Om frontenden byggs ut är en rimlig teststack **Vitest** tillsammans med **React Testing Library**. Vitest är Vite-nära och kan använda samma konfigurationsmodell, medan React Testing Library är utformat för att testa UI via DOM och användarnära frågor i stället för React-komponenternas interna implementation. (Vitest, *Getting Started*; Testing Library, *React Testing Library*.)
-
-En representativ komponenttest skulle inte behöva veta att `App` använder `useState`. Det kan i stället verifiera ett scenario:
+Den incheckade `App.test.tsx` verifierar fyra representativa beteenden:
 
 ```text
-Givet att API:t returnerar en uppgift
-När App renderas
-Då visas uppgiftens titel och status
+1. initial laddning visar uppgifter från API:t
+2. formuläret kan skapa en uppgift och återställs efter lyckat svar
+3. en statusändring skickar PUT och ersätter uppgiften med API-svaret
+4. ett HTTP-fel visas via role="alert"
 ```
 
-Ett annat:
+Testerna känner inte till att `App` råkar använda `useState`; de interagerar med titel-fält, knappar, comboboxar och synlig text. `user-event` används för användarinteraktionerna. Det följer Testing Library-principen att tester bör ligga nära hur gränssnittet faktiskt används.
 
-```text
-Givet ett tomt titel-fält
-När användaren försöker skapa en uppgift
-Då skickas ingen create-request
-```
+HTTP-transporten ersätts i komponenttestet genom att den globala `fetch`-funktionen stubbas. Det gör att även den riktiga `api.ts`-koden provas — inklusive relativa `/api`-URL:er, HTTP-metoder, JSON-body och felhantering — utan att starta Quarkus eller PostgreSQL. Målet på den här nivån är att verifiera frontendens beteende, inte hela stacken.
 
-Och ett tredje:
-
-```text
-Givet att API:t svarar med fel
-När listan laddas
-Då visas ett element med role="alert"
-```
-
-I ett sådant test ska transporten normalt simuleras eller ersättas. Målet är att verifiera frontenden, inte att samtidigt starta PostgreSQL.
-
-Det är också därför ett komponenttest inte ersätter full-stack-testet. Ett simulerat API kan råka acceptera `MEDIUM` även om den verkliga backendens enum inte gör det.
+Det är också därför komponenttestet inte ersätter full-stack-testet. En stub av `fetch` kan returnera data som den verkliga backendens kontrakt skulle avvisa. Full-stack-testet behövs fortfarande för att visa att frontendens antaganden och den deployade backendens kontrakt faktiskt passar ihop.
 
 ## API-test: starta Quarkus på riktigt
 
@@ -176,27 +163,30 @@ Backendens `pom.xml` innehåller redan de byggstenar som behövs för Quarkus-te
 
 Quarkus stödjer HTTP-baserade tester där `@QuarkusTest` startar applikationen och Rest Assured kan anropa endpoints mot testservern. Quarkus använder som standard en separat testport, vilket gör att tester kan köras utan att kollidera med en vanlig utvecklingsinstans. (Quarkus, *Testing Your Application*.)
 
-Ett framtida TaskBoard-test bör exempelvis verifiera:
+TaskBoards nuvarande `TaskResourceTest` verifierar bland annat:
 
 ```text
-POST /api/tasks
-  giltig body          -> 201
-  tom title            -> 400
-  title > 160 tecken   -> 400
-  priority NORMAL      -> accepterad
-  priority MEDIUM      -> 400
+POST   giltig body            -> 201
+GET    lista/filter           -> 200 och skapad uppgift
+GET    känt id                -> 200
+PUT    känt id                -> 200 och uppdaterad uppgift
+DELETE känt id                -> 204
+GET    borttaget/okänt id     -> 404
+POST   tom title              -> 400
+POST   priority MEDIUM        -> 400
 ```
 
-Just raden om `MEDIUM` är värd att ha som regressionstest. Det tidigare smoke-testfelet lärde oss att frontend/testdata och backendens enum kan glida isär.
+Just raden om `MEDIUM` är ett medvetet regressionstest. Det tidigare smoke-testfelet lärde oss att testdata och backendens enum kan glida isär. Testet kontrollerar också `Location`-headern efter `POST`, normalisering av titel/beskrivning och att filtrerad listning hittar den skapade uppgiften.
 
-Ett API-test kan dessutom kontrollera sådant som frontendens TypeScript-typer inte kan garantera vid runtime:
+API-testet täcker därmed sådant som frontendens TypeScript-typer inte kan garantera vid runtime:
 
 - JSON-deserialisering,
 - Bean Validation,
 - enumkonvertering,
 - HTTP-statuskoder,
 - `Location`-headern efter `POST`,
-- 404 för okända id:n.
+- 404 för okända id:n,
+- faktisk persistens genom JPA/Flyway/PostgreSQL.
 
 ## När en riktig PostgreSQL-instans behövs
 
@@ -215,7 +205,7 @@ Det är därför riskabelt att låta alla integrationstester använda en annan d
 
 Quarkus Dev Services kan automatiskt starta en containeriserad PostgreSQL-databas i dev- och testläge när PostgreSQL-driverextensionen finns och ingen extern JDBC-URL konfigureras. Quarkus kopplar sedan applikationen till databasen automatiskt. (Quarkus, *Dev Services for Databases*.)
 
-För TaskBoard är detta en naturlig framtida modell för backendens integrationstester:
+TaskBoard använder nu denna modell för backendens API-/integrationstester:
 
 ```text
 JUnit / @QuarkusTest
@@ -227,9 +217,9 @@ Quarkus
 PostgreSQL Dev Service
 ```
 
-Då kan testet verifiera både REST-lagret och den verkliga persistencekedjan utan att testkoden själv behöver skapa och konfigurera containern manuellt.
+Testet kan därmed verifiera både REST-lagret och den verkliga persistenskedjan utan att testkoden själv behöver skapa och konfigurera containern manuellt.
 
-Det är här databasmigrationerna också ska få verklig testtäckning. Om Flyway körs vid uppstart ska integrationstestet starta från en tom testdatabas och låta migrationerna skapa schemat. Ett grönt test ger då information om både:
+Flyway körs när Quarkus-testmiljön startar och Hibernate validerar modellen mot det skapade schemat. Därmed får migrationen också verklig testtäckning. Ett grönt API-/integrationstest ger information om kedjan:
 
 ```text
 migration -> Hibernate-validering -> repository -> API
@@ -408,20 +398,17 @@ För ett mer avancerat system kan diagnostiken kompletteras med exempelvis healt
 
 ## En rekommenderad utbyggnadsordning
 
-TaskBoard behöver inte lägga till alla testnivåer samtidigt. En pragmatisk ordning är:
+TaskBoard behöver inte lägga till alla testnivåer samtidigt. De två viktigaste kompletteringarna utöver full-stack-smoke-testet är nu genomförda: backend/API-testet kör mot PostgreSQL via Dev Services och frontendens kritiska UI-flöden provas med Vitest + React Testing Library. En pragmatisk fortsatt ordning är:
 
 ```text
-1. behåll nuvarande statiska validator och build-steg
-2. lägg till backend/API-tester med @QuarkusTest
-3. låt persistence/API-tester använda PostgreSQL via Dev Services
-4. lägg till Vitest + React Testing Library när UI-logiken växer
-5. utöka full-stack-smoke-testet till update och delete
-6. håll full-stack-sviten liten och stabil
+1. behåll statisk validator, frontendkomponenttester och backend/API-test
+2. utöka full-stack-smoke-testet till update och delete om behovet motiverar det
+3. komplettera backendtesten med fler kontrakts- och domänfall när funktionaliteten växer
+4. komplettera frontendtesten när UI-beteendet blir rikare
+5. håll full-stack-sviten liten och stabil
 ```
 
-Varje steg täcker en lucka i den nuvarande portföljen.
-
-Backend/API-testerna bör prioriteras eftersom mycket av TaskBoards kontrakt finns där och infrastrukturen redan har testberoenden. PostgreSQL Dev Services gör det möjligt att testa persistens på rätt databasprodukt. Frontendkomponenttester blir mer värdefulla när `App.tsx` delas upp och UI-beteendet blir rikare.
+Varje framtida steg ska täcka en verklig kvarvarande risk, inte bara öka antalet tester. Frontend- och backendtesterna ger nu snabbare lokalisering av fel, medan smoke-testet behåller ansvaret för att verifiera den deployade helheten.
 
 Det befintliga smoke-testet ska däremot behållas även när de snabbare testerna blir fler. Det är fortfarande den kontroll som svarar på frågan:
 

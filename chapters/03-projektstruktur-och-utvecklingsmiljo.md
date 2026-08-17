@@ -226,7 +226,7 @@ Frontenden körs i en annan:
 
 ```bash
 cd code/taskboard/frontend
-npm install
+npm ci
 npm run dev
 ```
 
@@ -303,21 +303,13 @@ Det är mer än städning. Ett repository ska i första hand beskriva **hur resu
 
 Samma princip gör Dockerbyggen begripliga: Dockerfile tar källkod och byggbeskrivning som input och producerar en image. Den ska inte behöva förlita sig på att utvecklaren råkade ha rätt `dist/` eller `target/` liggande sedan tidigare.
 
-## En kvarvarande reproducerbarhetsfråga: npm-lockfilen
+## npm-lockfilen som del av utvecklingsmiljön
 
-Den nuvarande referensimplementationen har `package.json` men inget incheckat `package-lock.json`. CI använder därför:
+Referensimplementationen har nu både `package.json` och en npm-genererad, incheckad `package-lock.json`. CI och Docker-build använder därför `npm ci`, och samma kommando är ett bra förstahandsval även när en utvecklare vill återskapa det låsta dependency-trädet lokalt.
 
-```bash
-npm install --no-audit --no-fund
-```
+För de centrala frontendpaketen är flera versionsnummer explicit låsta i `package.json`, medan vissa typer fortfarande anges med versionsintervall. Lockfilen fryser den faktiska resolutionen av både direkta och transitiva beroenden. Om `package.json` och `package-lock.json` inte stämmer överens ska `npm ci` avbryta i stället för att tyst skriva om lockfilen.
 
-snarare än `npm ci`.
-
-För de centrala frontendpaketen är flera versionsnummer explicit låsta i `package.json`, men vissa typer anges fortfarande med versionsintervall. Utan lockfil är dependency-trädet därför inte lika strikt reproducerbart som det skulle vara med en incheckad lockfil.
-
-Vi ändrar inte det tyst i det här kapitlet, eftersom boken ska beskriva den faktiska implementationen. Däremot är det en medveten teknisk skuldpost att återkomma till i kapitel 16 om reproducerbar leverans. Där hör frågan hemma tillsammans med versionslåsning av images och andra supply-chain-val.
-
-Det här illustrerar också en viktig dokumentationsprincip: en referensimplementation behöver inte vara perfekt för att vara användbar, men texten ska inte tillskriva den egenskaper den ännu inte har.
+Detta gör frontendens dependency-installation betydligt mer reproducerbar, men det gör inte hela leveransen bitreproducerbar. Image-taggar, byggmiljö, Mavenartefakter och CI-beroenden är separata delar av supply chain och behandlas vidare i kapitel 16.
 
 ## CI är en tredje miljö, inte bara en robot som kör lokala kommandon
 

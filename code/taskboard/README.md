@@ -37,7 +37,7 @@ Frontend körs separat med Vite och proxar `/api` till Quarkus på port 8080:
 
 ```bash
 cd frontend
-npm install
+npm ci
 npm run dev
 ```
 
@@ -53,10 +53,22 @@ Se `STACK-VERSIONS.md` för de versioner som valdes när referensimplementatione
 Workflowen `.github/workflows/04-test-reference-implementation.yml` verifierar referensimplementationen vid ändringar under `code/taskboard/` och kan även köras manuellt. Den:
 
 1. kör den statiska referensvalideringen,
-2. bygger React/TypeScript-frontenden,
+2. kör frontendtesterna och bygger React/TypeScript-frontenden,
 3. kompilerar och testar Quarkus-backenden med Maven,
 4. validerar och bygger Docker Compose-konfigurationen,
 5. startar hela tjänsten och gör ett smoke test genom Nginx → Quarkus → PostgreSQL.
 
 Smoke testet skapar en uppgift via REST-API:t och läser tillbaka den för att kontrollera att hela kedjan fungerar.
+
+## Releasa referensimplementationen
+
+Workflowen `.github/workflows/05-release-reference-implementation.yml` skapar en separat TaskBoard-release när en tagg `taskboard-v<SemVer>` pushas. Den bygger web- och backend-images en gång, kör frontend-/backendtester och smoke-testar exakt de byggda images innan de publiceras till GitHub Container Registry. Därefter skapas ett releasepaket med:
+
+- `docker-compose.release.yml` utan lokala build-steg,
+- `release.env` med exakta image-digests för web, backend och PostgreSQL,
+- `release-manifest.json` med Git commit, Actions-run, verktygsversioner och checksummor,
+- `SHA256SUMS.txt`,
+- installationsinstruktionen `README.md`.
+
+Releasepaketet publiceras i en separat GitHub Release med samma `taskboard-v<SemVer>`-tagg. Bokens `v*`-taggar för EPUB/PDF påverkas inte.
 

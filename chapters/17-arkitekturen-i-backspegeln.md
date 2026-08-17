@@ -262,18 +262,17 @@ Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
 
 ## Vad bör förbättras innan en verklig release?
 
-Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. När hela boken nu ligger framför oss blir prioriteringen tydligare.
+Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Test- och leveranshärdningen är nu genomförd på den nivå boken behöver: backend/API-testning mot PostgreSQL Dev Services, frontendkomponenttester, `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, en separat releasekedja, publicerade release-images, registry-digests och maskinläsbart release-manifest finns i referensimplementationen.
 
-För referensimplementationen är de mest värdefulla nästa stegen:
+De mest värdefulla nästa stegen ligger därför i verkliga produktionskrav:
 
 ```text
-1. Lägg till package-lock.json och byt CI/build till npm ci.
-2. Inför riktiga backend/API-tester mot PostgreSQL Dev Services.
-3. Lägg till frontendkomponenttester för kritiska interaktioner.
-4. Skapa en releasekedja som bygger och publicerar verifierade images.
-5. Registrera image-digests och checksummor i releaseinformationen.
-6. Lägg till autentisering/auktorisering innan publik användning.
-7. Definiera TLS-terminering, secrets, backup/restore och observability för vald driftmiljö.
+1. Behåll frontend-, backend- och full-stack-testerna som regressionstest och bygg ut dem när nya beteenden tillkommer.
+2. Lägg till autentisering och auktorisering innan publik användning.
+3. Definiera TLS-terminering och en genomtänkt trusted-proxy-policy.
+4. Flytta känsliga värden till en lämplig secrets-lösning.
+5. Etablera backup/restore-test, central loggning, metrics och larm.
+6. Lägg till attestering/signering, SBOM eller annan supply-chain-härdning om risk- och regelkraven motiverar det.
 ```
 
 Ordningen kan ändras beroende på mål. Om nästa steg bara är fortsatt bokutveckling är test- och reproducerbarhetshärdning mest relevant. Om tjänsten i stället ska publiceras till verkliga användare flyttar identitet, TLS, secrets och driftrutiner snabbt upp i prioritet.
