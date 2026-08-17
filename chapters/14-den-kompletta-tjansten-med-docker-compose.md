@@ -87,7 +87,7 @@ Databasservicen ansvarar för PostgreSQL-processen och den persistenta datan. De
 
 ### `backend`
 
-Backendservicen kör Quarkus, äger API:t och ansluter till PostgreSQL. Den behöver databasens adress och credentials men behöver inte känna till värdens publicerade webbport.
+Backendservicen kör Quarkus, äger API:t och ansluter till PostgreSQL. Den behöver databasens adress och inloggningsuppgifter men behöver inte känna till värdens publicerade webbport.
 
 ### `web`
 
@@ -206,7 +206,7 @@ environment:
   QUARKUS_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-taskboard-change-me}
 ```
 
-Det är ett enkelt men viktigt mönster: deploymenten har en gemensam källa för databasnamn och credentials, medan varje container får värden i den form dess egen runtime förstår.
+Det är ett enkelt men viktigt mönster: deploymenten har en gemensam källa för databasnamn och inloggningsuppgifter, medan varje container får värden i den form dess egen runtime förstår.
 
 PostgreSQL känner till `POSTGRES_USER`.
 

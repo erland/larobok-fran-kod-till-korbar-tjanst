@@ -170,7 +170,7 @@ public record TaskResponse(
 
 Detta är samma arkitekturgräns som vi såg från frontend i föregående kapitel. Klienten skriver inte `id`, `createdAt` eller `updatedAt`; backend äger dem.
 
-Separationen är viktig av fler skäl än JSON-format. Databasentiteten innehåller till exempel ett versionsfält för optimistisk låsning. Det är inte automatiskt en del av det externa API-kontraktet. Genom att mappa entiteten till `TaskResponse` kan persistence-modellen utvecklas utan att varje intern förändring blir en publik API-förändring.
+Separationen är viktig av fler skäl än JSON-format. Databasentiteten innehåller till exempel ett versionsfält för optimistisk låsning. Det är inte automatiskt en del av det externa API-kontraktet. Genom att mappa entiteten till `TaskResponse` kan persistens-modellen utvecklas utan att varje intern förändring blir en publik API-förändring.
 
 I en större tjänst skulle create och update kunna få olika DTO:er. TaskBoard använder samma `SaveTaskRequest` för båda eftersom operationerna ännu har samma indataform. Det är ett medvetet förenklingsval, inte ett krav från Quarkus.
 
@@ -292,7 +292,7 @@ Här finns flera applikationsbeslut:
 - saknad status blir `OPEN`,
 - saknad prioritet blir `NORMAL`,
 - tidsstämplar sätts i UTC,
-- persistence sker som en sammanhängande operation.
+- persistens sker som en sammanhängande operation.
 
 Inget av detta handlar om hur HTTP-parametrar läses. Därför hör reglerna bättre hemma i service-lagret.
 
@@ -344,7 +344,7 @@ QUARKUS_DATASOURCE_PASSWORD
 
 Quarkus konfigurationsmodell läser från flera källor med definierad prioritet; environment variables ligger högre än klasspathens `application.properties`. Quarkus beskriver också hur egenskapsnamn konverteras till versala environment-variable-namn med understreck. (Quarkus, *Configuration Reference Guide*.)
 
-Det är därför samma backend-artifact kan köras lokalt och i Compose utan att byggas om för varje databasadress.
+Det är därför samma backend-artefakt kan köras lokalt och i Compose utan att byggas om för varje databasadress.
 
 Vi går djupare in i miljökonfiguration och secrets i kapitel 11. Här räcker principen: applikationskoden ska inte behöva känna till att databasen i Compose heter `db` eller att en annan installation använder ett helt annat hostnamn.
 
@@ -387,7 +387,7 @@ Docker runtime image
 java -jar quarkus-run.jar
 ```
 
-Det var just denna skillnad som blev viktig när referensimplementationens Docker-build först saknade Quarkus production packaging. CI-felet gjorde en nyttig sak synlig: ett Maven-kommando som ser lyckat ut är inte tillräckligt om det inte producerar den runtime-layout som Dockerfilen förutsätter.
+Det var just denna skillnad som blev viktig när referensimplementationens Docker-build först saknade korrekt Quarkus-produktionspaketering. Felet gjorde en nyttig sak synlig: ett Maven-kommando som ser lyckat ut är inte tillräckligt om det inte producerar den körningslayout som Dockerfilen förutsätter.
 
 ## Byggtid och runtime är båda delar av Quarkus-modellen
 
@@ -395,7 +395,7 @@ Quarkus flyttar mycket ramverksarbete till build time. För en applikationsutvec
 
 Quarkus dokumenterar att vissa konfigurationsvärden är fixed at build time medan andra kan överskridas vid runtime. (Quarkus, *Configuration Reference Guide*.)
 
-Det betyder att "allt ska kunna styras med environment variables" är för grovt som tumregel. Runtime-egenskaper som datasource credentials passar väl där, men build-time-egenskaper kräver ett annat resonemang. När vi senare designar reproducerbara images behöver vi därför veta vilka beslut som hör till artifact-byggandet och vilka som ska lämnas till installationen.
+Det betyder att "allt ska kunna styras med miljövariabler" är för grovt som tumregel. Egenskaper som kan bestämmas vid start, exempelvis databasens inloggningsuppgifter, passar väl där, men byggtidsegenskaper kräver ett annat resonemang. När vi senare diskuterar reproducerbara images behöver vi därför veta vilka beslut som hör till artefaktbygget och vilka som ska lämnas till installationen.
 
 TaskBoard håller sig i detta skede till en enkel modell där de viktigaste miljöspecifika värdena — databasanslutningen — är runtime-konfiguration.
 
@@ -415,13 +415,13 @@ Quarkus väljer inte åt oss:
 
 Det är våra designbeslut.
 
-Quarkus ger däremot en väl integrerad plattform för att implementera dem: REST, CDI, validering, transaktioner, persistence, konfiguration, health och build tooling kan fungera som en sammanhängande helhet.
+Quarkus ger däremot en väl integrerad plattform för att implementera dem: REST, CDI, validering, transaktioner, persistens, konfiguration, health och build tooling kan fungera som en sammanhängande helhet.
 
 Det är den viktigaste lärdomen för en erfaren Java-utvecklare. Produktivitet i Quarkus handlar mindre om att lära sig ett helt nytt programmeringsspråk och mer om att förstå vilka standard-API:er Quarkus använder, vilka extensions som aktiverar funktionerna och vilka delar som sker vid build time respektive runtime.
 
 ## TaskBoards backendgräns i sammanfattning
 
-Vi kan nu beskriva backendens första halva utan att blanda in persistence-detaljerna:
+Vi kan nu beskriva backendens första halva utan att blanda in persistens-detaljerna:
 
 ```text
 POST /api/tasks
@@ -449,4 +449,4 @@ TaskRepository
 
 Resursen äger HTTP-kontraktet. DTO:erna äger transportformen. Bean Validation stoppar strukturellt ogiltig indata. Tjänstelagret äger applikationsreglerna. CDI kopplar ihop delarna. Konfigurationen hålls utanför Java-koden där den är miljöberoende.
 
-Nästa steg är att följa kedjan vidare in i persistence-lagret. Där blir frågan inte längre främst hur Quarkus tar emot en request, utan hur vi använder JPA och transaktioner utan att låta ORM-modellen bli hela applikationsarkitekturen.
+Nästa steg är att följa kedjan vidare in i persistens-lagret. Där blir frågan inte längre främst hur Quarkus tar emot en request, utan hur vi använder JPA och transaktioner utan att låta ORM-modellen bli hela applikationsarkitekturen.

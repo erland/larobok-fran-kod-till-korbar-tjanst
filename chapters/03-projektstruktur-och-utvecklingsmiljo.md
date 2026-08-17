@@ -215,16 +215,16 @@ Referensprojektet stöder i praktiken två olika sätt att arbeta lokalt.
 
 ### Snabb utveckling av frontend och backend
 
-I två terminaler:
+Backenden körs i en terminal:
 
 ```bash
-## körs i terminal 1
 cd code/taskboard/backend
 mvn quarkus:dev
 ```
 
+Frontenden körs i en annan:
+
 ```bash
-## körs i terminal 2
 cd code/taskboard/frontend
 npm install
 npm run dev
@@ -341,7 +341,7 @@ CI               -> reproducerbar verifiering från ren checkout
 
 CI är särskilt viktig eftersom den saknar utvecklarens historik. Den har inte en gammal `node_modules`, en tidigare Maven-build eller en manuellt skapad databas att falla tillbaka på. När samma revision fungerar där får vi en starkare signal om att repositoryt faktiskt innehåller det som behövs.
 
-Det var också så referensimplementationen blev stabiliserad innan boktexten började skrivas: workflowen avslöjade successivt problem i TypeScript-konfiguration, Quarkus-paketering, PostgreSQL 18-volymen, Nginx-healthcheck och smoke-testdata. När kedjan till slut passerade hade vi inte bara kod som såg rimlig ut, utan en verifierad start- och requestväg.
+Den här verifieringskedjan har i praktiken avslöjat problem i TypeScript-konfiguration, Quarkus-paketering, PostgreSQL 18-volymen, Nginx-healthchecken och smoke-testdata. När hela kedjan passerar har vi därför mer än kod som ser rimlig ut: vi har en verifierad start- och anropsväg.
 
 ## Projektstruktur som gränssnitt för utvecklaren
 

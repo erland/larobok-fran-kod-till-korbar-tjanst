@@ -370,7 +370,7 @@ Att göra dessa tillstånd explicita är ofta viktigare än att introducera fler
 
 ## Ingen router – ännu
 
-Kapitelplanen nämner lista, detaljvy och redigering som möjliga frontendperspektiv. Den faktiska revision vi skriver mot har däremot bara en sammanhållen vy. Alla uppgifter visas och hanteras i `App`.
+TaskBoards nuvarande frontend har medvetet bara en sammanhållen vy. Alla uppgifter visas och hanteras i `App`; det finns ännu ingen separat detaljvy eller redigeringsroute.
 
 Det är viktigt att boken är trogen referenskoden. Vi ska därför inte beskriva en React Router-konfiguration som inte finns.
 
@@ -458,7 +458,7 @@ Det är inte en lista över brister som måste åtgärdas innan applikationen f�
 
 Den kompletta tjänsten bygger, startar och klarar ett end-to-end-smoke test redan med denna frontend. Det ger oss ett fungerande minimum att resonera vidare från.
 
-## Kapitelns viktigaste slutsatser
+## Kapitlets viktigaste slutsatser
 
 TaskBoard visar en liten men tydlig React/TypeScript-arkitektur:
 

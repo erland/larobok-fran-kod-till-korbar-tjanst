@@ -1,9 +1,9 @@
 # Kvalitetschecklista
 
 ## Gemensamt
-- [ ] Språk, ton och nivå/djup är konsekventa.
-- [ ] Begrepp och fakta motsäger inte canon.
-- [ ] Onödiga upprepningar och luckor är hanterade.
+- [x] Språk, ton och nivå/djup är konsekventa.
+- [x] Begrepp och fakta motsäger inte canon.
+- [x] Onödiga upprepningar och luckor är hanterade.
 
 ## Lärobok (`textbook`)
 - [ ] Förkunskaper respekteras.
@@ -11,15 +11,15 @@
 - [ ] Begrepp och svårighetsgrad utvecklas i rimlig ordning.
 
 ## Faktabok (`factbook`)
-- [ ] Ämnestäckning och faktadjup passar målgruppen.
-- [ ] Fakta, tolkning och osäkerhet hålls isär.
-- [ ] Käll- och faktakontroll är tillräcklig för ämnet.
-- [ ] Tidskänsliga uppgifter är aktuella.
-- [ ] Engagerande förenklingar är fortfarande sakligt korrekta.
+- [x] Ämnestäckning och faktadjup passar målgruppen.
+- [x] Fakta, tolkning och osäkerhet hålls isär.
+- [x] Käll- och faktakontroll är tillräcklig för ämnet.
+- [x] Tidskänsliga uppgifter är aktuella.
+- [x] Engagerande förenklingar är fortfarande sakligt korrekta.
 
 ## Teknik
-- [ ] Kod är körbar eller märkt som pseudokod.
-- [ ] Versioner och antaganden är dokumenterade.
+- [x] Kod är körbar eller märkt som pseudokod.
+- [x] Versioner och antaganden är dokumenterade.
 
 ## Export
 - [ ] `book.yaml` är komplett och kapitelordningen stämmer.

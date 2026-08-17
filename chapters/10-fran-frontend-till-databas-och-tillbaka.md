@@ -321,7 +321,7 @@ public long version;
 
 Det innebär att Hibernate använder en versionskolumn för optimistisk låsning. Vid en faktisk uppdatering kan SQL därför konceptuellt innehålla både radens id och förväntad versionsnivå.
 
-Detta skyddar persistence-lagret mot vissa samtidiga uppdateringar, men TaskBoards HTTP-API exponerar ännu inte versionsfältet till klienten. Webbläsaren har alltså inte ett explicit ETag-/versionsbaserat stale-write-kontrakt. Det är viktigt att hålla isär de två nivåerna.
+Detta skyddar persistens-lagret mot vissa samtidiga uppdateringar, men TaskBoards HTTP-API exponerar ännu inte versionsfältet till klienten. Webbläsaren har alltså inte ett explicit ETag-/versionsbaserat stale-write-kontrakt. Det är viktigt att hålla isär de två nivåerna.
 
 ## Commit först, svar sedan
 

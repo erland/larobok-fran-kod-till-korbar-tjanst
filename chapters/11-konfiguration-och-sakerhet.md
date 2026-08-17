@@ -26,7 +26,7 @@ I den aktuella Compose-filen är det bara `web` som har en publicerad port. `bac
 
 Det är en bra start. Men det är inte samma sak som att tjänsten är komplett säkerhetshärdad för Internet. I det här kapitlet skiljer vi därför konsekvent mellan **vad TaskBoard faktiskt gör i dag** och **vad en skarp installation bör kompletteras med**.
 
-## Samma artifact, olika miljöer
+## Samma artefakt, olika miljöer
 
 Ett vanligt misstag är att baka in miljöspecifika värden i koden eller imagen:
 
@@ -336,7 +336,7 @@ POSTGRES_USER
 POSTGRES_PASSWORD
 ```
 
-Det gör det möjligt för en driftmiljö att använda unika credentials per installation i stället för ett gemensamt lösenord inbyggt i imagen.
+Det gör det möjligt för en driftmiljö att använda unika inloggningsuppgifter per installation i stället för ett gemensamt lösenord inbyggt i imagen.
 
 På samma sätt kan publicerad port ändras:
 

@@ -138,7 +138,7 @@ Quarkus blir redo
 
 Det här är mer än bekvämlighet. Det innebär att applikationen själv bär med sig de SQL-steg som krävs för dess förväntade databasschema.
 
-Det finns andra möjliga driftsmodeller, exempelvis att migrationer körs i ett separat deploy-steg innan applikationen startas. För TaskBoards referensimplementation är `migrate-at-start` däremot ett medvetet enkelt val: samma backend-artifact innehåller både applikationskod och migrationsresurser.
+Det finns andra möjliga driftsmodeller, exempelvis att migrationer körs i ett separat deploy-steg innan applikationen startas. För TaskBoards referensimplementation är `migrate-at-start` däremot ett medvetet enkelt val: samma backend-artefakt innehåller både applikationskod och migrationsresurser.
 
 ## Hibernate ska inte konkurrera med Flyway
 

@@ -280,7 +280,7 @@ React ansvarar för användarupplevelsen. Vite producerar statiska artefakter. P
 
 Det är först när de lagren fungerar tillsammans som frontenddelen är mer än en utvecklingsserver.
 
-## Kapitelns viktigaste slutsatser
+## Kapitlets viktigaste slutsatser
 
 TaskBoards PWA-upplägg är medvetet litet men arkitektoniskt viktigt:
 
