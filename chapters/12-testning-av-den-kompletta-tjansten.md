@@ -55,7 +55,7 @@ Den kör i följande ordning:
 
 Detta är redan mer än ett vanligt byggjobb. Det verifierar att de artefakter som boken beskriver faktiskt går att sätta ihop till en körande tjänst.
 
-Samtidigt är det viktigt att inte tillskriva workflowen tester som inte finns. Frontendens `package.json` har i dagsläget inget `test`-script och inga testberoenden. Backenddelen har däremot nu en incheckad `TaskResourceTest` under `src/test` som använder `@QuarkusTest` och Rest Assured.
+Samtidigt är det viktigt att beskriva vad workflowen faktiskt exekverar. Frontenden har nu ett `test`-script som kör Vitest och en incheckad komponenttestsvit med React Testing Library. Backenddelen har en incheckad `TaskResourceTest` under `src/test` som använder `@QuarkusTest` och Rest Assured.
 
 Kommandot:
 
@@ -126,37 +126,22 @@ Om en regel kan testas så är det onödigt dyrt att bara upptäcka felet i full
 
 ## Frontend: testa beteende, inte implementation
 
-TaskBoards frontend är liten. `App.tsx` laddar uppgifter, visar formulär och lista och anropar `taskApi` för create, update och delete.
+TaskBoards frontend är liten. `App.tsx` laddar uppgifter, visar formulär och lista och anropar `taskApi` för create, update och delete. Referensimplementationen använder nu **Vitest 4.1.10**, **React Testing Library 16.3.2** och **jsdom 30.0.1** för komponenttesterna. Vitest körs med ett browserliknande jsdom-environment, medan Testing Library låter testet fråga efter samma typer av DOM-element som användaren möter i gränssnittet. (Vitest, *Test Environment*; Testing Library, *React Testing Library*.)
 
-Om frontenden byggs ut är en rimlig teststack **Vitest** tillsammans med **React Testing Library**. Vitest är Vite-nära och kan använda samma konfigurationsmodell, medan React Testing Library är utformat för att testa UI via DOM och användarnära frågor i stället för React-komponenternas interna implementation. (Vitest, *Getting Started*; Testing Library, *React Testing Library*.)
-
-En representativ komponenttest skulle inte behöva veta att `App` använder `useState`. Det kan i stället verifiera ett scenario:
+Den incheckade `App.test.tsx` verifierar fyra representativa beteenden:
 
 ```text
-Givet att API:t returnerar en uppgift
-När App renderas
-Då visas uppgiftens titel och status
+1. initial laddning visar uppgifter från API:t
+2. formuläret kan skapa en uppgift och återställs efter lyckat svar
+3. en statusändring skickar PUT och ersätter uppgiften med API-svaret
+4. ett HTTP-fel visas via role="alert"
 ```
 
-Ett annat:
+Testerna känner inte till att `App` råkar använda `useState`; de interagerar med titel-fält, knappar, comboboxar och synlig text. `user-event` används för användarinteraktionerna. Det följer Testing Library-principen att tester bör ligga nära hur gränssnittet faktiskt används.
 
-```text
-Givet ett tomt titel-fält
-När användaren försöker skapa en uppgift
-Då skickas ingen create-request
-```
+HTTP-transporten ersätts i komponenttestet genom att den globala `fetch`-funktionen stubbas. Det gör att även den riktiga `api.ts`-koden provas — inklusive relativa `/api`-URL:er, HTTP-metoder, JSON-body och felhantering — utan att starta Quarkus eller PostgreSQL. Målet på den här nivån är att verifiera frontendens beteende, inte hela stacken.
 
-Och ett tredje:
-
-```text
-Givet att API:t svarar med fel
-När listan laddas
-Då visas ett element med role="alert"
-```
-
-I ett sådant test ska transporten normalt simuleras eller ersättas. Målet är att verifiera frontenden, inte att samtidigt starta PostgreSQL.
-
-Det är också därför ett komponenttest inte ersätter full-stack-testet. Ett simulerat API kan råka acceptera `MEDIUM` även om den verkliga backendens enum inte gör det.
+Det är också därför komponenttestet inte ersätter full-stack-testet. En stub av `fetch` kan returnera data som den verkliga backendens kontrakt skulle avvisa. Full-stack-testet behövs fortfarande för att visa att frontendens antaganden och den deployade backendens kontrakt faktiskt passar ihop.
 
 ## API-test: starta Quarkus på riktigt
 
@@ -413,19 +398,17 @@ För ett mer avancerat system kan diagnostiken kompletteras med exempelvis healt
 
 ## En rekommenderad utbyggnadsordning
 
-TaskBoard behöver inte lägga till alla testnivåer samtidigt. De två första utbyggnadsstegen är nu genomförda: backend/API-testet finns och använder PostgreSQL via Dev Services. Nästa pragmatiska ordning är:
+TaskBoard behöver inte lägga till alla testnivåer samtidigt. De två viktigaste kompletteringarna utöver full-stack-smoke-testet är nu genomförda: backend/API-testet kör mot PostgreSQL via Dev Services och frontendens kritiska UI-flöden provas med Vitest + React Testing Library. En pragmatisk fortsatt ordning är:
 
 ```text
-1. behåll nuvarande statiska validator och backend/API-test
-2. lägg till Vitest + React Testing Library för kritiska UI-flöden
-3. utöka full-stack-smoke-testet till update och delete om behovet motiverar det
-4. komplettera backendtesten med fler kontrakts- och domänfall när funktionaliteten växer
+1. behåll statisk validator, frontendkomponenttester och backend/API-test
+2. utöka full-stack-smoke-testet till update och delete om behovet motiverar det
+3. komplettera backendtesten med fler kontrakts- och domänfall när funktionaliteten växer
+4. komplettera frontendtesten när UI-beteendet blir rikare
 5. håll full-stack-sviten liten och stabil
 ```
 
-Varje steg täcker en kvarvarande lucka i portföljen.
-
-Backend/API-lagret är nu på plats eftersom mycket av TaskBoards kontrakt finns där och PostgreSQL Dev Services gör det möjligt att prova persistens mot rätt databasprodukt. Frontendkomponenttester är därför nästa naturliga teststeg, särskilt när `App.tsx` delas upp och UI-beteendet blir rikare.
+Varje framtida steg ska täcka en verklig kvarvarande risk, inte bara öka antalet tester. Frontend- och backendtesterna ger nu snabbare lokalisering av fel, medan smoke-testet behåller ansvaret för att verifiera den deployade helheten.
 
 Det befintliga smoke-testet ska däremot behållas även när de snabbare testerna blir fler. Det är fortfarande den kontroll som svarar på frågan:
 

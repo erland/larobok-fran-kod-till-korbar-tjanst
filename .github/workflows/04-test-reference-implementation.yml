@@ -42,10 +42,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build frontend
+      - name: Test and build frontend
         working-directory: ${{ env.TASKBOARD_DIR }}/frontend
         run: |
           npm install --no-audit --no-fund
+          npm run test
           npm run build
 
       - name: Set up Java

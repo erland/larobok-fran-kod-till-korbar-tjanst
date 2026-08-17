@@ -14,6 +14,9 @@ REQUIRED = [
     "STACK-VERSIONS.md",
     "frontend/package.json",
     "frontend/vite.config.ts",
+    "frontend/vitest.config.ts",
+    "frontend/src/App.test.tsx",
+    "frontend/src/test/setup.ts",
     "frontend/nginx.conf",
     "frontend/Dockerfile",
     "frontend/src/App.tsx",
@@ -43,11 +46,37 @@ def main() -> int:
         "vite": "8.2.1",
         "typescript": "6.0.3",
         "vite-plugin-pwa": "1.3.0",
+        "vitest": "4.1.10",
+        "@testing-library/react": "16.3.2",
+        "@testing-library/dom": "10.4.1",
+        "@testing-library/user-event": "14.6.1",
+        "@testing-library/jest-dom": "7.0.0",
+        "jsdom": "30.0.1",
     }
     merged = package.get("dependencies", {}) | package.get("devDependencies", {})
     for dependency, version in expected_frontend.items():
         if merged.get(dependency) != version:
             fail(f"Fel version för {dependency}: {merged.get(dependency)!r}, väntat {version!r}")
+
+    if package.get("scripts", {}).get("test") != "vitest run":
+        fail("Frontendens test-script ska vara 'vitest run'")
+
+    frontend_test = (ROOT / "frontend/src/App.test.tsx").read_text()
+    for token in [
+        "laddar och visar uppgifter från API:t",
+        "skapar en uppgift från formuläret",
+        "uppdaterar status",
+        "visar API-fel",
+        "userEvent.setup()",
+        "vi.stubGlobal('fetch'",
+    ]:
+        if token not in frontend_test:
+            fail(f"Frontendtestet saknar beteendekontroll: {token}")
+
+    vitest_config = (ROOT / "frontend/vitest.config.ts").read_text()
+    for token in ["environment: 'jsdom'", "setupFiles: './src/test/setup.ts'"]:
+        if token not in vitest_config:
+            fail(f"Vitest-konfigurationen saknar {token}")
 
     ET.parse(ROOT / "backend/pom.xml")
     pom = (ROOT / "backend/pom.xml").read_text()

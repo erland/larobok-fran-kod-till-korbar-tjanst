@@ -26,7 +26,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 9 | Databasschemat som kod med Flyway | Helhetsreviderad | Grundad i faktisk `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering |
 | 10 | Från frontend till databas och tillbaka | Helhetsreviderad | Grundad i den faktiska request/response-kedjan och verifierat end-to-end-test |
 | 11 | Konfiguration och säkerhet | Helhetsreviderad | Grundad i faktisk Compose-, Nginx- och Quarkus-konfiguration samt explicit säkerhetsavgränsning |
-| 12 | Testning av den kompletta tjänsten | Helhetsreviderad | Grundad i faktisk CI-workflow och smoke-test samt verifierad Quarkus-/frontend-teststrategi |
+| 12 | Testning av den kompletta tjänsten | Helhetsreviderad | Grundad i faktisk CI-workflow, Vitest/React Testing Library, Quarkus-integrationstest och full-stack-smoke-test |
 | 13 | Frontend, reverse proxy och backend som Docker-images | Helhetsreviderad | Grundad i faktiska multi-stage Dockerfiles, Nginx-konfiguration, Quarkus fast-jar och verifierad image-start i CI |
 | 14 | Den kompletta tjänsten med Docker Compose | Helhetsreviderad | Grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
 | 15 | Från lokal körning till driftbar tjänst | Helhetsreviderad | Grundad i faktisk Compose-/PostgreSQL-/Quarkus-konfiguration och verifierad drift-/backupdokumentation |
@@ -43,7 +43,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Databas: PostgreSQL 18.4.
 - Leverans: Docker Compose med persistent PostgreSQL-volume och health-baserad startordning.
 - Lokal utveckling: Vite-proxy till Quarkus; Quarkus Dev Services kan tillhandahålla PostgreSQL.
-- GitHub Actions: `04-test-reference-implementation.yml` bygger frontenden, kör backendens `@QuarkusTest`/Rest Assured-test mot PostgreSQL Dev Services via `mvn verify`, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
+- GitHub Actions: `04-test-reference-implementation.yml` installerar frontendberoenden, kör Vitest-komponenttesterna, bygger frontenden, kör backendens `@QuarkusTest`/Rest Assured-test mot PostgreSQL Dev Services via `mvn verify`, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
 - Full runtime-verifiering: GitHub Actions bygger images, startar Compose-stacken och smoke-testar Nginx → Quarkus → PostgreSQL. Denna workflow är projektets kanoniska end-to-end-verifiering.
 
 ## Faktakontroll
@@ -52,9 +52,9 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
-- Backenddelen av den rekommenderade teststacken är implementerad. Återstående beslut är om Vitest + React Testing Library ska införas för frontenden före slutrevision/export.
+- Den rekommenderade frontend- och backendteststacken är nu implementerad i referensimplementationen.
 
 ## Nästa rekommenderade steg
-- Fortsätt vid behov med frontendtesterna (Vitest + React Testing Library) och därefter den starkare leveransmodellen före slutrevision/export.
+- Fortsätt med den starkare leveransmodellen från kapitel 16 före slutrevision/export.
 - Genomför därefter en slutputs med fokus på språk, kodexempel, källhänvisningar och exportberedskap.
 - Digest-policyn är fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.

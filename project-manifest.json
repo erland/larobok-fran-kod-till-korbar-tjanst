@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r30.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r31.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -14,35 +14,38 @@
       "chapters/09-databasschemat-som-kod-med-flyway.md": "4a436797cd6fa9450e188f2b65e57ab8812e57b3e56f0115f84ca00169eaf656",
       "chapters/10-fran-frontend-till-databas-och-tillbaka.md": "05962b5400c9f2161823a3572011e9c3eee5f416596175f39f09486a8f022e7f",
       "chapters/11-konfiguration-och-sakerhet.md": "1f39f17a1031545e49c60726ad6ce2d34c2a63a4e87de5d4d06428267b5c2134",
-      "chapters/12-testning-av-den-kompletta-tjansten.md": "4dfb2f8310b8a341f359eef22c47c93ac63b77b24de62cfcbc00fcd198ef57f3",
+      "chapters/12-testning-av-den-kompletta-tjansten.md": "bbcb9e777896016e1f2413c15efb1e06dac62bdd04fc802fcf02e56cf065202e",
       "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": "75f04e347b06e0d465fadb9ad9f81ebfbc97d31d94a0c7db97c882368f00b39e",
       "chapters/14-den-kompletta-tjansten-med-docker-compose.md": "d032c30b3f63acac79b8a4381b91ced8787bd41ea804f8ac3b533177190e6d38",
       "chapters/15-fran-lokal-korning-till-driftbar-tjanst.md": "c204da527fb2fea845ce35fc7691a31d4956b3ddda659d443bbbf8dab6d0e2c6",
       "chapters/16-en-reproducerbar-leverans.md": "fd643ddd0844bebf9f93d4141c633d5efcd0c37ccd87411da6f6c6af5ae86d6b",
-      "chapters/17-arkitekturen-i-backspegeln.md": "e0577d495957e3000d8ebd8978bc47e3dd8a3071cc880d74a3dadde88c4bb26a"
+      "chapters/17-arkitekturen-i-backspegeln.md": "01c84ef664fd49ab5d613c9604d1a0e131266871130160ddd2dd7a263db5d88a"
     },
     "latest": 17
   },
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
+      ".github/workflows/04-test-reference-implementation.yml",
       "chapters/12-testning-av-den-kompletta-tjansten.md",
       "chapters/17-arkitekturen-i-backspegeln.md",
-      "code/taskboard/backend/src/main/resources/application.properties",
-      "code/taskboard/backend/src/test/java/se/erland/taskboard/task/TaskResourceTest.java",
+      "code/taskboard/frontend/package.json",
+      "code/taskboard/frontend/src/App.test.tsx",
+      "code/taskboard/frontend/src/test/setup.ts",
+      "code/taskboard/frontend/vitest.config.ts",
       "code/taskboard/validate_reference.py",
       "docs/faktakontroll.md",
       "docs/kapitelplan.md",
       "docs/projektstatus.md",
       "project-index.md"
     ],
-    "operation": "Införde Steg A: Quarkus API-/integrationstester mot PostgreSQL Dev Services och synkroniserade manus/status",
-    "source_revision": 29
+    "operation": "Införde frontendtester med Vitest och React Testing Library samt kopplade dem till CI",
+    "source_revision": 30
   },
-  "parent_revision": 29,
+  "parent_revision": 30,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 30,
+  "revision": 31,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -59,8 +62,8 @@
       "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
     },
     ".github/workflows/04-test-reference-implementation.yml": {
-      "bytes": 5176,
-      "sha256": "4aa75ab89b8b25faaba8f3d93da38b28980a3519cb9e178ad96e6ac40fb8f82c"
+      "bytes": 5208,
+      "sha256": "2d6306d7940ba24cfff023fc1ff8a5f10419be301c1b02af92837d5a10b6474a"
     },
     "README.md": {
       "bytes": 1160,
@@ -131,8 +134,8 @@
       "sha256": "1f39f17a1031545e49c60726ad6ce2d34c2a63a4e87de5d4d06428267b5c2134"
     },
     "chapters/12-testning-av-den-kompletta-tjansten.md": {
-      "bytes": 17875,
-      "sha256": "4dfb2f8310b8a341f359eef22c47c93ac63b77b24de62cfcbc00fcd198ef57f3"
+      "bytes": 18312,
+      "sha256": "bbcb9e777896016e1f2413c15efb1e06dac62bdd04fc802fcf02e56cf065202e"
     },
     "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": {
       "bytes": 19290,
@@ -151,8 +154,8 @@
       "sha256": "fd643ddd0844bebf9f93d4141c633d5efcd0c37ccd87411da6f6c6af5ae86d6b"
     },
     "chapters/17-arkitekturen-i-backspegeln.md": {
-      "bytes": 17115,
-      "sha256": "e0577d495957e3000d8ebd8978bc47e3dd8a3071cc880d74a3dadde88c4bb26a"
+      "bytes": 17227,
+      "sha256": "01c84ef664fd49ab5d613c9604d1a0e131266871130160ddd2dd7a263db5d88a"
     },
     "chapters/kallforteckning.md": {
       "bytes": 9704,
@@ -259,12 +262,16 @@
       "sha256": "dfc77ef7642c481541eaa298c8f3b5c8c7f45b890e1ba5f64c56fd1bcda1771f"
     },
     "code/taskboard/frontend/package.json": {
-      "bytes": 486,
-      "sha256": "f70eda91370b60688032156251e777a80b700bd4d5ad58984a9c245314387256"
+      "bytes": 724,
+      "sha256": "8a3f0b9da4d10ac535564467ab90c8faef565fc00053b214cef620c5e612cc65"
     },
     "code/taskboard/frontend/public/icon.svg": {
       "bytes": 467,
       "sha256": "128bcf4c143e98f60e64e64d0195b932412e2be3bdfc754571c4d20650b86607"
+    },
+    "code/taskboard/frontend/src/App.test.tsx": {
+      "bytes": 3789,
+      "sha256": "72ef52446aa0e327479deffe17a4e666057ba7616a33d5f45c8e261c4a6bc222"
     },
     "code/taskboard/frontend/src/App.tsx": {
       "bytes": 4370,
@@ -281,6 +288,10 @@
     "code/taskboard/frontend/src/styles.css": {
       "bytes": 1853,
       "sha256": "c34f1d1f55c119b2d4ee18c1dea9c9d0e7f5c59ccec3bbdcb70706f813ffc42e"
+    },
+    "code/taskboard/frontend/src/test/setup.ts": {
+      "bytes": 42,
+      "sha256": "977afde26bba6a51325908cd7713cbfdc87d18f06b78b237c8f364c44864b7de"
     },
     "code/taskboard/frontend/src/vite-env.d.ts": {
       "bytes": 87,
@@ -302,9 +313,13 @@
       "bytes": 803,
       "sha256": "0237771c37ec5268f7c49765907cc9b3824ea10b03ba7a3ceb70b08d9f9c77b3"
     },
+    "code/taskboard/frontend/vitest.config.ts": {
+      "bytes": 220,
+      "sha256": "a3d13f77b781cf86cbf283ebb9575cabfb1c3bcb9081fcc0b335abf340eea79a"
+    },
     "code/taskboard/validate_reference.py": {
-      "bytes": 4109,
-      "sha256": "0d1690daf94710cd6a77625785b3caa8c40d60a72edab57244b85741bdf0a70f"
+      "bytes": 5236,
+      "sha256": "2082072f495ccf8980586fe30372abcd3adc27478a0861aa193f462ae54b7832"
     },
     "docs/bokspecifikation.md": {
       "bytes": 5989,
@@ -315,8 +330,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 10485,
-      "sha256": "b76823f4b2986bafde7e3107f64eeaafc2a9916a7761406cb26892a224964d9d"
+      "bytes": 10623,
+      "sha256": "12b8cef0cb6b2e80a88b99dd3843e35700c00d94d9601281c034f94981623d3b"
     },
     "docs/helhetsrevision-r29.md": {
       "bytes": 1232,
@@ -335,12 +350,12 @@
       "sha256": "841494ab832d37a294b5e0a042729a3514331ad2e58b87f0337161f513895c18"
     },
     "docs/kapitelplan.md": {
-      "bytes": 17225,
-      "sha256": "1e4ad5e8ce2c262acbe4db0180af056936e312c49d927fdf5f51667a3fd4c4d0"
+      "bytes": 17283,
+      "sha256": "479f36bcd083f3402dc62dc837b68a5593475416430a8d3802239171139aadbd"
     },
     "docs/projektstatus.md": {
-      "bytes": 5437,
-      "sha256": "3ec380d3adb071dc9c7489fc2169bbeb4e304ddec3b31792245e619664c726f3"
+      "bytes": 5382,
+      "sha256": "20c482919fac435b14a0f21bf9657b6713f0165fb9df8221664335df11eb2142"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -367,8 +382,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 1786,
-      "sha256": "2c15c26685304fd605f089d6b18cc1e9b677d83f211f0ad10dc7adbc45e91b5d"
+      "bytes": 1979,
+      "sha256": "82bb5117365b1e77fe74c425856d6006b2b78831acb9e1f5cb887421a17824fd"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -391,8 +406,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 13622,
-      "sha256": "27f551acc0dbe2fa62becf2c77c8b7f2643ac515da1f08f384798bbb9f34ecbf"
+      "bytes": 14244,
+      "sha256": "984680e87f330e1f7243a120348f8776101da16fbeb522145a837b3f332ad163"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -415,5 +430,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T05:59:59Z"
+  "updated_at": "2026-08-17T06:11:40Z"
 }

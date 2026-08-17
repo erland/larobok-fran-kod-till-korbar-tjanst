@@ -262,12 +262,12 @@ Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
 
 ## Vad bör förbättras innan en verklig release?
 
-Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Backend/API-testning mot PostgreSQL Dev Services är nu genomförd i referensimplementationen; när hela boken ligger framför oss blir prioriteringen för de återstående stegen tydligare.
+Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Backend/API-testning mot PostgreSQL Dev Services och frontendkomponenttester med Vitest + React Testing Library är nu genomförda i referensimplementationen; när hela boken ligger framför oss blir prioriteringen för de återstående stegen tydligare.
 
 För referensimplementationen är de mest värdefulla nästa stegen:
 
 ```text
-1. Lägg till frontendkomponenttester för kritiska interaktioner.
+1. Behåll frontend- och backendtesterna som snabba regressionstest och bygg ut dem när nya beteenden tillkommer.
 2. Lägg till package-lock.json och byt CI/build till npm ci.
 3. Skapa en releasekedja som bygger och publicerar verifierade images.
 4. Registrera image-digests och checksummor i releaseinformationen.
