@@ -139,3 +139,11 @@ Vitest. *Getting Started*. https://vitest.dev/guide/ (kontrollerad 2026-08-16).
 ## Testing Library
 
 Testing Library. *React Testing Library*. https://testing-library.com/docs/react-testing-library/intro/ (kontrollerad 2026-08-16).
+
+## Containerisering – komplettering kapitel 13
+
+Docker Docs. *Multi-stage builds*. https://docs.docker.com/build/building/multi-stage/ (kontrollerad 2026-08-17).
+
+Docker Official Image. *nginx*. https://hub.docker.com/_/nginx/ (kontrollerad 2026-08-17).
+
+Quarkus. *Quarkus and Maven*. https://quarkus.io/guides/maven-tooling (kontrollerad 2026-08-17).

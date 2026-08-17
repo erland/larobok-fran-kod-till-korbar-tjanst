@@ -153,9 +153,9 @@
 ### Kapitel 13: Frontend, reverse proxy och backend som Docker-images
 - Syfte: Containerisera frontend/Nginx och Quarkus på ett reproducerbart sätt.
 - Nivå/faktadjup: praktiska Dockerfiles och image-principer.
-- Nya huvudbegrepp/faktaområden: multi-stage build, statiska assets, Nginx image, Quarkus image, immutable artifacts, runtime config.
-- Exempel/case: TaskBoard frontend byggs med Node och körs i Nginx; backend byggs separat.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: multi-stage build, statiska assets, Nginx image, Quarkus fast-jar, immutable artifacts, healthcheck och runtime config.
+- Exempel/case: TaskBoards faktiska frontend- och backend-Dockerfiles som byggs och startas i GitHub Actions.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur gör vi images små, begripliga och oberoende av utvecklingsmaskinen?
 - Centrala fakta: build stage kontra runtime stage och image-ansvar.
 - Fördjupning/faktaruta: varför Vite dev server inte är produktionsserver.
