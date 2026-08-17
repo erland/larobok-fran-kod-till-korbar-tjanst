@@ -177,13 +177,13 @@
 ### Kapitel 15: Från lokal körning till driftbar tjänst
 - Syfte: Förklara vad som måste läggas till för att lösningen ska vara hanterbar över tid.
 - Nivå/faktadjup: driftprinciper för utvecklare.
-- Nya huvudbegrepp/faktaområden: health, loggning, backup/restore, graceful startup/shutdown, persistent data, migrations vid upgrade, observability.
-- Exempel/case: TaskBoard uppgraderas utan att tappa PostgreSQL-data.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: health/readiness, restart-policy, loggning/rotation, backup/restore, RPO/RTO, graceful shutdown, persistent data, migrations vid upgrade, rollback, observability och runbook.
+- Exempel/case: TaskBoard uppgraderas utan att tappa PostgreSQL-data och med en explicit rollback-/restore-plan.
+- Status: skriven
 - Kärnfråga/nyfikenhetskrok: Vad skiljer "det startar" från "det går att förvalta"?
-- Centrala fakta: hälsokontroller, loggar, backup och uppgraderingsflöde.
-- Fördjupning/faktaruta: backup måste testas genom restore.
-- Käll-/verifieringsbehov: PostgreSQL backup/restore, Quarkus health och Docker driftbeteende.
+- Centrala fakta: hälsokontroller, loggar, backup och restore, uppgraderingsflöde, migrationskompatibilitet och driftkonfiguration.
+- Fördjupning/faktaruta: backup är en process; en verifierad restore är beviset.
+- Käll-/verifieringsbehov: verifierat 2026-08-17 mot PostgreSQL 18 backup/restore/upgrade, Quarkus lifecycle/graceful shutdown samt Docker restart-, logging- och production Compose-dokumentation.
 
 ### Kapitel 16: En reproducerbar leverans
 - Syfte: Definiera vad som ska överlämnas för att en annan organisation ska kunna köra och uppgradera tjänsten.

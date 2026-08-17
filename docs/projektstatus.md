@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–14 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–15 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -29,7 +29,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 12 | Testning av den kompletta tjänsten | Skriven | Första manusversion, grundad i faktisk CI-workflow och smoke-test samt verifierad Quarkus-/frontend-teststrategi |
 | 13 | Frontend, reverse proxy och backend som Docker-images | Skriven | Första manusversion, grundad i faktiska multi-stage Dockerfiles, Nginx-konfiguration, Quarkus fast-jar och verifierad image-start i CI |
 | 14 | Den kompletta tjänsten med Docker Compose | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
-| 15 | Från lokal körning till driftbar tjänst | Planerad | Stomme skapad |
+| 15 | Från lokal körning till driftbar tjänst | Skriven | Första manusversion, grundad i faktisk Compose-/PostgreSQL-/Quarkus-konfiguration och verifierad drift-/backupdokumentation |
 | 16 | En reproducerbar leverans | Planerad | Stomme skapad |
 | 17 | Arkitekturen i backspegeln | Planerad | Stomme skapad |
 | – | Källförteckning | Planerad | Exporterad efter kapitel 17 |
@@ -56,5 +56,5 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 15 om vägen från lokal körning till driftbar tjänst, med fokus på backup/restore, observability, uppgraderingsdisciplin och driftkonfiguration.
-- Behåll digest-policy som ett öppet leveransbeslut till kapitel 16; kapitel 14 skiljer uttryckligen på portabel Compose-definition och fullt reproducerbar leverans.
+- Skriv kapitel 16 om en reproducerbar leverans: versionssättning, image-referenser, checksummor, release notes och installations-/uppgraderingsinstruktioner.
+- Fastställ digest-policy i kapitel 16; kapitel 15 lämnar den avsiktligt som ett leveransbeslut och fokuserar i stället på driftbarhet, backup/restore och uppgraderingsdisciplin.

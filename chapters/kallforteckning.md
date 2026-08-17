@@ -156,3 +156,23 @@ Docker Docs. *Control startup and shutdown order in Compose*. https://docs.docke
 
 Docker Docs. *Services top-level elements*. https://docs.docker.com/reference/compose-file/services/ (kontrollerad 2026-08-17).
 
+## Driftbar tjänst – komplettering kapitel 15
+
+Docker Docs. *Start containers automatically*. https://docs.docker.com/engine/containers/start-containers-automatically/ (kontrollerad 2026-08-17).
+
+Docker Docs. *Configure logging drivers*. https://docs.docker.com/engine/logging/configure/ (kontrollerad 2026-08-17).
+
+Docker Docs. *View container logs*. https://docs.docker.com/engine/logging/ (kontrollerad 2026-08-17).
+
+Docker Docs. *Use Compose in production*. https://docs.docker.com/compose/how-tos/production/ (kontrollerad 2026-08-17).
+
+Quarkus. *Application Initialization and Termination*. https://quarkus.io/guides/lifecycle (kontrollerad 2026-08-17).
+
+PostgreSQL Global Development Group. *PostgreSQL 18: Backup and Restore*. https://www.postgresql.org/docs/18/backup.html (kontrollerad 2026-08-17).
+
+PostgreSQL Global Development Group. *PostgreSQL 18: pg_dump*. https://www.postgresql.org/docs/18/app-pgdump.html (kontrollerad 2026-08-17).
+
+PostgreSQL Global Development Group. *PostgreSQL 18: pg_restore*. https://www.postgresql.org/docs/18/app-pgrestore.html (kontrollerad 2026-08-17).
+
+PostgreSQL Global Development Group. *PostgreSQL 18: Upgrading a PostgreSQL Cluster*. https://www.postgresql.org/docs/18/upgrading.html (kontrollerad 2026-08-17).
+

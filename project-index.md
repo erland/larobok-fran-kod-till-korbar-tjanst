@@ -11,7 +11,7 @@
 ## Kapitel
 - Inledning: skriven, första manusversion
 - Planerade numrerade kapitel: 17
-- Skapade kapitel med brödtext: kapitel 1–14
+- Skapade kapitel med brödtext: kapitel 1–15
 - Källförteckning: kompletterad med primärkällor för kapitel 2–14; kapitel 10, 12–14 bygger också på verifierad referenskod och end-to-end/Compose-start.
 
 ## Referensimplementation
