@@ -22,6 +22,6 @@
 - [x] Versioner och antaganden är dokumenterade.
 
 ## Export
-- [ ] `book.yaml` är komplett och kapitelordningen stämmer.
-- [ ] Canonical markdown är validerad.
-- [ ] Arbetsnoteringar från `docs/` exporteras inte av misstag.
+- [x] `book.yaml` är komplett och kapitelordningen stämmer.
+- [x] Canonical markdown är validerad.
+- [x] Arbetsnoteringar från `docs/` exporteras inte av misstag.

@@ -37,7 +37,7 @@ Detaljer finns även i `code/taskboard/STACK-VERSIONS.md`.
 ## Öppna verifieringspunkter
 - Frontend- och backenddelarna av den utökade teststacken är implementerade; verifiera fortsatt båda i CI och bygg ut dem endast när nya risker eller beteenden tillkommer.
 - Omverifiera tidskänsliga versioner och kommandon före publicering.
-- TaskBoards leveranshärdning omfattar nu `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, verifierade release-images, registry-digests och maskinläsbart release-manifest. Kvar som valfri starkare nivå: explicit Maven-reproducerbarhetskontroll, attestering/signering och eventuell SBOM.
+- TaskBoards leveranshärdning omfattar nu `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, verifierade release-images, registry-digests och maskinläsbart release-manifest. Releaseworkflowen är dessutom runtime-verifierad hela vägen genom GHCR-publicering och GitHub Release. Kvar som valfri starkare nivå: explicit Maven-reproducerbarhetskontroll, attestering/signering och eventuell SBOM.
 
 ## Publiceringskontroll
 - [ ] Alla högprioriterade påståenden är verifierade.

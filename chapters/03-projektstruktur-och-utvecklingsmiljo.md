@@ -22,45 +22,54 @@ code/taskboard/
 ├── .env.example
 ├── .gitignore
 ├── README.md
+├── RELEASE.md
 ├── STACK-VERSIONS.md
+├── create_release_bundle.py
 ├── docker-compose.yml
+├── docker-compose.release.yml
 ├── validate_reference.py
 ├── frontend/
 │   ├── Dockerfile
 │   ├── index.html
 │   ├── nginx.conf
 │   ├── package.json
+│   ├── package-lock.json
 │   ├── public/
 │   │   └── icon.svg
 │   ├── src/
+│   │   ├── App.test.tsx
 │   │   ├── App.tsx
 │   │   ├── api.ts
 │   │   ├── main.tsx
 │   │   ├── styles.css
-│   │   └── vite-env.d.ts
+│   │   └── test/setup.ts
 │   ├── tsconfig.json
 │   ├── tsconfig.app.json
 │   ├── tsconfig.node.json
-│   └── vite.config.ts
+│   ├── vite.config.ts
+│   └── vitest.config.ts
 └── backend/
     ├── Dockerfile
     ├── pom.xml
-    └── src/main/
-        ├── java/se/erland/taskboard/task/
-        │   ├── TaskDtos.java
-        │   ├── TaskEntity.java
-        │   ├── TaskPriority.java
-        │   ├── TaskRepository.java
-        │   ├── TaskResource.java
-        │   ├── TaskService.java
-        │   └── TaskStatus.java
-        └── resources/
-            ├── application.properties
-            └── db/migration/
-                └── V1__create_task.sql
+    └── src/
+        ├── main/
+        │   ├── java/se/erland/taskboard/task/
+        │   │   ├── TaskDtos.java
+        │   │   ├── TaskEntity.java
+        │   │   ├── TaskPriority.java
+        │   │   ├── TaskRepository.java
+        │   │   ├── TaskResource.java
+        │   │   ├── TaskService.java
+        │   │   └── TaskStatus.java
+        │   └── resources/
+        │       ├── application.properties
+        │       └── db/migration/
+        │           └── V1__create_task.sql
+        └── test/java/se/erland/taskboard/task/
+            └── TaskResourceTest.java
 ```
 
-Strukturen uttrycker samma ansvarsfördelning som arkitekturen i föregående kapitel. `frontend/` innehåller webbläsarkoden och dess produktionsserver, `backend/` innehåller Quarkus-applikationen och databasmigrationerna, medan `docker-compose.yml` beskriver hur de körbara delarna sätts samman med PostgreSQL.
+Strukturen uttrycker samma ansvarsfördelning som arkitekturen i föregående kapitel. `frontend/` innehåller webbläsarkoden, komponenttesterna och dess produktionsserver, `backend/` innehåller Quarkus-applikationen, API-/integrationstestet och databasmigrationerna, medan `docker-compose.yml` beskriver hur de körbara delarna sätts samman med PostgreSQL. De separata releasefilerna beskriver hur redan verifierade images identifieras och lämnas över utan en ny lokal build.
 
 Det är värdefullt att skilja på **komponentens interna byggstruktur** och **tjänstens sammansättningsstruktur**. Frontendens `package.json` behöver inte känna till PostgreSQL. Backendens `pom.xml` behöver inte veta vilken port Nginx publicerar mot värden. Compose-filen däremot måste känna till hur komponenterna kopplas ihop när de körs tillsammans.
 

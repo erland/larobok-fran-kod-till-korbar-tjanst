@@ -198,7 +198,7 @@ Boken kommer därför återkommande att skilja mellan tre saker:
 - Docker Compose beskriver hur runtime-delarna startas, konfigureras, hälsokontrolleras och kopplas samman.
 - Persistent databasdata hålls utanför den utbytbara databascontainerns livscykel genom en Docker-volume.
 - Utvecklingsmiljö och körmiljö har olika syften men ska dela samma centrala kontrakt.
-- CI-verifieringen bygger och startar hela referensimplementationen och smoke-testar kedjan från Nginx till PostgreSQL.
+- CI-verifieringen kör frontend- och backendtester, bygger och startar hela referensimplementationen och smoke-testar kedjan från Nginx till PostgreSQL.
 
 ## Nästa steg
 

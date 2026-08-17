@@ -487,7 +487,7 @@ Vi kan nu sammanfatta referensimplementationen utan att överdriva.
 - explicit valda huvudversioner,
 - Git-versionsstyrd källkod,
 - deterministisk kapitel-/projektintegritet för bokprojektet,
-- verifierad GitHub Actions-build,
+- verifierad GitHub Actions-build och runtime-verifierad TaskBoard-releasekedja,
 - incheckad npm-genererad `package-lock.json` och `npm ci` i både CI och frontendens Docker-build,
 - frontend- och backend-Dockerfiles,
 - full-SHA-pinning av de externa Actions som används i TaskBoards CI- och releaseworkflow,
@@ -534,7 +534,7 @@ Efter push läses registry-digests ut för web och backend. PostgreSQL-imagen so
 - vilka test-/verifieringssteg releasen gått igenom,
 - SHA-256 för `package-lock.json`, Dockerfiles och Compose-definitionerna.
 
-Releasepaketet innehåller dessutom `SHA256SUMS.txt` och en separat installationsinstruktion. Resultatet är inte en garanti för bitidentisk rebuild av varje komponent, men det ger en spårbar överlämning där mottagaren kan identifiera **vilken källa, vilka images och vilken deploymentdefinition som hör ihop**.
+Releasepaketet innehåller dessutom `SHA256SUMS.txt` och en separat installationsinstruktion. Releasekedjan har också körts igenom i GitHub Actions med lyckad GHCR-publicering, digestinsamling, bundle-skapande och GitHub Release, så detta är inte längre bara en statiskt validerad workflowdefinition. Resultatet är fortfarande inte en garanti för bitidentisk rebuild av varje komponent, men det ger en runtime-verifierad och spårbar överlämning där mottagaren kan identifiera **vilken källa, vilka images och vilken deploymentdefinition som hör ihop**.
 
 ## Definition of done för en leverans
 
