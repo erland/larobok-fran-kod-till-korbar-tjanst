@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r42.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r43.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,16 +26,17 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "publishing/pdf-template.tex",
-      "scripts/export-book.py"
+      "book.yaml",
+      "publishing/epub.css",
+      "publishing/pdf-template.tex"
     ],
-    "operation": "Rättade PDF-fontupplösning för GitHub Actions och portabel XeLaTeX-fallback",
-    "source_revision": 41
+    "operation": "Justerade EPUB-kapitelrubriker till två centrerade rader och begränsade PDF-innehållsförteckningen till kapitelnivå",
+    "source_revision": 42
   },
-  "parent_revision": 41,
+  "parent_revision": 42,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 42,
+  "revision": 43,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -81,7 +82,7 @@
     },
     "book.yaml": {
       "bytes": 2055,
-      "sha256": "2fa60ad21c199c81a82fca1c0693e9b3bfa795a1c5e046f83042cf7d795a8d32"
+      "sha256": "f9df13bd207b263b7205d248c1ba5ccc3b22682da0203a3c5bf2daa9284652b8"
     },
     "chapters/00-inledning.md": {
       "bytes": 7724,
@@ -412,8 +413,8 @@
       "sha256": "41ea9b200a768f1f55a5fd86ee6a278907f994274ca548cf742225579e50202c"
     },
     "publishing/epub.css": {
-      "bytes": 350,
-      "sha256": "8016551bc5a88d2038f541bd128116eaf0deda049be24065adab956de34e9866"
+      "bytes": 514,
+      "sha256": "f5c8afaf2c20c6e75d11bf876709acfbcfb1cf1233fd4012daf0b742cd632568"
     },
     "publishing/fix-epub-after-pandoc.py": {
       "bytes": 3337,
@@ -425,11 +426,11 @@
     },
     "publishing/pdf-template.tex": {
       "bytes": 2660,
-      "sha256": "3106cee6b1af6ca1a6d243272f1a177db17e954e90b99a43edf697c3bcb3b080"
+      "sha256": "2f8b5732c49feda121a58daab0732cfddd3cf1a02f73ad78bf4caeac2e5d1262"
     },
     "revision-log.md": {
-      "bytes": 18929,
-      "sha256": "5e79a9d814b02b086af9c15962dc3ad5c8bf75913e8cf777d842959a002624a2"
+      "bytes": 19190,
+      "sha256": "a65a2f3f620349466d305b519e16c3f4bf83c4ab726543b0dac9b0ed39e7875a"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -452,5 +453,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T19:06:02Z"
+  "updated_at": "2026-08-17T19:16:30Z"
 }
