@@ -8,11 +8,14 @@ $else$
 $endif$
 \usepackage[paperwidth=170mm,paperheight=240mm,inner=20mm,outer=18mm,top=20mm,bottom=22mm,headsep=5mm,footskip=9mm]{geometry}
 \usepackage{graphicx}\usepackage{microtype}\usepackage{setspace}\usepackage{parskip}\usepackage{fancyhdr}\usepackage[hidelinks]{hyperref}\usepackage{bookmark}\usepackage{tocloft}\usepackage{ragged2e}\usepackage{xcolor}\usepackage{longtable}\usepackage{booktabs}\usepackage{array}\usepackage{calc}\usepackage{etoolbox}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
 \setstretch{1.24}\setlength{\parindent}{0pt}\setlength{\parskip}{0.5em plus 0.08em minus 0.04em}\setlength{\emergencystretch}{1.5em}\widowpenalty=10000\clubpenalty=10000\displaywidowpenalty=10000\raggedbottom
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \pagestyle{fancy}\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}
 \fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
-\renewcommand{\contentsname}{Innehåll}\setcounter{tocdepth}{2}\setlength{\cftbeforechapskip}{0.35em}
+\renewcommand{\contentsname}{Innehåll}\setcounter{tocdepth}{2}\setcounter{secnumdepth}{-1}\setlength{\cftbeforechapskip}{0.35em}
 \newcommand{\bookfrontchapter}[1]{\clearpage\phantomsection\addcontentsline{toc}{chapter}{#1}\thispagestyle{plain}\vspace*{8mm}\begin{center}{\fontsize{18}{21}\selectfont\bfseries #1\par}\end{center}\vspace{7mm}}
 \newcommand{\bookchapter}[2]{\clearpage\phantomsection\addcontentsline{toc}{chapter}{#1.\ #2}\markboth{#1.\ #2}{#1.\ #2}\thispagestyle{plain}\vspace*{8mm}\begin{center}{\fontsize{13}{15}\selectfont #1\par}\vspace{1.5mm}{\fontsize{16}{19}\selectfont\bfseries #2\par}\end{center}\vspace{7mm}}
 \begin{document}

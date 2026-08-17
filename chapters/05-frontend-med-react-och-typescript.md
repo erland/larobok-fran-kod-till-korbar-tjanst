@@ -6,10 +6,10 @@ TaskBoard-frontenden är avsiktligt liten. Den har ingen klientrouter, inget glo
 
 ```text
 src/
-├── App.tsx
-├── api.ts
-├── main.tsx
-└── styles.css
+|-- App.tsx
+|-- api.ts
+|-- main.tsx
+`-- styles.css
 ```
 
 Det gör implementationen användbar som referens. Vi kan se var gränserna faktiskt går utan att de döljs av ramverkslager som applikationen ännu inte behöver.
@@ -392,9 +392,9 @@ I dag innehåller `App` både formuläret och listan. Det är fortfarande överb
 
 ```text
 App
-├── TaskCreateForm
-└── TaskList
-    └── TaskListItem
+|-- TaskCreateForm
+`-- TaskList
+    `-- TaskListItem
 ```
 
 API-logiken kan samtidigt kapslas i hooks om flera komponenter behöver samma dataflöde:
@@ -445,8 +445,8 @@ Gränserna är viktigare än antalet bibliotek.
 TaskBoard-frontenden innehåller ännu inte:
 
 - klientrouting,
-- global state store,
-- bibliotek för datahämtning och cache,
+- global state-store,
+- datafetching-/cachebibliotek,
 - runtime-validering av JSON,
 - separata create/update-DTO:er,
 - optimistic updates,

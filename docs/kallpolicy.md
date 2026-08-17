@@ -23,7 +23,7 @@ Boken behandlar en teknikstack som förändras kontinuerligt. Källpolicyn ska s
 ## Tekniska verifieringsprinciper
 - När ett exakt kommando eller konfigurationsfält visas ska det kontrolleras mot aktuell officiell dokumentation.
 - När referensimplementationen introducerar ett versionsval ska versionen dokumenteras i canon och faktakontroll.
-- Release-images ska identifieras med immutable SHA-256-digests i den maskinläsbara releasen; utvecklingsflöden får använda tydligt versionsatta eller lokala taggar när det är praktiskt.
+- Docker-images ska senare pin-nas på en nivå som stödjer reproducerbarhet; strategin fastställs när referensimplementationen skapas.
 - Boken ska undvika exakta versionsnummer i löptext när de inte behövs för förståelsen.
 
 ## Anteckning

@@ -102,7 +102,7 @@ TaskBoard har nu en incheckad `package-lock.json`. Både Dockerfile och CI anvä
 npm ci
 ```
 
-npm beskriver `package-lock.json` som representationen av det exakta dependency tree som installerades och avsett att checkas in i källkodsförrådet. `npm ci` kräver en lockfil och gör en fryst installation: om `package.json` och lockfilen inte stämmer överens avbryts installationen i stället för att lockfilen uppdateras. (npm Docs, *package-lock.json*; *npm ci*.)
+npm beskriver `package-lock.json` som representationen av det exakta beroendeträd som installerades och avsett att checkas in i källkodsförrådet. `npm ci` kräver en lockfil och gör en fryst installation: om `package.json` och lockfilen inte stämmer överens avbryts installationen i stället för att lockfilen uppdateras. (npm Docs, *package-lock.json*; *npm ci*.)
 
 Den införda kedjan kan beskrivas så här:
 
@@ -115,7 +115,7 @@ package-lock.json
 npm ci
 ```
 
-Det gör inte hela Docker-imagen bitreproducerbar, men det eliminerar en stor källa till dependency drift.
+Det gör inte hela Docker-imagen bitreproducerbar, men det eliminerar en stor källa till beroendedrift.
 
 I referensimplementationen är detta nu ett verifierat kodsteg: lockfilen genererades av npm i GitHub Actions, checkades in och används av både CI och frontendens Docker-build.
 
@@ -319,7 +319,7 @@ Det är alltså viktigt att skilja på:
 - **integritetskontroll** – är filen oförändrad?
 - **proveniens/autenticitet** – kommer den från den bygg- och releasekedja vi litar på?
 
-## GitHub Actions är också ett dependency tree
+## GitHub Actions är också ett beroendeträd
 
 CI-workflowen innehåller själv beroenden:
 
@@ -405,28 +405,31 @@ Det är därför kapitel 15 och 16 hör nära ihop: driftbarhet definierar hur v
 
 ## Ett release-manifest knyter ihop helheten
 
-När antalet artefakter växer är ett maskinläsbart manifest användbart. TaskBoards releaseworkflow skapar därför `release-manifest.json` som en del av varje `taskboard-v<SemVer>`-release.
+När antalet artefakter växer är ett maskinläsbart manifest användbart.
 
-Ett förenklat utdrag ur den faktiska modellen ser ut så här:
+Ett förenklat exempel skulle kunna se ut så här:
 
-```json
-{
-  "schemaVersion": 1,
-  "release": "1.2.0",
-  "tag": "taskboard-v1.2.0",
-  "gitCommit": "<40-teckens Git-SHA>",
-  "images": {
-    "web": "ghcr.io/example/taskboard-web@sha256:<digest>",
-    "backend": "ghcr.io/example/taskboard-backend@sha256:<digest>",
-    "postgres": "postgres@sha256:<digest>"
-  },
-  "verification": {
-    "smokePath": "Nginx -> Quarkus -> PostgreSQL"
-  }
-}
+```yaml
+release: 1.2.0
+git_commit: <commit>
+images:
+  web:
+    ref: registry.example/taskboard-web:1.2.0
+    digest: sha256:<digest>
+  backend:
+    ref: registry.example/taskboard-backend:1.2.0
+    digest: sha256:<digest>
+  postgres:
+    ref: postgres:18.4-alpine
+    digest: sha256:<digest>
+database:
+  migrations_through: V3
+files:
+  compose: docker-compose.yml
+  env_template: .env.example
 ```
 
-Den verkliga filen innehåller dessutom bland annat GitHub Actions-run-id, verktygsversioner och SHA-256-checksummor för centrala käll- och leveransfiler. Bundle-generatorn validerar att de tre image-referenserna använder SHA-256-digests innan paketet skapas.
+Detta är ett **målbildsexempel**, inte en fil som finns i TaskBoard-repot i dag.
 
 Poängen är att releasen blir maskinellt läsbar och granskningsbar. Människan kan läsa release notes; automation kan läsa manifestet.
 
@@ -517,7 +520,7 @@ Referensimplementationen har nu gjort målbilden i det här kapitlet konkret. Bo
 taskboard-v1.0.0
 ```
 
-När en sådan tagg körs bygger releaseworkflowen frontend och backend, kör samma typer av test som den kanoniska CI:n och bygger sedan Docker-images **en gång**. Compose startar därefter tjänsten med `--no-build`, så smoke-testet kör exakt de imageobjekt som senare taggas och pushas till GHCR. Först efter godkänt smoke test publiceras images.
+När en sådan tagg körs bygger releaseworkflowen frontend och backend, kör samma typer av test som den kanoniska CI:n och bygger sedan Docker-images **en gång**. Images byggs direkt med sina versionsmärkta GHCR-referenser. Compose startar därefter tjänsten med `--no-build`, så smoke-testet kör exakt de imageobjekt som senare pushas till GHCR utan någon mellanliggande omtaggning eller rebuild. Först efter godkänt smoke test publiceras images.
 
 Efter push läses registry-digests ut för web och backend. PostgreSQL-imagen som faktiskt användes i smoke-testet får på motsvarande sätt sin digest registrerad. Dessa tre immutable referenser skrivs till releasepaketets `release.env`. `docker-compose.release.yml` innehåller inga `build:`-sektioner, vilket betyder att mottagaren inte gör en ny applikationsbuild vid installationen.
 
@@ -533,7 +536,7 @@ Efter push läses registry-digests ut för web och backend. PostgreSQL-imagen so
 
 Releasepaketet innehåller dessutom `SHA256SUMS.txt` och en separat installationsinstruktion. Releasekedjan har också körts igenom i GitHub Actions med lyckad GHCR-publicering, digestinsamling, bundle-skapande och GitHub Release, så detta är inte längre bara en statiskt validerad workflowdefinition. Resultatet är fortfarande inte en garanti för bitidentisk rebuild av varje komponent, men det ger en runtime-verifierad och spårbar överlämning där mottagaren kan identifiera **vilken källa, vilka images och vilken deploymentdefinition som hör ihop**.
 
-## Definition of done för en leverans
+## Klart-kriterier för en leverans
 
 När TaskBoard någon gång ska lämnas över som en riktig version kan följande fungera som kontrollista:
 

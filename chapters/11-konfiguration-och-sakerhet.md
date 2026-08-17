@@ -276,7 +276,7 @@ Om en framtida driftmiljö behöver korrekta externa scheme-, host- eller klient
 Principen är:
 
 ```text
-skicka forwarded headers      ≠      lita på alla forwarded headers
+skicka forwarded headers      !=      lita på alla forwarded headers
 ```
 
 En publik deployment bör också se till att edge-proxyn skriver över eller tar bort klientstyrda forwarding-headers innan de når applikationen.

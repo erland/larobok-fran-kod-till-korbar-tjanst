@@ -26,10 +26,12 @@
 - [x] Canonical markdown är validerad.
 - [x] Arbetsnoteringar från `docs/` exporteras inte av misstag.
 
-## Publiceringsputs revision 39
-- [x] Huvudmanuset är språkputsat utan ändring av referensimplementationens tekniska beteende.
-- [x] Inaktuella framtidsformuleringar om release-manifest och image-digests är borttagna.
-- [x] Boken skiljer nu tydligt mellan verifierad teknisk release och framtida produktionssättning.
-- [x] Bokmetadata är satt till version 1.0 med publiceringsdatum 2026-08-17.
-- [ ] EPUB/PDF är visuellt slutkontrollerade.
-- [ ] Omslagsbild är beslutad och införd, om omslag ska användas.
+
+## Publiceringsslutputs
+- [x] Manus och referensimplementation är slutligt synkroniserade.
+- [x] Kvarvarande framtidsformuleringar har granskats mot faktiskt nuläge.
+- [x] Källhänvisningar som används i manus finns i källförteckningen.
+- [x] Metadata och publiceringsdatum är uppdaterade.
+- [x] Terminologi och rubriknivåer är genomgångna.
+- [x] EPUB/PDF har byggts efter slutputsen och representativa PDF-sidor har visuellt kontrollerats.
+- [ ] Omslag är beslutat och infört om publiceringskanalen kräver det.
