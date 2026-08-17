@@ -201,11 +201,11 @@
 - Nivå/faktadjup: arkitekturell reflektion.
 - Nya huvudbegrepp/faktaområden: trade-offs, skalning, extern identitet, TLS-terminering, orkestrering, plattformstjänster.
 - Exempel/case: När TaskBoard växer bortom den lilla självhostade Compose-installationen.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vilka delar av lösningen är stabila principer och vilka är medvetet enkla val för den här typen av tjänst?
-- Centrala fakta: lösningens avgränsningar och möjliga nästa steg.
-- Fördjupning/faktaruta: när Docker Compose inte längre är rätt driftsmodell.
-- Käll-/verifieringsbehov: huvudsakligen syntes av tidigare verifierat material; nya jämförelser verifieras vid skrivning.
+- Centrala fakta: ansvar/kontrakt som långlivade principer; same-origin; databas och schemaevolution; Compose som kravstyrt val; skalning, identitet, TLS och observability som naturliga utvecklingsvägar.
+- Fördjupning/faktaruta: när Docker Compose inte längre är rätt driftsmodell och varför ett byte ska motiveras av krav på skalning, tillgänglighet, policy eller plattformsautomation.
+- Käll-/verifieringsbehov: syntes av kapitel 1–16 och den verifierade referensimplementationen; inga nya versionsberoende teknikpåståenden introducerade.
 
 ## Källförteckning
 - En exporterad källförteckning ligger efter kapitel 17.

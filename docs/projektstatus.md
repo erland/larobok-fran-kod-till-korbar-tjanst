@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–16 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–17 är skrivna som första manusversion. Hela det planerade numrerade grundmanuset är därmed skrivet.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -31,7 +31,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 14 | Den kompletta tjänsten med Docker Compose | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
 | 15 | Från lokal körning till driftbar tjänst | Skriven | Första manusversion, grundad i faktisk Compose-/PostgreSQL-/Quarkus-konfiguration och verifierad drift-/backupdokumentation |
 | 16 | En reproducerbar leverans | Skriven | Första manusversion, grundad i faktisk Git/CI/Docker/npm/Maven-leveranskedja och verifierad reproducerbarhetspolicy |
-| 17 | Arkitekturen i backspegeln | Planerad | Stomme skapad |
+| 17 | Arkitekturen i backspegeln | Skriven | Första manusversion, syntes av den verifierade referensarkitekturen, dess trade-offs och naturliga utvecklingsvägar |
 | – | Källförteckning | Planerad | Exporterad efter kapitel 17 |
 
 ## Referensimplementation
@@ -55,5 +55,6 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om den rekommenderade utökade teststacken (Quarkus API/integrationstester med PostgreSQL Dev Services samt Vitest + React Testing Library) ska implementeras i referenskoden eller enbart fungera som nästa utvecklingssteg.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 17 om arkitekturen i backspegeln: styrkor, begränsningar, trade-offs och naturliga utvecklingsvägar.
-- Digest-policyn är nu fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.
+- Genomför en helhetsrevision av kapitel 0–17: disposition, överlapp, terminologi, kodexempel, faktakontroll och källhänvisningar.
+- Ta därefter ställning till om den rekommenderade teststacken och den starkare leveransmodellen ska implementeras i referenskoden före slutrevision/export.
+- Digest-policyn är fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.
