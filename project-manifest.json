@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r40.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r41.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,23 +26,16 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "assets/cover/README.md",
-      "assets/cover/cover.jpg",
-      "book.yaml",
-      "docs/bokspecifikation.md",
-      "docs/illustration-plan.md",
-      "docs/projektstatus.md",
-      "docs/publiceringsslutputs-r39.md",
-      "docs/quality-checklist.md",
-      "publishing/pdf-template.tex"
+      ".github/workflows/02-build-preview.yml",
+      ".github/workflows/03-release.yml"
     ],
-    "operation": "Införde beslutad omslagsbild och kopplade den till EPUB/PDF-exporten utan inledande blank PDF-sida",
-    "source_revision": 39
+    "operation": "Gjorde fontkontrollen i Preview- och Release-workflows robust med fontconfig",
+    "source_revision": 40
   },
-  "parent_revision": 39,
+  "parent_revision": 40,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 40,
+  "revision": 41,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -51,12 +44,12 @@
       "sha256": "56c504376f59ec4a5a7ab59ab29be43784f636f832af5c6e98f14b694c15afb7"
     },
     ".github/workflows/02-build-preview.yml": {
-      "bytes": 1182,
-      "sha256": "2390e20542efb337aa312a1e757ff019d313632de429895fa98fccb12b0e4c92"
+      "bytes": 1151,
+      "sha256": "5d07e17bbd381ed7500dd2c46da72be8900dc0a7c2e81fc0c6d342cc785bd243"
     },
     ".github/workflows/03-release.yml": {
-      "bytes": 1621,
-      "sha256": "9fb16c36e2ce0a677f66cf26931f07accfcb60eeabbb8cc77d7d926d424b2c82"
+      "bytes": 1590,
+      "sha256": "81916c5c1f1ed41ded19210f82fec01c9a6f14788217d7d06c044bae1113029c"
     },
     ".github/workflows/04-test-reference-implementation.yml": {
       "bytes": 5333,
@@ -435,8 +428,8 @@
       "sha256": "145ac1855097b9bd5508bff12021c461b16603be5fc13d8c5f5960a933459080"
     },
     "revision-log.md": {
-      "bytes": 18492,
-      "sha256": "9bb832928020a64956e7f0bdd6396b8637a57981fd188d551c59b34ec007ec76"
+      "bytes": 18720,
+      "sha256": "1314d3639424e69df0e0f91c257cba00dc6a78109c0ff45d93074a3c3033a866"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -459,5 +452,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T18:17:41Z"
+  "updated_at": "2026-08-17T18:54:18Z"
 }
