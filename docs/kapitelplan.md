@@ -143,8 +143,8 @@
 - Syfte: Ge en rimlig teststrategi över frontend, backend, persistence och integration.
 - Nivå/faktadjup: principer och representativa körbara exempel.
 - Nya huvudbegrepp/faktaområden: statisk verifiering, unit, component, API, integration, testdatabas, Dev Services, healthchecks och full-stack smoke test.
-- Exempel/case: TaskBoards faktiska GitHub Actions-workflow, create/read-smoke-testet och en rekommenderad CRUD-utbyggnad.
-- Status: skriven, första manusversion
+- Exempel/case: TaskBoards faktiska GitHub Actions-workflow, `TaskResourceTest` med CRUD/400/404 mot PostgreSQL Dev Services samt full-stack-smoke-testet.
+- Status: helhetsreviderad; backend/API-testdelen synkroniserad med referensimplementationen i revision 30
 - Kärnfråga/nyfikenhetskrok: Vilka fel kan respektive testnivå hitta, och vilka tester bör få använda en riktig PostgreSQL-instans?
 - Centrala fakta: testpyramid/-portfölj, isolering, databasmigrationer i test.
 - Fördjupning/faktaruta: testmiljön ska likna produktionsförutsättningarna där det faktiskt spelar roll.

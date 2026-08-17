@@ -23,6 +23,7 @@ REQUIRED = [
     "backend/src/main/resources/application.properties",
     "backend/src/main/resources/db/migration/V1__create_task.sql",
     "backend/src/main/java/se/erland/taskboard/task/TaskResource.java",
+    "backend/src/test/java/se/erland/taskboard/task/TaskResourceTest.java",
 ]
 
 
@@ -56,9 +57,30 @@ def main() -> int:
         "<artifactId>quarkus-jdbc-postgresql</artifactId>",
         "<artifactId>quarkus-flyway</artifactId>",
         "<artifactId>flyway-database-postgresql</artifactId>",
+        "<artifactId>quarkus-junit5</artifactId>",
+        "<artifactId>rest-assured</artifactId>",
     ]:
         if token not in pom:
             fail(f"Backend-POM saknar {token}")
+
+
+    app_properties = (ROOT / "backend/src/main/resources/application.properties").read_text()
+    if "%test.quarkus.datasource.devservices.image-name=docker.io/library/postgres:18.4-alpine" not in app_properties:
+        fail("Testprofilen ska låsa PostgreSQL Dev Services till postgres:18.4-alpine")
+
+    backend_test = (ROOT / "backend/src/test/java/se/erland/taskboard/task/TaskResourceTest.java").read_text()
+    for token in [
+        "@QuarkusTest",
+        'post("/api/tasks")',
+        'get("/api/tasks")',
+        'put("/api/tasks/{id}", id)',
+        'delete("/api/tasks/{id}", id)',
+        '"priority": "MEDIUM"',
+        ".statusCode(400)",
+        ".statusCode(404)",
+    ]:
+        if token not in backend_test:
+            fail(f"Backendtestet saknar kontraktskontroll: {token}")
 
     compose = (ROOT / "docker-compose.yml").read_text()
     for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres:/var/lib/postgresql"]:

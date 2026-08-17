@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r29.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r30.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -14,47 +14,35 @@
       "chapters/09-databasschemat-som-kod-med-flyway.md": "4a436797cd6fa9450e188f2b65e57ab8812e57b3e56f0115f84ca00169eaf656",
       "chapters/10-fran-frontend-till-databas-och-tillbaka.md": "05962b5400c9f2161823a3572011e9c3eee5f416596175f39f09486a8f022e7f",
       "chapters/11-konfiguration-och-sakerhet.md": "1f39f17a1031545e49c60726ad6ce2d34c2a63a4e87de5d4d06428267b5c2134",
-      "chapters/12-testning-av-den-kompletta-tjansten.md": "f22dd20d6759ec174f44785e890054d9ddea2ea669b52ebc0e79e682fd6c9363",
+      "chapters/12-testning-av-den-kompletta-tjansten.md": "4dfb2f8310b8a341f359eef22c47c93ac63b77b24de62cfcbc00fcd198ef57f3",
       "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": "75f04e347b06e0d465fadb9ad9f81ebfbc97d31d94a0c7db97c882368f00b39e",
       "chapters/14-den-kompletta-tjansten-med-docker-compose.md": "d032c30b3f63acac79b8a4381b91ced8787bd41ea804f8ac3b533177190e6d38",
       "chapters/15-fran-lokal-korning-till-driftbar-tjanst.md": "c204da527fb2fea845ce35fc7691a31d4956b3ddda659d443bbbf8dab6d0e2c6",
       "chapters/16-en-reproducerbar-leverans.md": "fd643ddd0844bebf9f93d4141c633d5efcd0c37ccd87411da6f6c6af5ae86d6b",
-      "chapters/17-arkitekturen-i-backspegeln.md": "abbececc953efb00a6c01add4a3280da6bb6027627fe674c7513cd32f467ba81"
+      "chapters/17-arkitekturen-i-backspegeln.md": "e0577d495957e3000d8ebd8978bc47e3dd8a3071cc880d74a3dadde88c4bb26a"
     },
     "latest": 17
   },
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "chapters/00-inledning.md",
-      "chapters/01-fran-kod-till-korbar-tjanst.md",
-      "chapters/02-tjanstens-arkitektur.md",
-      "chapters/03-projektstruktur-och-utvecklingsmiljo.md",
-      "chapters/04-pwa-som-frontendarkitektur.md",
-      "chapters/05-frontend-med-react-och-typescript.md",
-      "chapters/06-backend-med-quarkus.md",
-      "chapters/08-postgresql-som-databas.md",
-      "chapters/09-databasschemat-som-kod-med-flyway.md",
-      "chapters/10-fran-frontend-till-databas-och-tillbaka.md",
-      "chapters/11-konfiguration-och-sakerhet.md",
       "chapters/12-testning-av-den-kompletta-tjansten.md",
-      "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md",
-      "chapters/14-den-kompletta-tjansten-med-docker-compose.md",
-      "chapters/15-fran-lokal-korning-till-driftbar-tjanst.md",
       "chapters/17-arkitekturen-i-backspegeln.md",
-      "docs/helhetsrevision-r29.md",
+      "code/taskboard/backend/src/main/resources/application.properties",
+      "code/taskboard/backend/src/test/java/se/erland/taskboard/task/TaskResourceTest.java",
+      "code/taskboard/validate_reference.py",
+      "docs/faktakontroll.md",
+      "docs/kapitelplan.md",
       "docs/projektstatus.md",
-      "docs/quality-checklist.md",
-      "docs/terminologi.md",
       "project-index.md"
     ],
-    "operation": "Helhetsreviderade inledning och kapitel 1–17 med stramare progression, konsekvent terminologi och synkroniserad projektstatus",
-    "source_revision": 28
+    "operation": "Införde Steg A: Quarkus API-/integrationstester mot PostgreSQL Dev Services och synkroniserade manus/status",
+    "source_revision": 29
   },
-  "parent_revision": 28,
+  "parent_revision": 29,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 29,
+  "revision": 30,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -143,8 +131,8 @@
       "sha256": "1f39f17a1031545e49c60726ad6ce2d34c2a63a4e87de5d4d06428267b5c2134"
     },
     "chapters/12-testning-av-den-kompletta-tjansten.md": {
-      "bytes": 17139,
-      "sha256": "f22dd20d6759ec174f44785e890054d9ddea2ea669b52ebc0e79e682fd6c9363"
+      "bytes": 17875,
+      "sha256": "4dfb2f8310b8a341f359eef22c47c93ac63b77b24de62cfcbc00fcd198ef57f3"
     },
     "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": {
       "bytes": 19290,
@@ -163,8 +151,8 @@
       "sha256": "fd643ddd0844bebf9f93d4141c633d5efcd0c37ccd87411da6f6c6af5ae86d6b"
     },
     "chapters/17-arkitekturen-i-backspegeln.md": {
-      "bytes": 17060,
-      "sha256": "abbececc953efb00a6c01add4a3280da6bb6027627fe674c7513cd32f467ba81"
+      "bytes": 17115,
+      "sha256": "e0577d495957e3000d8ebd8978bc47e3dd8a3071cc880d74a3dadde88c4bb26a"
     },
     "chapters/kallforteckning.md": {
       "bytes": 9704,
@@ -239,12 +227,16 @@
       "sha256": "b1c08e0a70cd860947f7739a81b1f55feb97a74ce0a6f8b78f43aca253266aea"
     },
     "code/taskboard/backend/src/main/resources/application.properties": {
-      "bytes": 197,
-      "sha256": "1059fcf2fd0243a740a09d8abd0426411def80aa7ec9cc4bc954ac1e04f1bea6"
+      "bytes": 285,
+      "sha256": "a1743ecc940c154fc8811aae17ca7b061fde5988a155d76222812bfd8b0ac655"
     },
     "code/taskboard/backend/src/main/resources/db/migration/V1__create_task.sql": {
       "bytes": 493,
       "sha256": "7329c4346a31e45e83df11a47cefea7e82a403dc8468007361bba395504c6e63"
+    },
+    "code/taskboard/backend/src/test/java/se/erland/taskboard/task/TaskResourceTest.java": {
+      "bytes": 4574,
+      "sha256": "6fbed0235edc609ac1b6f5a88b9735992208f08cc43b90d49469d321c1ae2891"
     },
     "code/taskboard/docker-compose.yml": {
       "bytes": 1226,
@@ -311,8 +303,8 @@
       "sha256": "0237771c37ec5268f7c49765907cc9b3824ea10b03ba7a3ceb70b08d9f9c77b3"
     },
     "code/taskboard/validate_reference.py": {
-      "bytes": 3134,
-      "sha256": "f4a21f77f9bd7ddf6e8cd934ad16ecf7a9139b29cac32598fd655b99d4a022e6"
+      "bytes": 4109,
+      "sha256": "0d1690daf94710cd6a77625785b3caa8c40d60a72edab57244b85741bdf0a70f"
     },
     "docs/bokspecifikation.md": {
       "bytes": 5989,
@@ -323,8 +315,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 10376,
-      "sha256": "f529b3b9d3537ad27e87519c0daabd45f299c6282eec67fecd7cca51f165ce8c"
+      "bytes": 10485,
+      "sha256": "b76823f4b2986bafde7e3107f64eeaafc2a9916a7761406cb26892a224964d9d"
     },
     "docs/helhetsrevision-r29.md": {
       "bytes": 1232,
@@ -343,12 +335,12 @@
       "sha256": "841494ab832d37a294b5e0a042729a3514331ad2e58b87f0337161f513895c18"
     },
     "docs/kapitelplan.md": {
-      "bytes": 17126,
-      "sha256": "99829f02a3fc0f77c623dd1dfa5f38a19e3e84abcb2bb53e377f71c5b598abd9"
+      "bytes": 17225,
+      "sha256": "1e4ad5e8ce2c262acbe4db0180af056936e312c49d927fdf5f51667a3fd4c4d0"
     },
     "docs/projektstatus.md": {
-      "bytes": 5415,
-      "sha256": "68fdc6791d0911c9885d718f71e666360e68643bc18283d9cc1137cd16c4f93d"
+      "bytes": 5437,
+      "sha256": "3ec380d3adb071dc9c7489fc2169bbeb4e304ddec3b31792245e619664c726f3"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -375,8 +367,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 1643,
-      "sha256": "4256904e235666a9a626b4eb75b08be6e9564f3a78f9c7078b73fb8a31a08cc9"
+      "bytes": 1786,
+      "sha256": "2c15c26685304fd605f089d6b18cc1e9b677d83f211f0ad10dc7adbc45e91b5d"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -399,8 +391,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 13054,
-      "sha256": "828a24b2100197ce2db67cff1c9c5423416f2716f47c530ecb234cf6b19fb796"
+      "bytes": 13622,
+      "sha256": "27f551acc0dbe2fa62becf2c77c8b7f2643ac515da1f08f384798bbb9f34ecbf"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -423,5 +415,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T05:34:12Z"
+  "updated_at": "2026-08-17T05:59:59Z"
 }

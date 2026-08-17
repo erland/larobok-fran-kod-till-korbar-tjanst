@@ -262,18 +262,17 @@ Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
 
 ## Vad bör förbättras innan en verklig release?
 
-Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. När hela boken nu ligger framför oss blir prioriteringen tydligare.
+Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Backend/API-testning mot PostgreSQL Dev Services är nu genomförd i referensimplementationen; när hela boken ligger framför oss blir prioriteringen för de återstående stegen tydligare.
 
 För referensimplementationen är de mest värdefulla nästa stegen:
 
 ```text
-1. Lägg till package-lock.json och byt CI/build till npm ci.
-2. Inför riktiga backend/API-tester mot PostgreSQL Dev Services.
-3. Lägg till frontendkomponenttester för kritiska interaktioner.
-4. Skapa en releasekedja som bygger och publicerar verifierade images.
-5. Registrera image-digests och checksummor i releaseinformationen.
-6. Lägg till autentisering/auktorisering innan publik användning.
-7. Definiera TLS-terminering, secrets, backup/restore och observability för vald driftmiljö.
+1. Lägg till frontendkomponenttester för kritiska interaktioner.
+2. Lägg till package-lock.json och byt CI/build till npm ci.
+3. Skapa en releasekedja som bygger och publicerar verifierade images.
+4. Registrera image-digests och checksummor i releaseinformationen.
+5. Lägg till autentisering/auktorisering innan publik användning.
+6. Definiera TLS-terminering, secrets, backup/restore och observability för vald driftmiljö.
 ```
 
 Ordningen kan ändras beroende på mål. Om nästa steg bara är fortsatt bokutveckling är test- och reproducerbarhetshärdning mest relevant. Om tjänsten i stället ska publiceras till verkliga användare flyttar identitet, TLS, secrets och driftrutiner snabbt upp i prioritet.
