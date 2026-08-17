@@ -149,6 +149,8 @@ def main() -> int:
         "npm ci --no-audit --no-fund",
         "mvn -B --no-transfer-progress verify",
         "docker compose build",
+        "TASKBOARD_POSTGRES_IMAGE=x",
+        "docker compose -f docker-compose.release.yml config --quiet",
         "docker compose up -d --no-build --wait --wait-timeout 120",
         'docker push \"$WEB_IMAGE\"',
         'docker push \"$BACKEND_IMAGE\"',

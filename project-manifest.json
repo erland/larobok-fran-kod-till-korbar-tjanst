@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r35.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r36.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,26 +26,16 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/04-test-reference-implementation.yml",
       ".github/workflows/05-release-reference-implementation.yml",
-      "chapters/16-en-reproducerbar-leverans.md",
-      "chapters/17-arkitekturen-i-backspegeln.md",
-      "code/taskboard/README.md",
-      "code/taskboard/RELEASE.md",
-      "code/taskboard/create_release_bundle.py",
-      "code/taskboard/docker-compose.release.yml",
-      "code/taskboard/validate_reference.py",
-      "docs/faktakontroll.md",
-      "docs/projektstatus.md",
-      "project-index.md"
+      "code/taskboard/validate_reference.py"
     ],
-    "operation": "Införde TaskBoard releasekedja med verifierade GHCR-images, immutable digests, release-manifest och SHA-pinnade CI-Actions",
-    "source_revision": 34
+    "operation": "Rättade valideringen av release-Compose i GitHub Actions så att interpoleringsvariabler skickas via processmiljön i stället för process substitution",
+    "source_revision": 35
   },
-  "parent_revision": 34,
+  "parent_revision": 35,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 35,
+  "revision": 36,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -66,8 +56,8 @@
       "sha256": "1278d35a342f1d2daaae5bec445ca2dc40dc9dc11a565d738f657916d17067c5"
     },
     ".github/workflows/05-release-reference-implementation.yml": {
-      "bytes": 8372,
-      "sha256": "d6effc9b63f2bbba48fb5f8708c8ea2dcf3571a2e5631f6c00792a5977eb030d"
+      "bytes": 8394,
+      "sha256": "0142d639fd93b6586c9e78b15fee1403978c54499619b89614055924496e85c1"
     },
     "README.md": {
       "bytes": 1160,
@@ -338,8 +328,8 @@
       "sha256": "a3d13f77b781cf86cbf283ebb9575cabfb1c3bcb9081fcc0b335abf340eea79a"
     },
     "code/taskboard/validate_reference.py": {
-      "bytes": 8169,
-      "sha256": "c3afe3a8c18fc8747cdf40df3df4f8c18e87b315e511b6bd208bccc6f476be24"
+      "bytes": 8278,
+      "sha256": "43b336357d1144e68fd1d7b11e877bb46247ea8d5b084c56a049f586d6a2893f"
     },
     "docs/bokspecifikation.md": {
       "bytes": 5989,
@@ -426,8 +416,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 16038,
-      "sha256": "210e218535d5726e5dfc285b51c76055243530c2d9b940e625cf87a09e96c25a"
+      "bytes": 16366,
+      "sha256": "7f617b4843886a7310593c4a77044aad365aa5bab568b3655962bef6d1508896"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -450,5 +440,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T10:49:00Z"
+  "updated_at": "2026-08-17T13:33:12Z"
 }

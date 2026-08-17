@@ -80,7 +80,11 @@ jobs:
         working-directory: ${{ env.TASKBOARD_DIR }}
         run: |
           docker compose config --quiet
-          docker compose --env-file <(printf 'TASKBOARD_WEB_IMAGE=x\nTASKBOARD_BACKEND_IMAGE=x\nTASKBOARD_POSTGRES_IMAGE=x\nPOSTGRES_PASSWORD=x\n') -f docker-compose.release.yml config --quiet
+          TASKBOARD_WEB_IMAGE=x \
+          TASKBOARD_BACKEND_IMAGE=x \
+          TASKBOARD_POSTGRES_IMAGE=x \
+          POSTGRES_PASSWORD=x \
+            docker compose -f docker-compose.release.yml config --quiet
 
       - name: Build release images once
         working-directory: ${{ env.TASKBOARD_DIR }}
