@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–15 är skrivna som första manusversion.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–16 är skrivna som första manusversion.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -30,7 +30,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 | 13 | Frontend, reverse proxy och backend som Docker-images | Skriven | Första manusversion, grundad i faktiska multi-stage Dockerfiles, Nginx-konfiguration, Quarkus fast-jar och verifierad image-start i CI |
 | 14 | Den kompletta tjänsten med Docker Compose | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
 | 15 | Från lokal körning till driftbar tjänst | Skriven | Första manusversion, grundad i faktisk Compose-/PostgreSQL-/Quarkus-konfiguration och verifierad drift-/backupdokumentation |
-| 16 | En reproducerbar leverans | Planerad | Stomme skapad |
+| 16 | En reproducerbar leverans | Skriven | Första manusversion, grundad i faktisk Git/CI/Docker/npm/Maven-leveranskedja och verifierad reproducerbarhetspolicy |
 | 17 | Arkitekturen i backspegeln | Planerad | Stomme skapad |
 | – | Källförteckning | Planerad | Exporterad efter kapitel 17 |
 
@@ -53,8 +53,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
 - Om den rekommenderade utökade teststacken (Quarkus API/integrationstester med PostgreSQL Dev Services samt Vitest + React Testing Library) ska implementeras i referenskoden eller enbart fungera som nästa utvecklingssteg.
-- Om Docker-images i slutlig publiceringspipeline ska låsas med digest utöver versions-taggar.
 
 ## Nästa rekommenderade steg
-- Skriv kapitel 16 om en reproducerbar leverans: versionssättning, image-referenser, checksummor, release notes och installations-/uppgraderingsinstruktioner.
-- Fastställ digest-policy i kapitel 16; kapitel 15 lämnar den avsiktligt som ett leveransbeslut och fokuserar i stället på driftbarhet, backup/restore och uppgraderingsdisciplin.
+- Skriv kapitel 17 om arkitekturen i backspegeln: styrkor, begränsningar, trade-offs och naturliga utvecklingsvägar.
+- Digest-policyn är nu fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.

@@ -176,3 +176,16 @@ PostgreSQL Global Development Group. *PostgreSQL 18: pg_restore*. https://www.po
 
 PostgreSQL Global Development Group. *PostgreSQL 18: Upgrading a PostgreSQL Cluster*. https://www.postgresql.org/docs/18/upgrading.html (kontrollerad 2026-08-17).
 
+
+
+## Reproducerbar leverans – komplettering kapitel 16
+
+npm Docs. *package-lock.json*. https://docs.npmjs.com/cli/v11/configuring-npm/package-lock-json/ (kontrollerad 2026-08-17).
+
+npm Docs. *npm ci*. https://docs.npmjs.com/cli/v11/commands/npm-ci/ (kontrollerad 2026-08-17).
+
+Apache Maven. *Configuring for Reproducible Builds*. https://maven.apache.org/guides/mini/guide-reproducible-builds.html (kontrollerad 2026-08-17).
+
+Docker Docs. *docker image pull*. https://docs.docker.com/reference/cli/docker/image/pull/ (kontrollerad 2026-08-17).
+
+GitHub Docs. *Secure use reference*. https://docs.github.com/en/actions/reference/security/secure-use (kontrollerad 2026-08-17).

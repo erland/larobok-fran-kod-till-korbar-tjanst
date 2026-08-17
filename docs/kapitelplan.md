@@ -188,13 +188,13 @@
 ### Kapitel 16: En reproducerbar leverans
 - Syfte: Definiera vad som ska överlämnas för att en annan organisation ska kunna köra och uppgradera tjänsten.
 - Nivå/faktadjup: leverans- och releaseperspektiv.
-- Nya huvudbegrepp/faktaområden: versionssättning, Compose-fil, `.env.example`, README, images/image-referenser, release notes, checksums, installations- och uppgraderingsinstruktioner.
-- Exempel/case: TaskBoard 1.x levereras som ett sammanhållet paket.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: release-tag/commit, lockfil och `npm ci`, Maven-reproducerbarhet, image-tag/digest, Compose som releaseartefakt, checksums, Actions-pinning, release notes, installations-/uppgraderingsinstruktion och release-manifest.
+- Exempel/case: TaskBoard 1.x levereras som ett sammanhållet paket där Git-version, images, digests, migrationsnivå och deploymentdefinition kan kopplas ihop.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Kan mottagaren förstå exakt vad som ska köras utan tillgång till vår utvecklingsmiljö?
-- Centrala fakta: artefakter, versionskoppling och reproducerbarhet.
-- Fördjupning/faktaruta: konfiguration ska vara data, inte en ny specialbyggd image per mottagare.
-- Käll-/verifieringsbehov: Docker image/tag/digest-principer och vald versionspolicy.
+- Centrala fakta: skillnaden mellan återskapningsbar leverans, deterministisk dependency resolution och bitreproducerbar build; artefakter, versionskoppling och proveniens.
+- Fördjupning/faktaruta: konfiguration ska vara data, inte en ny specialbyggd image per mottagare; digest-låsning kräver aktiv uppdateringsprocess för säkerhetsfixar.
+- Käll-/verifieringsbehov: verifierat 2026-08-17 mot Docker tag/digest-dokumentation, npm lockfile/`npm ci`, Maven reproducible builds och GitHub Actions säker pinning.
 
 ### Kapitel 17: Arkitekturen i backspegeln
 - Syfte: Sammanfatta referensarkitekturens styrkor, begränsningar och naturliga utvecklingsvägar.

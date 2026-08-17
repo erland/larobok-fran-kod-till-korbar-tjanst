@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r26.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r27.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -18,7 +18,7 @@
       "chapters/13-frontend-reverse-proxy-och-backend-som-docker-images.md": "c94742e0d52fa69915f4487780b5cadddf01623b38205014ed10bf6a224f4dd8",
       "chapters/14-den-kompletta-tjansten-med-docker-compose.md": "9a34cc2a72e5867b25347324b306762c5186fa786e0a2cd825c44ed994827196",
       "chapters/15-fran-lokal-korning-till-driftbar-tjanst.md": "835fafe554040693ec1366c0d54403c41d23e518e91bc7e6f682df658d40e4b1",
-      "chapters/16-en-reproducerbar-leverans.md": "e68729c468498ea2385fa7f133d19be957e0d5adca8a0f2db96a1eae88683613",
+      "chapters/16-en-reproducerbar-leverans.md": "fd643ddd0844bebf9f93d4141c633d5efcd0c37ccd87411da6f6c6af5ae86d6b",
       "chapters/17-arkitekturen-i-backspegeln.md": "5235fc587339ebcb9113f122ed403a18b0ddea01f28557c54515d95a36e12933"
     },
     "latest": 17
@@ -26,20 +26,20 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "chapters/15-fran-lokal-korning-till-driftbar-tjanst.md",
+      "chapters/16-en-reproducerbar-leverans.md",
       "chapters/kallforteckning.md",
       "docs/faktakontroll.md",
       "docs/kapitelplan.md",
       "docs/projektstatus.md",
       "project-index.md"
     ],
-    "operation": "Skrev kapitel 15 om vägen från lokal körning till driftbar tjänst och uppdaterade driftkällor samt projektstatus",
-    "source_revision": 25
+    "operation": "Skrev kapitel 16 om reproducerbar leverans och fastställde digest-policy",
+    "source_revision": 26
   },
-  "parent_revision": 25,
+  "parent_revision": 26,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 26,
+  "revision": 27,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -144,16 +144,16 @@
       "sha256": "835fafe554040693ec1366c0d54403c41d23e518e91bc7e6f682df658d40e4b1"
     },
     "chapters/16-en-reproducerbar-leverans.md": {
-      "bytes": 32,
-      "sha256": "e68729c468498ea2385fa7f133d19be957e0d5adca8a0f2db96a1eae88683613"
+      "bytes": 19720,
+      "sha256": "fd643ddd0844bebf9f93d4141c633d5efcd0c37ccd87411da6f6c6af5ae86d6b"
     },
     "chapters/17-arkitekturen-i-backspegeln.md": {
       "bytes": 33,
       "sha256": "5235fc587339ebcb9113f122ed403a18b0ddea01f28557c54515d95a36e12933"
     },
     "chapters/kallforteckning.md": {
-      "bytes": 9028,
-      "sha256": "27abcb7486e64bf81c5aec603bdfa50dac4f808a4e7850b9a59d98b3c02dae2c"
+      "bytes": 9704,
+      "sha256": "26f024aef72b807300973917316b2fd8a94569de0b2936421dc47470dd88d426"
     },
     "chapters/kapitelmall-faktabok.md": {
       "bytes": 337,
@@ -308,8 +308,8 @@
       "sha256": "ae7c763f7d10d92d1145223b984110334363f436452441b11b5af919f818d799"
     },
     "docs/faktakontroll.md": {
-      "bytes": 9108,
-      "sha256": "34d0122b51cd4ed90b0d13e9dc98b05f318561234729e6389a4f72442b970da8"
+      "bytes": 9881,
+      "sha256": "7a9b43d7d89ca717a6b6b83f9e1ac384198577ce5e102cae859156a221cab47e"
     },
     "docs/illustration-plan.md": {
       "bytes": 222,
@@ -324,12 +324,12 @@
       "sha256": "841494ab832d37a294b5e0a042729a3514331ad2e58b87f0337161f513895c18"
     },
     "docs/kapitelplan.md": {
-      "bytes": 16390,
-      "sha256": "f6abd6eea3c748c6c621debcbd538896806750fc828a25e5bc4c1a69b01cb00b"
+      "bytes": 16829,
+      "sha256": "873f7ad640e21998f714caeeafe35dc7bbcb94ff4a4b6227a8f83a0dfe058170"
     },
     "docs/projektstatus.md": {
-      "bytes": 5166,
-      "sha256": "9c55456f3c5936a640a0530dd9b3ee04170c70c9bc8c9e946eadff11de73f5c5"
+      "bytes": 5144,
+      "sha256": "a2998dc12c2268ea7d00beb814eb5810505baf5684846a1ce69e6b3fb4ccd5dc"
     },
     "docs/quality-checklist.md": {
       "bytes": 980,
@@ -356,8 +356,8 @@
       "sha256": "f46cb68df4c310e24d7ceb62ba1f6c4eed5c6bb9ff11c7c5ff85dd33b3094d58"
     },
     "project-index.md": {
-      "bytes": 1586,
-      "sha256": "9911de65c416a986841d1cdea01a65dfbb257a05cbec45429ea9f5960c9fc76d"
+      "bytes": 1655,
+      "sha256": "8880a7739d3a3dbf6a1a316cf2c1f7068d607b7b712a277761d834b9b4d9244c"
     },
     "publishing/build-notes.md": {
       "bytes": 439,
@@ -380,8 +380,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 11325,
-      "sha256": "25e0db80e9136a87cd034e47eb9e0f65816809ce29b3f4c9a6cfba7937ffc836"
+      "bytes": 11640,
+      "sha256": "68fee417e904ff270c884f5cfe6fd3d9a36d914bcc8f50129e79f1dd3392628d"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -404,5 +404,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T05:08:39Z"
+  "updated_at": "2026-08-17T05:12:04Z"
 }

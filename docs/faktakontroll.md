@@ -17,7 +17,7 @@
 | F007 | 13 | Docker multi-stage builds, Nginx runtime-image, Quarkus fast-jar och TaskBoards faktiska image-/healthcheckmodell | Kontrollerad | Docker Docs *Multi-stage builds*, Docker Official Image *nginx*, Quarkus *Quarkus and Maven* och faktisk frontend/backend-Dockerfile samt genomförd GitHub Actions-build/start | 2026-08-17 | Kapitlet skiljer build- från runtime-beroenden, beskriver hela `quarkus-app` som runtime-artefakt och lämnar digest-låsning som öppet releasebeslut till kapitel 16. |
 | F008 | 14 | Docker Compose services, standardnätverk/service discovery, ports, named volume, healthchecks och `depends_on: condition: service_healthy` | Kontrollerad | Docker Docs *Networking in Compose*, *Control startup and shutdown order in Compose*, Compose services-reference och faktisk `docker-compose.yml`/GitHub Actions-start | 2026-08-17 | Kapitel 14 skiljer startordning från readiness, named volume från backup och portabel Compose-definition från nätverkssegmentering/reproducerbar produktion. |
 | F009 | 15 | PostgreSQL backup/restore/majorupgrade, Docker restart- och logging-beteende, Compose produktionsöverlägg samt Quarkus graceful shutdown | Kontrollerad | PostgreSQL 18 *Backup and Restore*, `pg_dump`, `pg_restore` och *Upgrading a PostgreSQL Cluster*; Docker Docs *Start containers automatically*, *Configure logging drivers*, *View container logs* och *Use Compose in production*; Quarkus *Application Initialization and Termination*; faktisk TaskBoard Compose-/health-/Flyway-konfiguration | 2026-08-17 | Kapitlet skiljer persistent volume från backup, rekommenderar restore-test, beskriver restart/logging/graceful shutdown som driftkompletteringar och påstår inte att dessa produktionsfunktioner redan är incheckade i referensimplementationen. |
-| F010 | 16 | Image tag/digest och reproducerbar leverans | Ej kontrollerad | Docker officiell dokumentation | | Fastställ digest-policy när leveranskapitlet skrivs. |
+| F010 | 16 | Reproducerbar leverans: npm lockfile/`npm ci`, Maven reproducible builds, Docker tag/digest och GitHub Actions-pinning | Kontrollerad | npm Docs `package-lock.json` och `npm ci`; Apache Maven *Configuring for Reproducible Builds*; Docker Docs *docker image pull*; GitHub Docs *Secure use reference*; faktisk TaskBoard `package.json`, `pom.xml`, Dockerfiles, Compose- och Actions-konfiguration | 2026-08-17 | Kapitlet skiljer återskapningsbar leverans från bitreproducerbar build. Nuvarande TaskBoard saknar package-lock, explicit Maven-reproducerbarhetskontroll och digest-/full-SHA-pinning; dessa beskrivs som målbild. Digest-policy fastställd: registrera verifierade digests för releasekritiska images och uppdatera dem via ny bygg/test/release-cykel. |
 
 ## Fastställda versionsval 2026-08-16
 - Java 21.
@@ -35,7 +35,8 @@ Detaljer finns även i `code/taskboard/STACK-VERSIONS.md`.
 
 ## Öppna verifieringspunkter
 - Besluta om den i kapitel 12 rekommenderade teststacken ska implementeras i referenskoden före slutrevision.
-- Omverifiera tidskänsliga versioner och kommandon när respektive kapitel skrivs och före publicering.
+- Omverifiera tidskänsliga versioner och kommandon före publicering.
+- Besluta om den i kapitel 16 definierade starkare leveransmodellen ska implementeras i referenskoden före slutrevision (package-lock/`npm ci`, image-digests, Actions SHA-pinning och release-manifest).
 
 ## Publiceringskontroll
 - [ ] Alla högprioriterade påståenden är verifierade.
