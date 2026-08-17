@@ -112,15 +112,26 @@ def main() -> int:
             fail(f"Backendtestet saknar kontraktskontroll: {token}")
 
 
+
+    package_lock_path = ROOT / "frontend/package-lock.json"
+    if not package_lock_path.exists():
+        fail("Frontend saknar incheckad package-lock.json")
+    package_lock = package_lock_path.read_text()
+    for token in ['"lockfileVersion": 3', '"name": "taskboard-frontend"']:
+        if token not in package_lock:
+            fail(f"package-lock.json saknar {token}")
+
+    frontend_dockerfile = (ROOT / "frontend/Dockerfile").read_text()
+    for token in ["COPY package.json package-lock.json ./", "RUN npm ci"]:
+        if token not in frontend_dockerfile:
+            fail(f"Frontend-Dockerfile saknar reproducerbarhetskrav: {token}")
+
     workflow = (ROOT.parent.parent / ".github/workflows/04-test-reference-implementation.yml").read_text()
     for token in [
-        "npm install --no-audit --no-fund",
-        "actions/upload-artifact@v7",
-        "taskboard-frontend-package-lock",
-        "code/taskboard/frontend/package-lock.json",
+        "npm ci --no-audit --no-fund",
     ]:
         if token not in workflow:
-            fail(f"Referensworkflowen saknar reproducerbarhetsförberedelse: {token}")
+            fail(f"Referensworkflowen saknar fryst frontendinstallation: {token}")
 
     compose = (ROOT / "docker-compose.yml").read_text()
     for token in ["postgres:18.4-alpine", "condition: service_healthy", "taskboard-postgres:/var/lib/postgresql"]:

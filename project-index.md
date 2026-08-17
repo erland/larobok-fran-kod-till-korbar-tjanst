@@ -27,7 +27,7 @@
 - Policy: `docs/kallpolicy.md`
 - Register: `docs/faktakontroll.md`
 - Versionsval för referensimplementationen: fastställda och primärkällekontrollerade 2026-08-16.
-- Öppna punkter: Steg C för den starkare leveransmodellen är påbörjat. Workflow 04 publicerar npm-genererad `package-lock.json` som artefakt; efter att den tagits in i projektet återstår övergången till `npm ci`. Digest-policyn är fastställd på manusnivå. Synliga källhänvisningar använder kort parentetisk form med fullständig post i källförteckningen.
+- Öppna punkter: Steg C för frontendberoenden är slutfört: npm-genererad `package-lock.json` är incheckad och både Workflow 04 och frontend-Dockerfile använder `npm ci`. Digest-policyn är fastställd på manusnivå. Synliga källhänvisningar använder kort parentetisk form med fullständig post i källförteckningen.
 
 ## Export
 - EPUB: ej skapad

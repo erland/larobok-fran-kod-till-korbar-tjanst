@@ -45,17 +45,10 @@ jobs:
       - name: Test and build frontend
         working-directory: ${{ env.TASKBOARD_DIR }}/frontend
         run: |
-          npm install --no-audit --no-fund
+          npm ci --no-audit --no-fund
           npm run test
           npm run build
 
-      - name: Upload generated frontend lockfile
-        uses: actions/upload-artifact@v7
-        with:
-          name: taskboard-frontend-package-lock
-          path: code/taskboard/frontend/package-lock.json
-          if-no-files-found: error
-          retention-days: 7
 
       - name: Set up Java
         uses: actions/setup-java@v5

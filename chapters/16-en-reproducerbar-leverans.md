@@ -96,15 +96,15 @@ Det ser strikt ut, men alla beroenden är inte låsta på samma sätt. Exempelvi
 
 Dessutom har även de explicit angivna paketen transitiva beroenden.
 
-TaskBoard har i nuläget ingen incheckad `package-lock.json`. Dockerfile och CI kör därför:
+TaskBoard har nu en incheckad `package-lock.json`. Både Dockerfile och CI använder därför en fryst installation:
 
 ```bash
-npm install
+npm ci
 ```
 
 npm beskriver `package-lock.json` som representationen av det exakta dependency tree som installerades och avsett att checkas in i källkodsförrådet. `npm ci` kräver en lockfil och gör en fryst installation: om `package.json` och lockfilen inte stämmer överens avbryts installationen i stället för att lockfilen uppdateras. (npm Docs, *package-lock.json*; *npm ci*.)
 
-För en skarpare leveransmodell är därför ett naturligt nästa steg:
+Den införda kedjan kan beskrivas så här:
 
 ```text
 package.json
@@ -117,7 +117,7 @@ npm ci
 
 Det gör inte hela Docker-imagen bitreproducerbar, men det eliminerar en stor källa till dependency drift.
 
-I bokens referensimplementation lämnar vi detta som en dokumenterad förbättring. Vi ändrar inte byggkedjan mitt i manusarbetet utan ett separat verifierat kodsteg.
+I referensimplementationen är detta nu ett verifierat kodsteg: lockfilen genererades av npm i GitHub Actions, checkades in och används av både CI och frontendens Docker-build.
 
 ## Maven låser mycket – men inte allt av sig självt
 
@@ -498,7 +498,7 @@ Vi kan nu sammanfatta referensimplementationen utan att överdriva.
 
 ### Det som fortfarande saknas för en starkare tjänsteleverans
 
-- incheckad `package-lock.json` och `npm ci`,
+- incheckad `package-lock.json` och `npm ci` (infört i referensimplementationen),
 - explicit testad Maven-reproducerbarhet,
 - publicerade TaskBoard-images med releaseversion,
 - registrerade image-digests,

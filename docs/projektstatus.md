@@ -53,9 +53,9 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
 - Den rekommenderade frontend- och backendteststacken är nu implementerad i referensimplementationen.
-- `package-lock.json` måste genereras av npm i en nätverksansluten miljö; den ska inte handskrivas. Workflow 04 publicerar därför den genererade lockfilen som artefakt tills den har checkats in.
+- `package-lock.json` är nu genererad av npm i GitHub Actions, incheckad i referensimplementationen och används av både CI och frontend-Dockerfile via `npm ci`.
 
 ## Nästa rekommenderade steg
-- Steg C är påbörjat: CI publicerar nu npm-genererad `package-lock.json` som kortlivad artefakt. När den artefakten har hämtats in i projektet kan både CI och frontend-Dockerfile slås över till `npm ci`.
+- Steg C är slutfört för frontendberoenden: npm-genererad `package-lock.json` är incheckad och både CI och frontend-Dockerfile använder `npm ci`. Starkare image-/Actions-pinning och release-manifest hör till nästa leveranshärdning.
 - Genomför därefter en slutputs med fokus på språk, kodexempel, källhänvisningar och exportberedskap.
 - Digest-policyn är fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.

@@ -268,7 +268,7 @@ För referensimplementationen är de mest värdefulla nästa stegen:
 
 ```text
 1. Behåll frontend- och backendtesterna som snabba regressionstest och bygg ut dem när nya beteenden tillkommer.
-2. Lägg till package-lock.json och byt CI/build till npm ci.
+2. Behåll den nu införda `package-lock.json`/`npm ci`-kedjan och komplettera vid behov med starkare image- och Actions-pinning.
 3. Skapa en releasekedja som bygger och publicerar verifierade images.
 4. Registrera image-digests och checksummor i releaseinformationen.
 5. Lägg till autentisering/auktorisering innan publik användning.
