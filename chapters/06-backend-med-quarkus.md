@@ -449,4 +449,4 @@ TaskRepository
 
 Resursen äger HTTP-kontraktet. DTO:erna äger transportformen. Bean Validation stoppar strukturellt ogiltig indata. Tjänstelagret äger applikationsreglerna. CDI kopplar ihop delarna. Konfigurationen hålls utanför Java-koden där den är miljöberoende.
 
-Nästa steg är att följa kedjan vidare in i persistenslagret. Där blir frågan inte längre främst hur Quarkus tar emot en request, utan hur vi använder JPA och transaktioner utan att låta ORM-modellen bli hela applikationsarkitekturen.
+Nästa steg är att följa kedjan vidare in i persistens-lagret. Där blir frågan inte längre främst hur Quarkus tar emot en request, utan hur vi använder JPA och transaktioner utan att låta ORM-modellen bli hela applikationsarkitekturen.

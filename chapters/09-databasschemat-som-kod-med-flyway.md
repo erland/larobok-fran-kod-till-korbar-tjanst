@@ -10,9 +10,9 @@ I referensimplementationen finns i dag en enda migration:
 
 ```text
 backend/
-└── src/main/resources/
-    └── db/migration/
-        └── V1__create_task.sql
+`-- src/main/resources/
+    `-- db/migration/
+        `-- V1__create_task.sql
 ```
 
 Quarkus är konfigurerat att köra migrationerna automatiskt vid start:
@@ -245,11 +245,11 @@ Konceptuellt kan man tänka:
 
 ```text
 Databas
-├── task_item
-└── flyway_schema_history
-       ├── V1 applicerad
-       ├── checksum för V1
-       └── metadata om körningen
+|-- task_item
+`-- flyway_schema_history
+       |-- V1 applicerad
+       |-- checksum för V1
+       `-- metadata om körningen
 ```
 
 Det är därför en permanent databas och migrationskatalogen tillsammans utgör en historik. En migrationsfil är inte bara installations-SQL; efter att den har applicerats blir den en del av det dokumenterade ursprunget för databasen.
