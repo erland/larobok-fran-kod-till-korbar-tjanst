@@ -15,7 +15,7 @@ Boken behandlar en teknikstack som förändras kontinuerligt. Källpolicyn ska s
 - Kravnivå: hög
 - Synliga referenser i boktext: ja
 - Källförteckning i slutet: ja
-- Referensstil: korta källhänvisningar i text eller noter kopplade till en samlad källförteckning; exakt presentationsformat fastställs före manusproduktion.
+- Referensstil: korta parentetiska källhänvisningar i löptext, exempelvis `(Docker Docs, *Networking in Compose*)`, kopplade till en samlad källförteckning. URL anges i källförteckningen, inte i löptexten.
 - Maximal ålder på tidskänsliga källor: ingen fast årgräns; aktuella versioner och rekommendationer verifieras vid varje kapitelrevision och inför publicering.
 - Särskilt betrodda källtyper/domäner: officiell dokumentation och standarder för React, TypeScript, Vite/PWA, Quarkus/Jakarta, PostgreSQL, Flyway, Nginx och Docker.
 - Källtyper som bör undvikas: anonyma tutorials, SEO-sammanställningar, äldre blogginlägg med versionsspecifika instruktioner och sekundärkällor när officiell dokumentation finns.
@@ -27,4 +27,4 @@ Boken behandlar en teknikstack som förändras kontinuerligt. Källpolicyn ska s
 - Boken ska undvika exakta versionsnummer i löptext när de inte behövs för förståelsen.
 
 ## Anteckning
-Källarbetsmaterial hör hemma i `docs/faktakontroll.md`. Den publicerade källförteckningen ligger i `chapters/kallforteckning.md`.
+Källarbetsmaterial hör hemma i `docs/faktakontroll.md`. Den publicerade källförteckningen ligger i `chapters/kallforteckning.md`. Referensformatet fastställdes i samband med manusarbetet för kapitel 2.

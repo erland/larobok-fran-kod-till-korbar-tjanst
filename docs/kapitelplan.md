@@ -6,7 +6,7 @@
 
 ## Inledning
 - Syfte: Presentera bokens mål, målgrupp, förkunskaper, referenstjänsten TaskBoard, den valda teknikstacken och hur boken ska användas.
-- Status: planerad
+- Status: skriven, första manusversion
 
 ## Del 1: Tjänsten och arkitekturen
 
@@ -15,7 +15,7 @@
 - Nivå/faktadjup: erfaren utvecklare; översikt med tydliga tekniska gränser.
 - Nya huvudbegrepp/faktaområden: tjänst, frontend, backend, persistence, reverse proxy, containerisering, reproducerbar leverans.
 - Exempel/case: TaskBoard introduceras som genomgående referenstjänst.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad krävs för att gå från två kodbaser till en tjänst någon annan faktiskt kan starta och drifta?
 - Centrala fakta: stackens komponenter och deras övergripande ansvar.
 - Fördjupning/faktaruta: utvecklingsmiljö kontra körmiljö.
@@ -26,7 +26,7 @@
 - Nivå/faktadjup: arkitekturnivå med konkreta teknikval.
 - Nya huvudbegrepp/faktaområden: same-origin, `/api`, reverse proxy, intern Docker-nätverkstrafik, databasgräns.
 - Exempel/case: Browser/PWA → Nginx → Quarkus → PostgreSQL.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Var ska respektive ansvar ligga för att lösningen ska vara enkel att förstå, köra och överlämna?
 - Centrala fakta: Nginx serverar frontend och proxar API; Quarkus äger backendlogik; PostgreSQL är intern persistence.
 - Fördjupning/faktaruta: varför PostgreSQL normalt inte exponeras från produktionslik Compose-miljö.
@@ -35,9 +35,9 @@
 ### Kapitel 3: Projektstruktur och utvecklingsmiljö
 - Syfte: Visa hur referensprojektet organiseras och hur utvecklingsflödet skiljer sig från den färdiga körmiljön.
 - Nivå/faktadjup: praktisk struktur utan grundläggande språkintroduktion.
-- Nya huvudbegrepp/faktaområden: repo-struktur, frontend/backend, miljökonfiguration, Vite dev proxy, lokal PostgreSQL/Docker.
+- Nya huvudbegrepp/faktaområden: repo-struktur, frontend/backend, miljökonfiguration, Vite dev proxy, Quarkus Dev Services, lokal PostgreSQL/Docker och CI som ren verifieringsmiljö.
 - Exempel/case: `code/taskboard/`.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur organiserar man projektet så att både utveckling och leverans förblir begripliga?
 - Centrala fakta: rekommenderad katalogstruktur och lokalt arbetsflöde.
 - Fördjupning/faktaruta: mono-repo som vald referensmodell och alternativens trade-offs.
@@ -50,7 +50,7 @@
 - Nivå/faktadjup: arkitektur och praktisk setup, inte webbutvecklingsgrundkurs.
 - Nya huvudbegrepp/faktaområden: web app manifest, service worker, installation, cache, uppdateringar, offline-strategi.
 - Exempel/case: TaskBoard installeras som PWA och får en medvetet begränsad offline-modell.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: När blir en React-app en PWA, och vilka driftkonsekvenser följer med det?
 - Centrala fakta: manifest, service worker, HTTPS-krav i riktiga miljöer, cachekontroll.
 - Fördjupning/faktaruta: varför service worker och `index.html` kräver genomtänkta cache headers.
@@ -59,9 +59,9 @@
 ### Kapitel 5: Frontend med React och TypeScript
 - Syfte: Visa frontendens interna struktur och dess kontrakt mot API:t.
 - Nivå/faktadjup: erfaren React/TypeScript-läsare.
-- Nya huvudbegrepp/faktaområden: views, routing, API-lager, state, formulär, felhantering.
-- Exempel/case: TaskBoard-lista, detaljvy och redigering.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: komponentkomposition, API-lager, state, formulär, felhantering, transporttyper och expansionspunkter för routing.
+- Exempel/case: TaskBoards sammanhållna lista, skapande, statusändring och radering.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur håller vi frontendens struktur ren när backend och PWA-beteende växer fram?
 - Centrala fakta: tydligt API-lager, separering mellan UI och transportmodell, konsekvent felhantering.
 - Fördjupning/faktaruta: frontendens API-bas i utveckling kontra via Nginx i körmiljö.
@@ -74,7 +74,7 @@
 - Nivå/faktadjup: praktisk introduktion för erfaren Java-utvecklare.
 - Nya huvudbegrepp/faktaområden: Quarkus-projekt, extensions, CDI, REST-resurser, konfiguration, dev mode.
 - Exempel/case: `/api/tasks`.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad behöver en erfaren Java-utvecklare faktiskt känna till för att bli produktiv i Quarkus?
 - Centrala fakta: projektsetup, relevanta extensions, REST- och konfigurationsmodell.
 - Fördjupning/faktaruta: Quarkus dev mode och skillnaden mot paketerad körning.
@@ -84,8 +84,8 @@
 - Syfte: Placera JPA i Quarkus-lösningen och beskriva persistence- och transaktionsgränser.
 - Nivå/faktadjup: JPA antas känt.
 - Nya huvudbegrepp/faktaområden: entiteter, persistence-lager, transaktioner, Quarkus/Hibernate ORM-integration.
-- Exempel/case: `Task` som central entitet.
-- Status: planerad
+- Exempel/case: `TaskEntity`, `TaskRepository`, `EntityManager`, JPQL, dirty checking och `@Version`.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur använder vi känd JPA-teknik utan att låta ORM styra hela applikationsarkitekturen?
 - Centrala fakta: mapping, repositories/persistence access, transaktionsgränser, schemahantering separerad från JPA.
 - Fördjupning/faktaruta: varför Flyway, inte automatisk schemaevolution, äger produktionsschemat.
@@ -94,9 +94,9 @@
 ### Kapitel 8: PostgreSQL som databas
 - Syfte: Ge den praktiska PostgreSQL-kunskap som behövs för referenstjänsten.
 - Nivå/faktadjup: setup och relevanta egenskaper, inte generell SQL-kurs.
-- Nya huvudbegrepp/faktaområden: databas, användare, JDBC-anslutning, datatyper, index, persistenta volumes.
-- Exempel/case: TaskBoard-databasen.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: databas, användare, JDBC-anslutning, datatyper, constraints, index, healthcheck och persistenta volumes.
+- Exempel/case: TaskBoards faktiska `task_item`-schema och Compose-databas.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad behöver applikationsutvecklaren förstå om PostgreSQL för att tjänsten ska bli robust och portabel?
 - Centrala fakta: anslutningsdata, datatyper, indexering på relevant nivå, containeriserad databas.
 - Fördjupning/faktaruta: databasdata är inte samma sak som containerlivscykel.
@@ -106,8 +106,8 @@
 - Syfte: Göra schemaevolution reproducerbar och versionshanterad.
 - Nivå/faktadjup: praktisk migrationsstrategi.
 - Nya huvudbegrepp/faktaområden: migrationer, versionsordning, baseline/repair-koncept vid behov, kompatibla uppgraderingar.
-- Exempel/case: `V1__create_task.sql`, `V2__add_priority.sql`, `V3__add_task_status_index.sql`.
-- Status: planerad
+- Exempel/case: faktisk `V1__create_task.sql` samt tydligt markerade hypotetiska V2/V3-exempel för framtida schemaevolution.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur ser vi till att en ny release kan uppgradera en befintlig databas i stället för att skapa om den?
 - Centrala fakta: migrationsfiler som kod, körordning, kopplingen till applikationsrelease.
 - Fördjupning/faktaruta: JPA-modell och databasschema måste utvecklas i samordning.
@@ -120,7 +120,7 @@
 - Nivå/faktadjup: integrationsfokus.
 - Nya huvudbegrepp/faktaområden: DTO, JSON, HTTP-status, validering, tjänstelager, transaktion, felrespons.
 - Exempel/case: markera en TaskBoard-uppgift som klar.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad händer egentligen i varje lager när användaren klickar på "Klar"?
 - Centrala fakta: request/response-kedjan och ansvar i varje komponent.
 - Fördjupning/faktaruta: kontrakt och felhantering över lagringsgränser.
@@ -131,7 +131,7 @@
 - Nivå/faktadjup: arkitektur och praktisk konfiguration.
 - Nya huvudbegrepp/faktaområden: environment variables, secrets, same-origin, CORS, proxy headers, TLS-principer, autentisering/auktorisering på översiktsnivå.
 - Exempel/case: Nginx som enda exponerade entry point; Quarkus och PostgreSQL på internt nätverk.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur undviker vi att bygga in miljöspecifika adresser och credentials i våra images?
 - Centrala fakta: runtime-konfiguration, secrets, origin-modell och nätverksgränser.
 - Fördjupning/faktaruta: varför reverse proxy förenklar frontend/backend-kommunikation men inte ersätter autentisering.
@@ -142,9 +142,9 @@
 ### Kapitel 12: Testning av den kompletta tjänsten
 - Syfte: Ge en rimlig teststrategi över frontend, backend, persistence och integration.
 - Nivå/faktadjup: principer och representativa körbara exempel.
-- Nya huvudbegrepp/faktaområden: unit, component, API, integration, testdatabas, containerbaserade tester vid behov.
-- Exempel/case: TaskBoard CRUD och statusändring.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: statisk verifiering, unit, component, API, integration, testdatabas, Dev Services, healthchecks och full-stack smoke test.
+- Exempel/case: TaskBoards faktiska GitHub Actions-workflow, create/read-smoke-testet och en rekommenderad CRUD-utbyggnad.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vilka fel kan respektive testnivå hitta, och vilka tester bör få använda en riktig PostgreSQL-instans?
 - Centrala fakta: testpyramid/-portfölj, isolering, databasmigrationer i test.
 - Fördjupning/faktaruta: testmiljön ska likna produktionsförutsättningarna där det faktiskt spelar roll.
@@ -153,9 +153,9 @@
 ### Kapitel 13: Frontend, reverse proxy och backend som Docker-images
 - Syfte: Containerisera frontend/Nginx och Quarkus på ett reproducerbart sätt.
 - Nivå/faktadjup: praktiska Dockerfiles och image-principer.
-- Nya huvudbegrepp/faktaområden: multi-stage build, statiska assets, Nginx image, Quarkus image, immutable artifacts, runtime config.
-- Exempel/case: TaskBoard frontend byggs med Node och körs i Nginx; backend byggs separat.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: multi-stage build, statiska assets, Nginx image, Quarkus fast-jar, immutable artifacts, healthcheck och runtime config.
+- Exempel/case: TaskBoards faktiska frontend- och backend-Dockerfiles som byggs och startas i GitHub Actions.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Hur gör vi images små, begripliga och oberoende av utvecklingsmaskinen?
 - Centrala fakta: build stage kontra runtime stage och image-ansvar.
 - Fördjupning/faktaruta: varför Vite dev server inte är produktionsserver.
@@ -164,48 +164,48 @@
 ### Kapitel 14: Den kompletta tjänsten med Docker Compose
 - Syfte: Koppla samman de tre runtime-delarna till en portabel installation.
 - Nivå/faktadjup: komplett men liten Compose-lösning.
-- Nya huvudbegrepp/faktaområden: services, networks, volumes, health checks, dependency/readiness, miljövariabler.
-- Exempel/case: `docker compose up` startar TaskBoard.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: services, default network/service discovery, volumes, health checks, `depends_on`/readiness, miljövariabler och publicerade portar.
+- Exempel/case: `docker compose up --build` startar TaskBoard; CI använder `docker compose up -d --wait --wait-timeout 120` före smoke-test.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vad krävs för att mottagaren ska kunna starta hela tjänsten med ett fåtal kommandon?
-- Centrala fakta: Nginx som publicerad service, backend/databas internt, persistent PostgreSQL-volume.
-- Fördjupning/faktaruta: `depends_on` är inte i sig samma sak som applikationsmässig readiness.
-- Käll-/verifieringsbehov: aktuell Docker Compose-specifikation och healthcheck-beteende.
+- Centrala fakta: Nginx som enda publicerad service, backend/databas internt på Compose-standardnätet, persistent PostgreSQL-volume och health-baserad startkedja db → backend → web.
+- Fördjupning/faktaruta: vanlig startordning är inte samma sak som readiness; `service_healthy` kopplar dependency till healthcheck.
+- Käll-/verifieringsbehov: verifierat 2026-08-17 mot Docker Compose officiella dokumentation och faktisk CI-körning.
 
 ## Del 6: Drift och leverans
 
 ### Kapitel 15: Från lokal körning till driftbar tjänst
 - Syfte: Förklara vad som måste läggas till för att lösningen ska vara hanterbar över tid.
 - Nivå/faktadjup: driftprinciper för utvecklare.
-- Nya huvudbegrepp/faktaområden: health, loggning, backup/restore, graceful startup/shutdown, persistent data, migrations vid upgrade, observability.
-- Exempel/case: TaskBoard uppgraderas utan att tappa PostgreSQL-data.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: health/readiness, restart-policy, loggning/rotation, backup/restore, RPO/RTO, graceful shutdown, persistent data, migrations vid upgrade, rollback, observability och runbook.
+- Exempel/case: TaskBoard uppgraderas utan att tappa PostgreSQL-data och med en explicit rollback-/restore-plan.
+- Status: skriven
 - Kärnfråga/nyfikenhetskrok: Vad skiljer "det startar" från "det går att förvalta"?
-- Centrala fakta: hälsokontroller, loggar, backup och uppgraderingsflöde.
-- Fördjupning/faktaruta: backup måste testas genom restore.
-- Käll-/verifieringsbehov: PostgreSQL backup/restore, Quarkus health och Docker driftbeteende.
+- Centrala fakta: hälsokontroller, loggar, backup och restore, uppgraderingsflöde, migrationskompatibilitet och driftkonfiguration.
+- Fördjupning/faktaruta: backup är en process; en verifierad restore är beviset.
+- Käll-/verifieringsbehov: verifierat 2026-08-17 mot PostgreSQL 18 backup/restore/upgrade, Quarkus lifecycle/graceful shutdown samt Docker restart-, logging- och production Compose-dokumentation.
 
 ### Kapitel 16: En reproducerbar leverans
 - Syfte: Definiera vad som ska överlämnas för att en annan organisation ska kunna köra och uppgradera tjänsten.
 - Nivå/faktadjup: leverans- och releaseperspektiv.
-- Nya huvudbegrepp/faktaområden: versionssättning, Compose-fil, `.env.example`, README, images/image-referenser, release notes, checksums, installations- och uppgraderingsinstruktioner.
-- Exempel/case: TaskBoard 1.x levereras som ett sammanhållet paket.
-- Status: planerad
+- Nya huvudbegrepp/faktaområden: release-tag/commit, lockfil och `npm ci`, Maven-reproducerbarhet, image-tag/digest, Compose som releaseartefakt, checksums, Actions-pinning, release notes, installations-/uppgraderingsinstruktion och release-manifest.
+- Exempel/case: TaskBoard 1.x levereras som ett sammanhållet paket där Git-version, images, digests, migrationsnivå och deploymentdefinition kan kopplas ihop.
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Kan mottagaren förstå exakt vad som ska köras utan tillgång till vår utvecklingsmiljö?
-- Centrala fakta: artefakter, versionskoppling och reproducerbarhet.
-- Fördjupning/faktaruta: konfiguration ska vara data, inte en ny specialbyggd image per mottagare.
-- Käll-/verifieringsbehov: Docker image/tag/digest-principer och vald versionspolicy.
+- Centrala fakta: skillnaden mellan återskapningsbar leverans, deterministisk dependency resolution och bitreproducerbar build; artefakter, versionskoppling och proveniens.
+- Fördjupning/faktaruta: konfiguration ska vara data, inte en ny specialbyggd image per mottagare; digest-låsning kräver aktiv uppdateringsprocess för säkerhetsfixar.
+- Käll-/verifieringsbehov: verifierat 2026-08-17 mot Docker tag/digest-dokumentation, npm lockfile/`npm ci`, Maven reproducible builds och GitHub Actions säker pinning.
 
 ### Kapitel 17: Arkitekturen i backspegeln
 - Syfte: Sammanfatta referensarkitekturens styrkor, begränsningar och naturliga utvecklingsvägar.
 - Nivå/faktadjup: arkitekturell reflektion.
 - Nya huvudbegrepp/faktaområden: trade-offs, skalning, extern identitet, TLS-terminering, orkestrering, plattformstjänster.
 - Exempel/case: När TaskBoard växer bortom den lilla självhostade Compose-installationen.
-- Status: planerad
+- Status: skriven, första manusversion
 - Kärnfråga/nyfikenhetskrok: Vilka delar av lösningen är stabila principer och vilka är medvetet enkla val för den här typen av tjänst?
-- Centrala fakta: lösningens avgränsningar och möjliga nästa steg.
-- Fördjupning/faktaruta: när Docker Compose inte längre är rätt driftsmodell.
-- Käll-/verifieringsbehov: huvudsakligen syntes av tidigare verifierat material; nya jämförelser verifieras vid skrivning.
+- Centrala fakta: ansvar/kontrakt som långlivade principer; same-origin; databas och schemaevolution; Compose som kravstyrt val; skalning, identitet, TLS och observability som naturliga utvecklingsvägar.
+- Fördjupning/faktaruta: när Docker Compose inte längre är rätt driftsmodell och varför ett byte ska motiveras av krav på skalning, tillgänglighet, policy eller plattformsautomation.
+- Käll-/verifieringsbehov: syntes av kapitel 1–16 och den verifierade referensimplementationen; inga nya versionsberoende teknikpåståenden introducerade.
 
 ## Källförteckning
 - En exporterad källförteckning ligger efter kapitel 17.

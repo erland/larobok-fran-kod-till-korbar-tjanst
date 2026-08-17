@@ -5,27 +5,27 @@
 - book_kind: factbook
 - book_type: subject_overview
 - Project-id: bda7fd5f-8515-4a5a-b548-a42496aa66aa
-- Revision: 3
-- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r3.zip`
+- Revision: 28
+- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r28.zip`
 
 ## Kapitel
-- Inledning: planerad
+- Inledning: skriven, första manusversion
 - Planerade numrerade kapitel: 17
-- Skapade kapitel med brödtext: inga
-- Källförteckning: planerad
+- Skapade kapitel med brödtext: kapitel 1–17
+- Källförteckning: kompletterad med primärkällor genom kapitel 16; kapitel 17 är en syntes av tidigare verifierat material och den körbara referensimplementationen.
 
 ## Referensimplementation
 - Case: TaskBoard
 - Plats: `code/taskboard/`
-- Status: initierad som komplett referenskedja React/PWA → Nginx → Quarkus/JPA/Flyway → PostgreSQL.
+- Status: komplett referenskedja React/PWA → Nginx → Quarkus/JPA/Flyway → PostgreSQL, verifierad end-to-end i GitHub Actions.
 - Docker Compose: finns med persistent databas och health-baserad startordning.
-- Full runtime-verifiering: återstår i miljö med Docker och nätåtkomst.
+- Full runtime-verifiering: genomförd i GitHub Actions med image-build, Compose-start och smoke test genom Nginx → Quarkus → PostgreSQL.
 
 ## Faktakontroll
 - Policy: `docs/kallpolicy.md`
 - Register: `docs/faktakontroll.md`
 - Versionsval för referensimplementationen: fastställda och primärkällekontrollerade 2026-08-16.
-- Öppna punkter: teststack, full container-build/smoke test, digest-policy och presentationsformat för synliga källhänvisningar.
+- Öppna punkter: eventuell implementation av rekommenderad utökad teststack samt den starkare leveransmodellen från kapitel 16. Digest-policyn är fastställd på manusnivå. Synliga källhänvisningar använder kort parentetisk form med fullständig post i källförteckningen.
 
 ## Export
 - EPUB: ej skapad
