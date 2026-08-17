@@ -451,12 +451,11 @@ TaskBoard-frontenden innehåller ännu inte:
 - separata create/update-DTO:er,
 - optimistic updates,
 - fältvis valideringspresentation,
-- mutationstillstånd per operation,
-- automatiserade frontendtester.
+- mutationstillstånd per operation.
 
 Det är inte en lista över brister som måste åtgärdas innan applikationen får köras. Det är en lista över mekanismer som ska tillkomma först när deras nytta motiverar deras kostnad.
 
-Den kompletta tjänsten bygger, startar och klarar ett end-to-end-smoke test redan med denna frontend. Det ger oss ett fungerande minimum att resonera vidare från.
+Frontenden har däremot en liten automatiserad komponenttestsvit med Vitest och React Testing Library. Den verifierar representativa beteenden för laddning, create, statusändring och felvisning utan att göra frontendarkitekturen större än nödvändigt. Den kompletta tjänsten bygger, startar och klarar dessutom ett end-to-end-smoke test. Det ger oss ett fungerande och verifierat minimum att resonera vidare från.
 
 ## Kapitlets viktigaste slutsatser
 

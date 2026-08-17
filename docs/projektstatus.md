@@ -9,7 +9,7 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–17 är skrivna och helhetsreviderade som ett sammanhållet första fullständigt manus. Revisionen har stramat upp progression, terminologi, interna hänvisningar, överlapp och kapitelgränser samt kontrollerat manuset mot den körbara referensimplementationen.
+Planering och grundmanus är slutförda. TaskBoard-referensimplementationen är byggd, testad och end-to-end-verifierad i GitHub Actions, och den separata releasekedjan är runtime-verifierad genom GHCR-publicering, digestinsamling, deploymentbundle och GitHub Release. Inledningen samt kapitel 1–17 är slutligt synkroniserade mot denna verifierade implementation. Revisionen har särskilt kontrollerat testnivåer, repo-struktur, `package-lock.json`/`npm ci`, imageflöde, release-digests och skillnaden mellan implementerad funktion och kvarvarande produktionshärdning.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -45,7 +45,7 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Lokal utveckling: Vite-proxy till Quarkus; Quarkus Dev Services kan tillhandahålla PostgreSQL.
 - GitHub Actions: `04-test-reference-implementation.yml` använder SHA-pinnade externa Actions, installerar frontendberoenden med `npm ci`, kör Vitest-komponenttesterna, bygger frontenden, kör backendens `@QuarkusTest`/Rest Assured-test mot PostgreSQL Dev Services via `mvn verify`, bygger Docker-images och verifierar hela requestkedjan med ett runtime smoke test.
 - Full runtime-verifiering: GitHub Actions bygger images, startar Compose-stacken och smoke-testar Nginx → Quarkus → PostgreSQL. Denna workflow är projektets kanoniska end-to-end-verifiering.
-- TaskBoard-release: `05-release-reference-implementation.yml` triggas av `taskboard-v<SemVer>`, bygger images en gång, smoke-testar dem med `--no-build`, publicerar exakt de verifierade web-/backend-images till GHCR och skapar ett deploymentpaket med image-digests, `release-manifest.json` och SHA-256-checksummor.
+- TaskBoard-release: `05-release-reference-implementation.yml` triggas av `taskboard-v<SemVer>`, bygger images en gång, smoke-testar dem med `--no-build`, publicerar exakt de verifierade web-/backend-images till GHCR och skapar ett deploymentpaket med image-digests, `release-manifest.json` och SHA-256-checksummor. Kedjan är runtime-verifierad i GitHub Actions, inklusive GHCR-push och skapad GitHub Release.
 
 ## Faktakontroll
 - Initiala versionsval och huvudkonfiguration för referensimplementationen verifierade 2026-08-16 mot officiella primärkällor.
@@ -53,11 +53,9 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
-- Den rekommenderade frontend- och backendteststacken är nu implementerad i referensimplementationen.
-- `package-lock.json` är nu genererad av npm i GitHub Actions, incheckad i referensimplementationen och används av både CI och frontend-Dockerfile via `npm ci`.
+- Ytterligare supply-chain-härdning som attestering/SBOM och explicit Maven-reproducerbarhetskontroll är valfria nästa nivåer, inte krav för bokens referensmål.
 
 ## Nästa rekommenderade steg
-- Steg D är implementerat: TaskBoards CI-Actions är full-SHA-pinnade och en separat `taskboard-v<SemVer>`-releasekedja publicerar verifierade GHCR-images samt ett manifest/checksummebaserat deploymentpaket med immutable digests.
-- Kör den nya releaseworkflowen minst en gång med en testrelease för runtime-verifiering av GHCR-publicering och GitHub Release-paketet.
-- Genomför därefter slutputs med fokus på språk, kodexempel, källhänvisningar och exportberedskap.
-- Ytterligare supply-chain-härdning som attestering/SBOM och explicit Maven-reproducerbarhetskontroll är valfria nästa nivåer, inte krav för bokens referensmål.
+- Genomför slutputs med fokus på språk, källhänvisningar och exportberedskap utan att förändra den nu verifierade teknikberättelsen i onödan.
+- Kör därefter projektets EPUB/PDF-preview och gör en visuell publiceringskontroll.
+- Produktionsfunktioner som autentisering, TLS/trusted proxy, secrets-hantering, backup/restore och observability ska endast införas om TaskBoard ska gå från pedagogisk referens till verklig tjänst.

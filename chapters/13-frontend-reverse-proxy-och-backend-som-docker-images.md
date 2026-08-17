@@ -438,9 +438,9 @@ Exempel på fel som bara en verklig build eller start kan avslöja är:
 - healthcheckverktyget eller endpointen fungerar inte,
 - Java-processen kan inte starta i vald runtime-image.
 
-TaskBoards images är därför inte bara teoretiska exempel i boken. De byggs och startas av projektets kanoniska CI-workflow.
+TaskBoards images är därför inte bara teoretiska exempel i boken. De byggs och startas av projektets kanoniska CI-workflow. I den separata releaseworkflowen byggs release-images dessutom en gång, smoke-testas med `--no-build` och publiceras först därefter till GHCR, vilket gör att de imageobjekt som verifieras också är de som lämnas vidare som release.
 
-Det är en viktig kvalitetsnivå för en teknisk bok med referenskod: **koden som illustrerar deployment ska själv deployas i verifieringen**.
+Det är en viktig kvalitetsnivå för en teknisk bok med referenskod: **koden som illustrerar deployment ska själv deployas i verifieringen, och en release ska inte byggas om efter att den verifierats**.
 
 ## Vad respektive image ska ansvara för
 

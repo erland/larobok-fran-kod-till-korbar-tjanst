@@ -43,8 +43,8 @@ Den kör i följande ordning:
 
 ```text
 1. validera referensstrukturen
-2. bygg frontend
-3. kompilera och kör Maven verify för backend
+2. installera låsta frontendberoenden med `npm ci`, kör komponenttesterna och bygg frontend
+3. kompilera backend och kör API-/integrationstesterna med Maven `verify`
 4. validera Docker Compose-konfigurationen
 5. bygg Docker-images
 6. starta hela Compose-stacken och vänta på healthchecks

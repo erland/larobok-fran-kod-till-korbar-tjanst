@@ -528,9 +528,9 @@ Ju tydligare varje gräns är, desto lättare blir det att ändra en del utan at
 
 ## Integrationstester verifierar det som separata tester missar
 
-TaskBoards GitHub Actions-workflow bygger frontend och backend var för sig, bygger Docker-images och startar sedan hela Compose-stacken.
+TaskBoards GitHub Actions-workflow kör först frontendens komponenttester och backendens API-/integrationstester, bygger frontend och backend var för sig, bygger Docker-images och startar sedan hela Compose-stacken.
 
-Smoke-testet anropar tjänsten utifrån via Nginx och verifierar bland annat att en uppgift kan skapas och läsas tillbaka.
+Smoke-testet anropar därefter tjänsten utifrån via Nginx och verifierar bland annat att en uppgift kan skapas och läsas tillbaka. Testlagren kompletterar alltså varandra: de mindre testerna lokaliserar kontrakts- och beteendefel närmare källan, medan smoke-testet verifierar den deployade kedjan.
 
 Det testar inte varje detalj, men det verifierar en mycket viktig egenskap:
 

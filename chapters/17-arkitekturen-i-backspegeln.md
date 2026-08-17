@@ -262,7 +262,7 @@ Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
 
 ## Vad bör förbättras innan en verklig release?
 
-Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Test- och leveranshärdningen är nu genomförd på den nivå boken behöver: backend/API-testning mot PostgreSQL Dev Services, frontendkomponenttester, `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, en separat releasekedja, publicerade release-images, registry-digests och maskinläsbart release-manifest finns i referensimplementationen.
+Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Test- och leveranshärdningen är nu genomförd på den nivå boken behöver: backend/API-testning mot PostgreSQL Dev Services, frontendkomponenttester, `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, en separat releasekedja, publicerade release-images, registry-digests och maskinläsbart release-manifest finns i referensimplementationen. Releasekedjan är dessutom runtime-verifierad hela vägen genom GHCR-publicering och skapad GitHub Release.
 
 De mest värdefulla nästa stegen ligger därför i verkliga produktionskrav:
 
