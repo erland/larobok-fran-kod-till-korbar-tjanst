@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r31.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r32.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,26 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/04-test-reference-implementation.yml",
-      "chapters/12-testning-av-den-kompletta-tjansten.md",
-      "chapters/17-arkitekturen-i-backspegeln.md",
-      "code/taskboard/frontend/package.json",
-      "code/taskboard/frontend/src/App.test.tsx",
-      "code/taskboard/frontend/src/test/setup.ts",
-      "code/taskboard/frontend/vitest.config.ts",
-      "code/taskboard/validate_reference.py",
-      "docs/faktakontroll.md",
-      "docs/kapitelplan.md",
-      "docs/projektstatus.md",
-      "project-index.md"
+      "code/taskboard/frontend/src/test/setup.ts"
     ],
-    "operation": "Införde frontendtester med Vitest och React Testing Library samt kopplade dem till CI",
-    "source_revision": 30
+    "operation": "Rättade frontendtesternas globala DOM-städning mellan Vitest-testfall",
+    "source_revision": 31
   },
-  "parent_revision": 30,
+  "parent_revision": 31,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 31,
+  "revision": 32,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -290,8 +279,8 @@
       "sha256": "c34f1d1f55c119b2d4ee18c1dea9c9d0e7f5c59ccec3bbdcb70706f813ffc42e"
     },
     "code/taskboard/frontend/src/test/setup.ts": {
-      "bytes": 42,
-      "sha256": "977afde26bba6a51325908cd7713cbfdc87d18f06b78b237c8f364c44864b7de"
+      "bytes": 160,
+      "sha256": "4f64f1e107d3d51e0280ac9e49413199f9b39fe59395eaa049084710d2c88177"
     },
     "code/taskboard/frontend/src/vite-env.d.ts": {
       "bytes": 87,
@@ -406,8 +395,8 @@
       "sha256": "3bb0c04afe39ebcc35d0a5ca3c4b6acc2220069d6c6a65bf9cb4b5bbf6347cc1"
     },
     "revision-log.md": {
-      "bytes": 14244,
-      "sha256": "984680e87f330e1f7243a120348f8776101da16fbeb522145a837b3f332ad163"
+      "bytes": 14434,
+      "sha256": "26bf7b8c4bcb863da710832120d2e18fdc091716d964c4b8325805f7fc4c5f2f"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -430,5 +419,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T06:11:40Z"
+  "updated_at": "2026-08-17T07:48:59Z"
 }
