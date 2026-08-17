@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r43.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r44.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,17 +26,15 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      "book.yaml",
-      "publishing/epub.css",
       "publishing/pdf-template.tex"
     ],
-    "operation": "Justerade EPUB-kapitelrubriker till två centrerade rader och begränsade PDF-innehållsförteckningen till kapitelnivå",
-    "source_revision": 42
+    "operation": "Förbättrade PDF-kodblock med automatisk radbrytning, diskret ram och svagt grå bakgrund",
+    "source_revision": 43
   },
-  "parent_revision": 42,
+  "parent_revision": 43,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 43,
+  "revision": 44,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -425,12 +423,12 @@
       "sha256": "cfe827087f31a1b3200ff7324303771e7844a55dcf6b0182c3363b47e06fbf04"
     },
     "publishing/pdf-template.tex": {
-      "bytes": 2660,
-      "sha256": "2f8b5732c49feda121a58daab0732cfddd3cf1a02f73ad78bf4caeac2e5d1262"
+      "bytes": 3162,
+      "sha256": "db12af27abc26575e61b71d49435711b47f622334d815bec74fe616837fe0e00"
     },
     "revision-log.md": {
-      "bytes": 19190,
-      "sha256": "a65a2f3f620349466d305b519e16c3f4bf83c4ab726543b0dac9b0ed39e7875a"
+      "bytes": 19385,
+      "sha256": "74db5852fe4a61afb1070b0d998de45c823bc3469de329acbb517d2ea8bf90f2"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
@@ -453,5 +451,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T19:16:30Z"
+  "updated_at": "2026-08-17T19:40:31Z"
 }

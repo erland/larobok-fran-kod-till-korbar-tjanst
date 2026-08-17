@@ -45,3 +45,4 @@
 | 41 | 2026-08-17T18:54:18Z | Gjorde fontkontrollen i Preview- och Release-workflows robust med fontconfig | `.github/workflows/02-build-preview.yml`, `.github/workflows/03-release.yml` | `fran-kod-till-korbar-tjanst-r41.zip` |
 | 42 | 2026-08-17T19:06:02Z | Rättade PDF-fontupplösning för GitHub Actions och portabel XeLaTeX-fallback | `publishing/pdf-template.tex`, `scripts/export-book.py` | `fran-kod-till-korbar-tjanst-r42.zip` |
 | 43 | 2026-08-17T19:16:30Z | Justerade EPUB-kapitelrubriker till två centrerade rader och begränsade PDF-innehållsförteckningen till kapitelnivå | `book.yaml`, `publishing/epub.css`, `publishing/pdf-template.tex` | `fran-kod-till-korbar-tjanst-r43.zip` |
+| 44 | 2026-08-17T19:40:31Z | Förbättrade PDF-kodblock med automatisk radbrytning, diskret ram och svagt grå bakgrund | `publishing/pdf-template.tex` | `fran-kod-till-korbar-tjanst-r44.zip` |
