@@ -445,8 +445,8 @@ Gränserna är viktigare än antalet bibliotek.
 TaskBoard-frontenden innehåller ännu inte:
 
 - klientrouting,
-- global state-store,
-- datafetching-/cachebibliotek,
+- global state store,
+- bibliotek för datahämtning och cache,
 - runtime-validering av JSON,
 - separata create/update-DTO:er,
 - optimistic updates,

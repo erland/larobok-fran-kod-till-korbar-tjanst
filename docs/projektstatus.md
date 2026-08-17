@@ -4,12 +4,12 @@
 - Titel: Från kod till körbar tjänst
 - Språk: svenska
 - Författare: Erland Lindmark
-- Version: 0.1
+- Version: 1.0
 - book_kind: factbook
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering och grundmanus är slutförda. TaskBoard-referensimplementationen är byggd, testad och end-to-end-verifierad i GitHub Actions, och den separata releasekedjan är runtime-verifierad genom GHCR-publicering, digestinsamling, deploymentbundle och GitHub Release. Inledningen samt kapitel 1–17 är slutligt synkroniserade mot denna verifierade implementation. Revisionen har särskilt kontrollerat testnivåer, repo-struktur, `package-lock.json`/`npm ci`, imageflöde, release-digests och skillnaden mellan implementerad funktion och kvarvarande produktionshärdning.
+Manus, faktagranskning och publiceringsputs är slutförda. TaskBoard-referensimplementationen är byggd, testad och end-to-end-verifierad i GitHub Actions, och den separata releasekedjan är runtime-verifierad genom GHCR-publicering, digestinsamling, deploymentbundle och GitHub Release. Inledningen samt kapitel 1–17 är slutligt synkroniserade mot denna verifierade implementation. Revisionen har särskilt kontrollerat testnivåer, repo-struktur, `package-lock.json`/`npm ci`, imageflöde, release-digests och skillnaden mellan implementerad funktion och kvarvarande produktionshärdning.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
@@ -48,14 +48,15 @@ Planering och grundmanus är slutförda. TaskBoard-referensimplementationen är 
 - TaskBoard-release: `05-release-reference-implementation.yml` triggas av `taskboard-v<SemVer>`, bygger images en gång, smoke-testar dem med `--no-build`, publicerar exakt de verifierade web-/backend-images till GHCR och skapar ett deploymentpaket med image-digests, `release-manifest.json` och SHA-256-checksummor. Kedjan är runtime-verifierad i GitHub Actions, inklusive GHCR-push och skapad GitHub Release.
 
 ## Faktakontroll
-- Initiala versionsval och huvudkonfiguration för referensimplementationen verifierade 2026-08-16 mot officiella primärkällor.
-- Detaljer som hör till senare kapitel ska fortfarande omverifieras nära skriv-/publiceringstillfället.
+- Initiala versionsval och huvudkonfiguration för referensimplementationen verifierades 2026-08-16 mot officiella primärkällor.
+- Publiceringskontroll 2026-08-17 bekräftade bland annat React 19.2-serien, Quarkus 3.33 LTS/3.33.3.1 och PostgreSQL 18.4 mot respektive officiell primärkälla.
+- Referensimplementationens test- och releasekedja är runtime-verifierad i GitHub Actions.
 
 ## Öppna beslut
 - Om omslagsbild ska tas fram och vilket visuellt uttryck den i så fall ska ha.
 - Ytterligare supply-chain-härdning som attestering/SBOM och explicit Maven-reproducerbarhetskontroll är valfria nästa nivåer, inte krav för bokens referensmål.
 
 ## Nästa rekommenderade steg
-- Genomför slutputs med fokus på språk, källhänvisningar och exportberedskap utan att förändra den nu verifierade teknikberättelsen i onödan.
-- Kör därefter projektets EPUB/PDF-preview och gör en visuell publiceringskontroll.
+- Kör projektets EPUB/PDF-preview och gör en visuell publiceringskontroll.
+- Ta fram omslag om boken ska publiceras med omslagsbild.
 - Produktionsfunktioner som autentisering, TLS/trusted proxy, secrets-hantering, backup/restore och observability ska endast införas om TaskBoard ska gå från pedagogisk referens till verklig tjänst.

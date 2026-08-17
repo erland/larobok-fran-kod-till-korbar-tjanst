@@ -143,8 +143,8 @@ TaskBoards CI-workflow är därför byggt för att gå längre än komponentkomp
 I den verifierade kedjan gör GitHub Actions i huvudsak följande:
 
 1. validerar referensprojektets statiska kontrakt,
-2. bygger React/TypeScript-frontenden,
-3. kör Maven-verifiering av Quarkus-backenden,
+2. installerar låsta frontendberoenden med `npm ci`, kör Vitest-komponenttesterna och bygger React/TypeScript-frontenden,
+3. kör Maven `verify`, vilket inkluderar Quarkus API-/integrationstester mot PostgreSQL Dev Services,
 4. validerar Docker Compose-konfigurationen,
 5. bygger Docker-images,
 6. startar `db`, `backend` och `web` och väntar på deras hälsosignaler,

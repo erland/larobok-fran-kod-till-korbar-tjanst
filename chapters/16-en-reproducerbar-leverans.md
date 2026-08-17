@@ -405,31 +405,28 @@ Det är därför kapitel 15 och 16 hör nära ihop: driftbarhet definierar hur v
 
 ## Ett release-manifest knyter ihop helheten
 
-När antalet artefakter växer är ett maskinläsbart manifest användbart.
+När antalet artefakter växer är ett maskinläsbart manifest användbart. TaskBoards releaseworkflow skapar därför `release-manifest.json` som en del av varje `taskboard-v<SemVer>`-release.
 
-Ett förenklat exempel skulle kunna se ut så här:
+Ett förenklat utdrag ur den faktiska modellen ser ut så här:
 
-```yaml
-release: 1.2.0
-git_commit: <commit>
-images:
-  web:
-    ref: registry.example/taskboard-web:1.2.0
-    digest: sha256:<digest>
-  backend:
-    ref: registry.example/taskboard-backend:1.2.0
-    digest: sha256:<digest>
-  postgres:
-    ref: postgres:18.4-alpine
-    digest: sha256:<digest>
-database:
-  migrations_through: V3
-files:
-  compose: docker-compose.yml
-  env_template: .env.example
+```json
+{
+  "schemaVersion": 1,
+  "release": "1.2.0",
+  "tag": "taskboard-v1.2.0",
+  "gitCommit": "<40-teckens Git-SHA>",
+  "images": {
+    "web": "ghcr.io/example/taskboard-web@sha256:<digest>",
+    "backend": "ghcr.io/example/taskboard-backend@sha256:<digest>",
+    "postgres": "postgres@sha256:<digest>"
+  },
+  "verification": {
+    "smokePath": "Nginx -> Quarkus -> PostgreSQL"
+  }
+}
 ```
 
-Detta är ett **målbildsexempel**, inte en fil som finns i TaskBoard-repot i dag.
+Den verkliga filen innehåller dessutom bland annat GitHub Actions-run-id, verktygsversioner och SHA-256-checksummor för centrala käll- och leveransfiler. Bundle-generatorn validerar att de tre image-referenserna använder SHA-256-digests innan paketet skapas.
 
 Poängen är att releasen blir maskinellt läsbar och granskningsbar. Människan kan läsa release notes; automation kan läsa manifestet.
 

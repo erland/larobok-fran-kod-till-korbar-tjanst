@@ -260,7 +260,7 @@ Däremot skulle följande val kunna ändras utan att arkitekturen förlorar sin 
 
 Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
 
-## Vad bör förbättras innan en verklig release?
+## Vad bör förbättras innan en verklig produktionssättning?
 
 Tidigare kapitel har medvetet lämnat några hårdningssteg öppna. Test- och leveranshärdningen är nu genomförd på den nivå boken behöver: backend/API-testning mot PostgreSQL Dev Services, frontendkomponenttester, `package-lock.json`/`npm ci`, full-SHA-pinnade TaskBoard-Actions, en separat releasekedja, publicerade release-images, registry-digests och maskinläsbart release-manifest finns i referensimplementationen. Releasekedjan är dessutom runtime-verifierad hela vägen genom GHCR-publicering och skapad GitHub Release.
 
@@ -275,7 +275,7 @@ De mest värdefulla nästa stegen ligger därför i verkliga produktionskrav:
 6. Lägg till attestering/signering, SBOM eller annan supply-chain-härdning om risk- och regelkraven motiverar det.
 ```
 
-Ordningen kan ändras beroende på mål. Om nästa steg bara är fortsatt bokutveckling är test- och reproducerbarhetshärdning mest relevant. Om tjänsten i stället ska publiceras till verkliga användare flyttar identitet, TLS, secrets och driftrutiner snabbt upp i prioritet.
+Ordningen kan ändras beroende på mål. Referensimplementationens tekniska releasekedja är redan verifierad. Om tjänsten ska sättas i produktion för verkliga användare flyttar däremot identitet, TLS, secrets, backup och driftrutiner snabbt upp i prioritet.
 
 Det centrala är att inte blanda ihop dessa två mål.
 
