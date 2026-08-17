@@ -4,7 +4,7 @@
 $if(pdf-font-dir)$
 \setmainfont[Path=$pdf-font-dir$/,Extension=.otf,UprightFont=texgyrepagella-regular,BoldFont=texgyrepagella-bold,ItalicFont=texgyrepagella-italic,BoldItalicFont=texgyrepagella-bolditalic]{texgyrepagella}
 $else$
-\setmainfont{TeXGyrePagella}
+% Använd XeLaTeX/fontspec-standardfont om Pagella-OTF inte hittas.
 $endif$
 \usepackage[paperwidth=170mm,paperheight=240mm,inner=20mm,outer=18mm,top=20mm,bottom=22mm,headsep=5mm,footskip=9mm]{geometry}
 \usepackage{graphicx}\usepackage{microtype}\usepackage{setspace}\usepackage{parskip}\usepackage{fancyhdr}\usepackage[hidelinks]{hyperref}\usepackage{bookmark}\usepackage{tocloft}\usepackage{ragged2e}\usepackage{xcolor}\usepackage{longtable}\usepackage{booktabs}\usepackage{array}\usepackage{calc}\usepackage{etoolbox}

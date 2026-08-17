@@ -1,5 +1,5 @@
 {
-  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r41.zip",
+  "canonical_zip_name": "fran-kod-till-korbar-tjanst-r42.zip",
   "chapters": {
     "count": 17,
     "hashes": {
@@ -26,16 +26,16 @@
   "created_at": "2026-08-16T17:20:52Z",
   "last_operation": {
     "changed_files": [
-      ".github/workflows/02-build-preview.yml",
-      ".github/workflows/03-release.yml"
+      "publishing/pdf-template.tex",
+      "scripts/export-book.py"
     ],
-    "operation": "Gjorde fontkontrollen i Preview- och Release-workflows robust med fontconfig",
-    "source_revision": 40
+    "operation": "Rättade PDF-fontupplösning för GitHub Actions och portabel XeLaTeX-fallback",
+    "source_revision": 41
   },
-  "parent_revision": 40,
+  "parent_revision": 41,
   "project_id": "bda7fd5f-8515-4a5a-b548-a42496aa66aa",
   "project_slug": "fran-kod-till-korbar-tjanst",
-  "revision": 41,
+  "revision": 42,
   "schema_version": 1,
   "template": false,
   "tracked_files": {
@@ -424,20 +424,20 @@
       "sha256": "cfe827087f31a1b3200ff7324303771e7844a55dcf6b0182c3363b47e06fbf04"
     },
     "publishing/pdf-template.tex": {
-      "bytes": 2621,
-      "sha256": "145ac1855097b9bd5508bff12021c461b16603be5fc13d8c5f5960a933459080"
+      "bytes": 2660,
+      "sha256": "3106cee6b1af6ca1a6d243272f1a177db17e954e90b99a43edf697c3bcb3b080"
     },
     "revision-log.md": {
-      "bytes": 18720,
-      "sha256": "1314d3639424e69df0e0f91c257cba00dc6a78109c0ff45d93074a3c3033a866"
+      "bytes": 18929,
+      "sha256": "5e79a9d814b02b086af9c15962dc3ad5c8bf75913e8cf777d842959a002624a2"
     },
     "scripts/build_book.py": {
       "bytes": 1314,
       "sha256": "1a8a390ab62eaac664220a17c631cb57350d0bca648ac9fc9fb61ec142c53255"
     },
     "scripts/export-book.py": {
-      "bytes": 6470,
-      "sha256": "325f442bdc05e4c6d37b23c23a8cf066acd30b9d884fef711baaf9eaf3d401b1"
+      "bytes": 6793,
+      "sha256": "f2ae7c74f6abc7901a3d22e7b3a82a1a12d032a430ae3fab69ca3f26a1aaf314"
     },
     "scripts/export-book.sh": {
       "bytes": 89,
@@ -452,5 +452,5 @@
       "sha256": "1c60364217f6063d988c99835eca81ad168300ada630e3a9dd706f72a2156a27"
     }
   },
-  "updated_at": "2026-08-17T18:54:18Z"
+  "updated_at": "2026-08-17T19:06:02Z"
 }
