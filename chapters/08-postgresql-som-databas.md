@@ -148,7 +148,7 @@ public String title;
 
 Här finns alltså en databasconstraint som skyddar mot `NULL` och en längdgräns på 160 tecken.
 
-Det är värt att skilja den garantin från HTTP-valideringen i `SaveTaskRequest`. API-lagret kan ge ett snabbt och begripligt 400-svar när en titel är ogiltig. Databasens constraint är den sista integritetsgränsen om data skulle nå persistence-lagret från någon annan kodväg.
+Det är värt att skilja den garantin från HTTP-valideringen i `SaveTaskRequest`. API-lagret kan ge ett snabbt och begripligt 400-svar när en titel är ogiltig. Databasens constraint är den sista integritetsgränsen om data skulle nå persistens-lagret från någon annan kodväg.
 
 Beskrivningen är i stället:
 
@@ -331,7 +331,7 @@ volume
 kan leva kvar och återanvändas
 ```
 
-Det är avgörande för en databas. En image och en container är utbytbara runtime-artifacts; applikationsdata är det inte.
+Det är avgörande för en databas. En image och en container är utbytbara körningsartefakter; applikationsdata är det inte.
 
 Det betyder dock inte att en Docker-volume automatiskt är en backup. Om volymen skadas, raderas eller innehåller logiskt felaktiga data hjälper inte det faktum att den är persistent. Backup, restore och uppgraderingsstrategi är separata driftfrågor som vi återkommer till i kapitel 15.
 

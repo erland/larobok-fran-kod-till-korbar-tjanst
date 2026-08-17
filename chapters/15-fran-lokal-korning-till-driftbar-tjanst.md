@@ -173,7 +173,7 @@ Det viktiga är inte exakt filnamn eller kommando utan egenskaperna runt process
 4. åtkomst till backupen ska skyddas,
 5. återställning ska vara dokumenterad och testad.
 
-I en verklig installation behöver credentials naturligtvis hanteras bättre än genom hårdkodade exempelvärden.
+I en verklig installation behöver inloggningsuppgifter naturligtvis hanteras bättre än genom hårdkodade exempelvärden.
 
 ## En backup är inte verifierad förrän den går att återställa
 

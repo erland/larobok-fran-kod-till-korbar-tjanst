@@ -41,7 +41,7 @@ TaskBoard är liten nog för att kunna byggas som en enda applikation. Ändå ä
 
 Den här ansvarsfördelningen är mer långlivad än de exakta produkterna.
 
-Nginx skulle kunna ersättas av en annan reverse proxy. Quarkus skulle kunna bytas mot ett annat Java-ramverk. Compose skulle kunna ersättas av en plattformstjänst eller en orkestrerare. Men behovet av en tydlig publik gräns, ett definierat API, en kontrollerad persistence-modell, versionsstyrda schemaändringar och verifierad leverans finns kvar.
+Produkterna är däremot utbytbara. Den publika HTTP-gränsen kan implementeras av något annat än Nginx, applikationslagret av något annat än Quarkus och körmodellen av något större än Compose. Det långlivade är i stället kraven på en tydlig publik gräns, ett definierat API, en kontrollerad persistensmodell, versionsstyrda schemaändringar och en verifierad leverans.
 
 Det är därför mer värdefullt att förstå **varför gränserna finns** än att memorera varje konfigurationsnyckel.
 
@@ -120,7 +120,7 @@ PostgreSQL        -> hur data faktiskt lagras och skyddas
 
 Den gränsen är viktigare än valet mellan repository-mönster, Panache eller direkt `EntityManager`.
 
-När tjänsten växer blir databasen dessutom en driftsfråga: backup, restore, kapacitet, index, majoruppgraderingar, åtkomstkontroll och recovery-mål. En named Docker-volume löser persistence över containeromstarter, men den ersätter inte någon av dessa förvaltningsfrågor.
+När tjänsten växer blir databasen dessutom en driftsfråga: backup, restore, kapacitet, index, majoruppgraderingar, åtkomstkontroll och recovery-mål. En named Docker-volume löser persistens över containeromstarter, men den ersätter inte någon av dessa förvaltningsfrågor.
 
 ## Compose är rätt för problemet vi faktiskt har
 
@@ -255,7 +255,7 @@ Däremot skulle följande val kunna ändras utan att arkitekturen förlorar sin 
 - React mot ett annat frontendramverk,
 - Nginx mot en plattformsgateway,
 - Quarkus mot ett annat backendramverk,
-- JPA mot en annan persistence-teknik,
+- JPA mot en annan persistensmekanism,
 - Compose mot en annan orkestreringsmodell.
 
 Det är skillnaden mellan **arkitekturprincip** och **teknikval**.
@@ -306,6 +306,18 @@ Och flera av de viktigaste förbättringarna kom inte från diagrammet utan frå
 Det är inte misslyckanden i arkitekturarbetet. Det är själva arkitekturarbetet när det är kopplat till körbar kod.
 
 En arkitektur som aldrig byggs och testas är fortfarande en hypotes.
+
+## En beslutsordning att bära med sig
+
+När en ny tjänst ska byggas är det lätt att börja med produktnamn. En mer robust ordning är att börja med gränserna och först därefter välja verktyg:
+
+1. **Vilket beteende är publikt?** Definiera klientens kontrakt och den yttre ingången.
+2. **Vilken data måste överleva?** Bestäm ägarskap, schema, migrationer och återställning.
+3. **Vilka delar måste kunna bytas oberoende?** Låt dessa gränser styra bygg- och körningsartefakter.
+4. **Hur vet vi att helheten fungerar?** Lägg verifiering på både komponent- och systemgränser.
+5. **Hur identifierar och överlämnar vi en version?** Knyt källa, images, konfiguration, migrationer och instruktioner till samma release.
+
+Den ordningen gör inte teknikvalen oviktiga. Den gör dem möjliga att utvärdera mot ett konkret ansvar i stället för mot en generell uppfattning om vad som är modernt.
 
 ## Från kod till körbar tjänst
 

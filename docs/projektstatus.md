@@ -9,30 +9,30 @@
 - book_type: subject_overview
 
 ## Nuvarande fas
-Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–17 är skrivna som första manusversion. Hela det planerade numrerade grundmanuset är därmed skrivet.
+Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end-verifierad i GitHub Actions. Inledningen samt kapitel 1–17 är skrivna och helhetsreviderade som ett sammanhållet första fullständigt manus. Revisionen har stramat upp progression, terminologi, interna hänvisningar, överlapp och kapitelgränser samt kontrollerat manuset mot den körbara referensimplementationen.
 
 ## Kapitelstatus
 | Kapitel | Titel | Status | Kommentar |
 |---|---|---|---|
-| 0 | Inledning | Skriven | Första manusversion, grundad i verifierad referensimplementation |
-| 1 | Från kod till körbar tjänst | Skriven | Första manusversion, grundad i verifierad referensimplementation |
-| 2 | Tjänstens arkitektur | Skriven | Första manusversion, grundad i verifierad runtime-arkitektur |
-| 3 | Projektstruktur och utvecklingsmiljö | Skriven | Första manusversion, grundad i faktisk repo- och utvecklingsstruktur |
-| 4 | PWA som frontendarkitektur | Skriven | Första manusversion, grundad i faktisk vite-plugin-pwa- och Nginx-konfiguration |
-| 5 | Frontend med React och TypeScript | Skriven | Första manusversion, grundad i faktisk `App.tsx`- och `api.ts`-implementation |
-| 6 | Backend med Quarkus | Skriven | Första manusversion, grundad i faktisk REST-resurs, DTO-, CDI-, validerings- och tjänstelagerimplementation |
-| 7 | Persistens med JPA | Skriven | Första manusversion, grundad i faktisk `TaskEntity`, `TaskRepository`, `EntityManager`- och transaktionsimplementation |
-| 8 | PostgreSQL som databas | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, `task_item`-schema, PostgreSQL 18.4 och verifierad volymmount |
-| 9 | Databasschemat som kod med Flyway | Skriven | Första manusversion, grundad i faktisk `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering |
-| 10 | Från frontend till databas och tillbaka | Skriven | Första manusversion, grundad i den faktiska request/response-kedjan och verifierat end-to-end-test |
-| 11 | Konfiguration och säkerhet | Skriven | Första manusversion, grundad i faktisk Compose-, Nginx- och Quarkus-konfiguration samt explicit säkerhetsavgränsning |
-| 12 | Testning av den kompletta tjänsten | Skriven | Första manusversion, grundad i faktisk CI-workflow och smoke-test samt verifierad Quarkus-/frontend-teststrategi |
-| 13 | Frontend, reverse proxy och backend som Docker-images | Skriven | Första manusversion, grundad i faktiska multi-stage Dockerfiles, Nginx-konfiguration, Quarkus fast-jar och verifierad image-start i CI |
-| 14 | Den kompletta tjänsten med Docker Compose | Skriven | Första manusversion, grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
-| 15 | Från lokal körning till driftbar tjänst | Skriven | Första manusversion, grundad i faktisk Compose-/PostgreSQL-/Quarkus-konfiguration och verifierad drift-/backupdokumentation |
-| 16 | En reproducerbar leverans | Skriven | Första manusversion, grundad i faktisk Git/CI/Docker/npm/Maven-leveranskedja och verifierad reproducerbarhetspolicy |
-| 17 | Arkitekturen i backspegeln | Skriven | Första manusversion, syntes av den verifierade referensarkitekturen, dess trade-offs och naturliga utvecklingsvägar |
-| – | Källförteckning | Planerad | Exporterad efter kapitel 17 |
+| 0 | Inledning | Helhetsreviderad | Grundad i verifierad referensimplementation |
+| 1 | Från kod till körbar tjänst | Helhetsreviderad | Grundad i verifierad referensimplementation |
+| 2 | Tjänstens arkitektur | Helhetsreviderad | Grundad i verifierad runtime-arkitektur |
+| 3 | Projektstruktur och utvecklingsmiljö | Helhetsreviderad | Grundad i faktisk repo- och utvecklingsstruktur |
+| 4 | PWA som frontendarkitektur | Helhetsreviderad | Grundad i faktisk vite-plugin-pwa- och Nginx-konfiguration |
+| 5 | Frontend med React och TypeScript | Helhetsreviderad | Grundad i faktisk `App.tsx`- och `api.ts`-implementation |
+| 6 | Backend med Quarkus | Helhetsreviderad | Grundad i faktisk REST-resurs, DTO-, CDI-, validerings- och tjänstelagerimplementation |
+| 7 | Persistens med JPA | Helhetsreviderad | Grundad i faktisk `TaskEntity`, `TaskRepository`, `EntityManager`- och transaktionsimplementation |
+| 8 | PostgreSQL som databas | Helhetsreviderad | Grundad i faktisk Compose-konfiguration, `task_item`-schema, PostgreSQL 18.4 och verifierad volymmount |
+| 9 | Databasschemat som kod med Flyway | Helhetsreviderad | Grundad i faktisk `V1__create_task.sql`, `migrate-at-start` och Hibernate schema-validering |
+| 10 | Från frontend till databas och tillbaka | Helhetsreviderad | Grundad i den faktiska request/response-kedjan och verifierat end-to-end-test |
+| 11 | Konfiguration och säkerhet | Helhetsreviderad | Grundad i faktisk Compose-, Nginx- och Quarkus-konfiguration samt explicit säkerhetsavgränsning |
+| 12 | Testning av den kompletta tjänsten | Helhetsreviderad | Grundad i faktisk CI-workflow och smoke-test samt verifierad Quarkus-/frontend-teststrategi |
+| 13 | Frontend, reverse proxy och backend som Docker-images | Helhetsreviderad | Grundad i faktiska multi-stage Dockerfiles, Nginx-konfiguration, Quarkus fast-jar och verifierad image-start i CI |
+| 14 | Den kompletta tjänsten med Docker Compose | Helhetsreviderad | Grundad i faktisk Compose-konfiguration, health-baserad startordning och verifierad CI-start |
+| 15 | Från lokal körning till driftbar tjänst | Helhetsreviderad | Grundad i faktisk Compose-/PostgreSQL-/Quarkus-konfiguration och verifierad drift-/backupdokumentation |
+| 16 | En reproducerbar leverans | Helhetsreviderad | Grundad i faktisk Git/CI/Docker/npm/Maven-leveranskedja och verifierad reproducerbarhetspolicy |
+| 17 | Arkitekturen i backspegeln | Helhetsreviderad | Syntes av den verifierade referensarkitekturen, dess avvägningar och naturliga utvecklingsvägar |
+| – | Källförteckning | Uppdaterad | Samlad primärkällförteckning för de faktakontrollerade kapitlen |
 
 ## Referensimplementation
 - Plats: `code/taskboard/`
@@ -55,6 +55,6 @@ Planering slutförd. TaskBoard-referensimplementationen är byggd och end-to-end
 - Om den rekommenderade utökade teststacken (Quarkus API/integrationstester med PostgreSQL Dev Services samt Vitest + React Testing Library) ska implementeras i referenskoden eller enbart fungera som nästa utvecklingssteg.
 
 ## Nästa rekommenderade steg
-- Genomför en helhetsrevision av kapitel 0–17: disposition, överlapp, terminologi, kodexempel, faktakontroll och källhänvisningar.
-- Ta därefter ställning till om den rekommenderade teststacken och den starkare leveransmodellen ska implementeras i referenskoden före slutrevision/export.
+- Ta ställning till om den rekommenderade teststacken och den starkare leveransmodellen ska implementeras i referenskoden före slutrevision/export.
+- Genomför därefter en slutputs med fokus på språk, kodexempel, källhänvisningar och exportberedskap.
 - Digest-policyn är fastställd på manusnivå: releasekritiska image-referenser bör registrera verifierade digests; en eventuell implementation i referenskoden görs separat och testas i CI.

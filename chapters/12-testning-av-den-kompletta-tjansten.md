@@ -26,7 +26,7 @@ För TaskBoard kan nivåerna beskrivas så här:
 | Enhetstest | normalisering, små rena funktioner | lokal logik |
 | Komponenttest | React-komponent med simulerat API | UI-beteende och användarflöden |
 | API-/backendtest | Quarkus + HTTP | routing, JSON, validering, statuskoder |
-| Persistence-/integrationstest | Quarkus + riktig PostgreSQL | JPA, SQL, migrationer, datatyper |
+| persistens-/integrationstest | Quarkus + riktig PostgreSQL | JPA, SQL, migrationer, datatyper |
 | Full-stack smoke test | Nginx + Quarkus + PostgreSQL | kopplingen mellan alla runtime-delar |
 
 Ingen rad ersätter någon annan. Ett full-stack-test är till exempel bra på att visa att kedjan fungerar, men dåligt på att exakt lokalisera ett fel i en liten hjälpfunktion. Ett enhetstest kan lokalisera ett sådant fel perfekt men kan aldrig bevisa att Nginx proxar `/api` till rätt container.
@@ -53,7 +53,7 @@ Den kör i följande ordning:
 9. stäng ned stacken och ta bort testvolymen
 ```
 
-Detta är redan mer än ett vanligt byggjobb. Det verifierar att de artifacts som boken beskriver faktiskt går att sätta ihop till en körande tjänst.
+Detta är redan mer än ett vanligt byggjobb. Det verifierar att de artefakter som boken beskriver faktiskt går att sätta ihop till en körande tjänst.
 
 Samtidigt är det viktigt att inte tillskriva workflowen tester som inte finns. Frontendens `package.json` har i dagsläget inget `test`-script och inga testberoenden. Backendens `pom.xml` innehåller `quarkus-junit5` och Rest Assured som testberoenden, men projektet har ännu inga incheckade klasser under `src/test`.
 
@@ -421,7 +421,7 @@ TaskBoard behöver inte lägga till alla testnivåer samtidigt. En pragmatisk or
 
 Varje steg täcker en lucka i den nuvarande portföljen.
 
-Backend/API-testerna bör prioriteras eftersom mycket av TaskBoards kontrakt finns där och infrastrukturen redan har testberoenden. PostgreSQL Dev Services gör det möjligt att testa persistence på rätt databasprodukt. Frontendkomponenttester blir mer värdefulla när `App.tsx` delas upp och UI-beteendet blir rikare.
+Backend/API-testerna bör prioriteras eftersom mycket av TaskBoards kontrakt finns där och infrastrukturen redan har testberoenden. PostgreSQL Dev Services gör det möjligt att testa persistens på rätt databasprodukt. Frontendkomponenttester blir mer värdefulla när `App.tsx` delas upp och UI-beteendet blir rikare.
 
 Det befintliga smoke-testet ska däremot behållas även när de snabbare testerna blir fler. Det är fortfarande den kontroll som svarar på frågan:
 
@@ -442,6 +442,6 @@ Gör testet så litet som möjligt,
 men inte mindre än felet du vill kunna hitta.
 ```
 
-Det är teststrategin bakom TaskBoard. Snabba kontroller ska stoppa enkla fel tidigt. Riktiga integrationstester ska prova kontrakt och persistence där mocks annars skulle dölja risker. Och en liten full-stack-kontroll ska slutligen visa att React/PWA, Nginx, Quarkus och PostgreSQL faktiskt bildar en körbar tjänst.
+Det är teststrategin bakom TaskBoard. Snabba kontroller ska stoppa enkla fel tidigt. Riktiga integrationstester ska prova kontrakt och persistens där mocks annars skulle dölja risker. Och en liten full-stack-kontroll ska slutligen visa att React/PWA, Nginx, Quarkus och PostgreSQL faktiskt bildar en körbar tjänst.
 
 Det är först då ett grönt bygge börjar betyda något för den som ska använda systemet.

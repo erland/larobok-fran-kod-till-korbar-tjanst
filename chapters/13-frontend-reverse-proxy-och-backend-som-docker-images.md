@@ -408,9 +408,9 @@ Vi behöver inte lösa hela releasepolicyn i detta kapitel. Det viktiga är att 
 1. Är **den byggda imagen** en tydlig runtime-artefakt?
 2. Kan vi **reproducera exakt samma image senare** från samma källkod och externa basimages?
 
-TaskBoard har en bra lösning på den första frågan och en medvetet öppen punkt på den andra. Projektets faktakontroll har därför kvar beslutet om bas-/release-images ska låsas med digest i slutlig publiceringspipeline.
+TaskBoard har en bra lösning på den första frågan men inte full bitreproducerbarhet för den andra. I kapitel 16 fastställs därför en praktisk releasepolicy: tydliga versions-taggar kan användas under utveckling, medan de image-digests som faktiskt verifieras för en release ska registreras tillsammans med releaseinformationen. Ett byte av digest behandlas då som en ny bygg-, test- och releasecykel.
 
-Detta tas upp igen i kapitel 16.
+Det förändrar inte Dockerfilerna i det här kapitlet, men det gör skillnaden mellan en begriplig image och en exakt identifierad release-image tydlig.
 
 ## CI testar images, inte bara Dockerfile-syntax
 

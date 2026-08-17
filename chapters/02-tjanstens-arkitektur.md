@@ -27,7 +27,7 @@ Diagrammet visar mer än teknikval. Det visar fyra arkitekturgränser:
 
 - webbläsaren känner till den publika HTTP-ingången men inte den interna backenden eller databasen,
 - Nginx äger gränsen mellan externa HTTP-anrop och de interna tjänsterna,
-- Quarkus äger applikationskontraktet och all åtkomst till persistence,
+- Quarkus äger applikationskontraktet och all åtkomst till persistens,
 - PostgreSQL äger den beständiga datan men inte applikationsreglerna.
 
 Det här kapitlet fokuserar på dessa gränser. Senare kapitel går djupare in i respektive teknik, men om gränserna är otydliga hjälper det inte att varje komponent är välskriven var för sig.
@@ -128,7 +128,7 @@ och mappar HTTP-operationer till applikationsoperationer:
 
 Det är här transportformatet JSON möter TaskBoards applikationsmodell. Requestdata valideras och skickas vidare till tjänstelagret. Backenden avgör vad en giltig uppgift är och hur den ska behandlas.
 
-Det är också Quarkus som äger databasanslutningen. Compose tillför JDBC-adress och credentials som miljövariabler:
+Det är också Quarkus som äger databasanslutningen. Compose tillför JDBC-adress och inloggningsuppgifter som miljövariabler:
 
 ```yaml
 QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-taskboard}
@@ -211,7 +211,7 @@ Service discovery i Compose gör att namnet `backend` kan lösas till den aktuel
 
 ### 3. Quarkus tolkar requesten
 
-`TaskResource.create()` tar emot JSON-representationen som en validerad requestmodell. Applikationslagret skapar uppgiften och persistence-lagret skriver den till PostgreSQL inom backendens ansvar.
+`TaskResource.create()` tar emot JSON-representationen som en validerad requestmodell. Applikationslagret skapar uppgiften och persistens-lagret skriver den till PostgreSQL inom backendens ansvar.
 
 ### 4. PostgreSQL lagrar den beständiga representationen
 
@@ -360,13 +360,13 @@ Om operatörer behöver administrativ databasåtkomst bör den lösas som en utt
 - TaskBoards publika runtime-ingång är Nginx; endast `web` publicerar en värdport i Compose-modellen.
 - Frontend och API använder samma origin genom att API-anrop går till relativa `/api`-adresser via Nginx.
 - Nginx serverar statiska frontendfiler och proxar `/api` till Quarkus, men innehåller ingen domänlogik.
-- Quarkus äger REST-kontraktet, applikationslogiken och åtkomsten till persistence.
+- Quarkus äger REST-kontraktet, applikationslogiken och åtkomsten till persistens.
 - PostgreSQL nås av backend via servicenamnet `db` och publiceras inte till värddatorn.
 - Compose-standardnätverket ger service discovery med servicenamn; container-IP-adresser ska inte vara del av applikationskonfigurationen.
 - Att en databasport inte är publicerad är inte samma sak som full nätverkssegmentering. I den nuvarande implementationen delar `web`, `backend` och `db` standardnätverk.
 - Healthchecks och `depends_on` med `service_healthy` kodifierar den valda startordningen mellan databas, backend och web.
 - Forwarded headers från Nginx är transportinformation; hur Quarkus ska lita på dem är en separat säkerhetskonfiguration.
-- Arkitekturens viktigaste egenskap är tydliga gränser: webbläsare → HTTP-ingång → applikations-API → persistence.
+- Arkitekturens viktigaste egenskap är tydliga gränser: webbläsare → HTTP-ingång → applikations-API → persistens.
 
 ## Nästa steg
 

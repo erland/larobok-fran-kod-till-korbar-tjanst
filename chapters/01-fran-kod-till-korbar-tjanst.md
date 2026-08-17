@@ -4,7 +4,7 @@ Två kodbaser kan vara fullt fungerande och ändå inte utgöra en levererbar tj
 
 Det är ett användbart utvecklingsläge, men det är inte samma sak som att ha en tjänst som kan överlämnas.
 
-I den här boken betyder **körbar tjänst** att alla nödvändiga delar kan byggas, konfigureras, startas och verifieras som en sammanhängande enhet utan att mottagaren behöver återskapa utvecklarens arbetsstation. För TaskBoard innebär det en frontend som går att hämta i webbläsaren, ett REST-API som frontenden kan anropa, ett persistent datalager och en definierad väg från externa HTTP-anrop till interna komponenter.
+I den här boken betyder **körbar tjänst** att alla nödvändiga delar kan byggas, konfigureras, startas och verifieras som en sammanhängande enhet utan att mottagaren behöver återskapa utvecklarens arbetsstation. För TaskBoard innebär det en frontend som går att hämta i webbläsaren, ett REST-API som frontenden kan anropa, ett beständigt datalager och en definierad väg från externa HTTP-anrop till interna komponenter.
 
 Det är slutmålet vi börjar med. Först därefter går vi ned i detaljerna.
 
@@ -67,11 +67,11 @@ Quarkus-processen är däremot inte tjänstens avsedda publika ingång i Compose
 
 Det ger ett enkelt externt gränssnitt: klienten behöver förhålla sig till en och samma HTTP-origin och kan anropa relativa adresser som `/api/tasks`. Hur reverse proxy-konfigurationen fungerar och vilka säkerhetsmässiga konsekvenser den får behandlas senare.
 
-### Databasen är intern persistence
+### Databasen är intern persistens
 
 PostgreSQL lagrar TaskBoards data. I Compose-modellen publiceras ingen databasport till värddatorn. Backenden når databasen på det interna Compose-nätverket med servicenamnet `db`.
 
-Det är en viktig arkitekturgräns: en webbläsare ska inte känna till databasens adress, credentials eller schema. Frontenden pratar HTTP med API:t. Backenden äger åtkomsten till persistence.
+Det är en viktig arkitekturgräns: en webbläsare ska inte känna till databasens adress, inloggningsuppgifter eller schema. Frontenden pratar HTTP med API:t. Backenden äger åtkomsten till persistens.
 
 Databasschemat hanteras med Flyway. Den första migrationen skapar TaskBoards tabell och index. Hibernate ORM är konfigurerat för att validera att JPA-modellen är förenlig med det schema som migrationerna har etablerat. På så sätt skiljs två ansvar åt: Flyway förändrar schemat, medan ORM-lagret använder och kontrollerar det.
 
@@ -91,9 +91,9 @@ Det här är en första aspekt av reproducerbarhet: byggprocessen uttrycks som k
 
 Databasnamn, användare, lösenord och publicerad HTTP-port är exempel på värden som kan skilja sig mellan körmiljöer. De ska inte kräva ändringar i applikationskoden.
 
-TaskBoards Compose-fil tillför databasanslutningen till Quarkus genom miljövariabler. En `.env.example` visar vilka värden som kan sättas utan att verkliga credentials behöver checkas in i projektet.
+TaskBoards Compose-fil tillför databasanslutningen till Quarkus genom miljövariabler. En `.env.example` visar vilka värden som kan sättas utan att verkliga inloggningsuppgifter behöver checkas in i projektet.
 
-Det är en enkel modell, men principen är större än TaskBoard: samma byggda artifact bör så långt det är rimligt kunna användas i flera miljöer med konfiguration som tillförs vid start.
+Det är en enkel modell, men principen är större än TaskBoard: samma byggda artefakt bör så långt det är rimligt kunna användas i flera miljöer med konfiguration som tillförs vid start.
 
 ### Hur vet vi att komponenterna är redo?
 
@@ -119,7 +119,7 @@ I lokal frontendutveckling är snabb återkoppling viktig. Därför används Vit
 
 I backendutveckling kan Quarkus köras i dev mode. Med Docker tillgängligt kan Quarkus Dev Services tillhandahålla en PostgreSQL-instans utan att utvecklaren behöver starta den fullständiga Compose-miljön för varje kodändring.
 
-Den produktionslika körmiljön har ett annat mål. Där ska inga utvecklingsservrar behövas. Frontenden är färdigbyggd. Nginx är publik ingång. Quarkus kör sin runtime-artifact. PostgreSQL använder persistent lagring. Compose beskriver hur delarna kopplas samman.
+Den produktionslika körmiljön har ett annat mål. Där ska inga utvecklingsservrar behövas. Frontenden är färdigbyggd. Nginx är publik ingång. Quarkus kör sin runtime-artefakt. PostgreSQL använder persistent lagring. Compose beskriver hur delarna kopplas samman.
 
 Skillnaden kan sammanfattas så här:
 
@@ -151,9 +151,9 @@ I den verifierade kedjan gör GitHub Actions i huvudsak följande:
 7. gör ett smoke test via den publicerade Nginx-porten,
 8. skapar en uppgift via `/api/tasks`, hämtar den igen och verifierar centrala fält.
 
-Den sista punkten är viktig. Testet går genom samma yttre ingång som en klient använder. För att det ska lyckas måste Nginx-konfigurationen fungera, Quarkus kunna hantera requesten, Flyway ha etablerat rätt schema och PostgreSQL kunna lagra och returnera data.
+Den sista punkten är viktig. Testet går genom samma yttre ingång som en klient använder. För att det ska lyckas måste Nginx-konfigurationen fungera, Quarkus kunna hantera HTTP-anropet, Flyway ha etablerat rätt schema och PostgreSQL kunna lagra och returnera data.
 
-Det gör inte smoke-testet till en fullständig teststrategi. Det bevisar exempelvis inte att alla felvägar, UI-tillstånd eller domänregler fungerar. Men det verifierar en kritisk egenskap: **den levererade systemformen går att starta och dess viktigaste requestkedja fungerar**.
+Det gör inte smoke-testet till en fullständig teststrategi. Det bevisar exempelvis inte att alla felvägar, UI-tillstånd eller domänregler fungerar. Men det verifierar en kritisk egenskap: **den levererade systemformen går att starta och dess viktigaste anropskedja fungerar**.
 
 Kapitel 12 återkommer till hur detta kompletteras med tester på lägre och högre nivåer.
 

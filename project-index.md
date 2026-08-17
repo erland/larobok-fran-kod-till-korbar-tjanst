@@ -5,14 +5,14 @@
 - book_kind: factbook
 - book_type: subject_overview
 - Project-id: bda7fd5f-8515-4a5a-b548-a42496aa66aa
-- Revision: 28
-- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r28.zip`
+- Revision: 29
+- Senaste verifierade zip: `fran-kod-till-korbar-tjanst-r29.zip`
 
 ## Kapitel
-- Inledning: skriven, första manusversion
+- Inledning: helhetsreviderad
 - Planerade numrerade kapitel: 17
-- Skapade kapitel med brödtext: kapitel 1–17
-- Källförteckning: kompletterad med primärkällor genom kapitel 16; kapitel 17 är en syntes av tidigare verifierat material och den körbara referensimplementationen.
+- Skapade och helhetsreviderade kapitel med brödtext: kapitel 1–17
+- Källförteckning: samlad och uppdaterad; kapitel 17 är en syntes av tidigare verifierat material och den körbara referensimplementationen.
 
 ## Referensimplementation
 - Case: TaskBoard
